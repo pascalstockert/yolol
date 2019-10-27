@@ -20,6 +20,11 @@ export class HeaderSliceComponent implements OnInit {
     if (this.background_img === undefined) {
       this.background_img = 'http://www.glittergraphics.org/img/78/780737/blue-square-wallpaper.jpg';
     }
+    window.addEventListener('scroll', f);
+    const slice = document.querySelector('#header-slice');
+    function f() {
+      slice.scrollTop = window.scrollY / 2;
+    }
   }
 
 }

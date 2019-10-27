@@ -31,8 +31,6 @@ export class PageComponent implements OnInit {
     ).subscribe(console.log);
   }
 
-  public scrolled = 0;
-
   ngOnInit(): void {
   }
 }
