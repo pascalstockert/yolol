@@ -1,0 +1,25 @@
+
+.shadow-text {
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+}
+
+.white-text {
+  color: white;
+}
+
+.abs-center {
+  position: absolute;
+  margin-left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.center {
+  margin-left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.slice {
+  height: 300px;
+  overflow: hidden;
+}
