@@ -4,7 +4,7 @@
     <div *ngFor="let section of page?.data?.body">
       <div [ngSwitch]="section.slice_type">
         <app-header-slice *ngSwitchCase="'header-slice'" [sectionData]="section"></app-header-slice>
-        <div class="above top-300">
+        <div class="above" [class.top-500]="test == 'true'">
 
         </div>
       </div>

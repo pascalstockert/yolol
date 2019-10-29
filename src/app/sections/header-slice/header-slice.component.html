@@ -1,4 +1,8 @@
-<div class="full-width slice position-relative" id="header-slice">
+<div class="full-width slice position-relative" [class.height-500]="sectionData.primary.is_large == 'true'" id="header-slice">
   <img [src]="background_img" class="center" alt="background">
-  <h1 innerHTML="{{sectionData.primary.header[0].text.toUpperCase()}}" class="abs-center white-text shadow-text"></h1>
+  <div class="abs-center">
+    <h1 innerHTML="{{sectionData.primary.header[0].text.toUpperCase()}}" class="white-text shadow-text text-center"></h1>
+    <div class="seperator"></div>
+    <p innerHTML="{{sectionData.primary.description[0].text}}" class="white-text shadow-text text-center"></p>
+  </div>
 </div>

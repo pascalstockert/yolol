@@ -1,4 +1,4 @@
-import {Component, OnInit,} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { CmsService } from '../../cms.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
@@ -13,6 +13,7 @@ import { of } from 'rxjs';
 export class PageComponent implements OnInit {
 
   page: any;
+  public test: string;
 
   constructor(private cmsService: CmsService,
               private route: ActivatedRoute,
@@ -23,6 +24,7 @@ export class PageComponent implements OnInit {
       switchMap(slug => this.cmsService.getPage(slug)),
       tap(page => {
         this.page = page ? page : {type: 404};
+        this.test = this.page.data.body[0].primary.is_large;
       }),
       catchError(err => {
         console.log('here');
