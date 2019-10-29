@@ -16,7 +16,10 @@ always happy to answer!
   >**Stuff to learn in this chapter:**
   >+ YOLOL and the name's meaning
   >+ Information about Starbase and it's creators Frozenbyte
-  >+ Official documentation of YOLOL
+  >+ Official documentation of YOLOL<br>
+  >
+  >|[Read more](tutorial_md/c1.md)|
+  >|:--:|
 </details>
 
 <details>
@@ -26,6 +29,9 @@ always happy to answer!
   >**Stuff to learn in this chapter:**
   >+ Creating a device in Yoloxide and making it scriptable
   >+ How YOLOL is being executed
+  >
+  >|[Read more](tutorial_md/c2.md)|
+  >|:--:|
 </details>
 
 <details>
