@@ -42,6 +42,9 @@ always happy to answer!
   >+ Defining variables and assigning values
   >+ The difference between non-colon- and colon-variables
   >+ Creating more devices and accessing their variables
+  >
+  >|[Read more](tutorial_md/c3.md)|
+  >|:--:|
 </details>
 
 <details>
