@@ -1,0 +1,17 @@
+@import "../../sections/imports";
+
+#footer {
+  margin-top: 100px;
+}
+
+.full-width {
+  color: $color-light;
+  height: 75px;
+  background-color: $color-dark;
+}
+a {
+  color: $color-light;
+  :active {
+    color: #d6d6d6;
+  }
+}

@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import {PrismicDOMPipe} from './prismic-dom.pipe';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 // Angular Material Components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material';
@@ -41,6 +43,8 @@ import { AppComponent } from './app.component';
 import { PageComponent } from './components/page/page.component';
 import { HeaderSliceComponent } from './sections/header-slice/header-slice.component';
 import { HeaderCardComponent } from './sections/header-card/header-card.component';
+import { CollapsiblesComponent } from './sections/collapsibles/collapsibles.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,9 @@ import { HeaderCardComponent } from './sections/header-card/header-card.componen
     PageComponent,
     HeaderSliceComponent,
     PrismicDOMPipe,
-    HeaderCardComponent
+    HeaderCardComponent,
+    CollapsiblesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +91,8 @@ import { HeaderCardComponent } from './sections/header-card/header-card.componen
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

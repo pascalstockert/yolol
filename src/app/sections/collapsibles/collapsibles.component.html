@@ -1,0 +1,27 @@
+<div class="container" id="collapsibles">
+  <div class="row">
+    <div class="col-7">
+      <h2 innerHTML="{{sectionData.primary.header[0].text}}"></h2>
+      <p innerHTML="{{sectionData.primary.description | prismicDOM}}"></p>
+    </div>
+    <div class="col-5"></div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      <mat-accordion>
+
+        <mat-expansion-panel *ngFor="let collapsible of sectionData.items">
+          <mat-expansion-panel-header>
+            <mat-panel-title innerHTML="{{collapsible.collapsible_header[0].text}}"></mat-panel-title>
+            <mat-panel-description innerHTML="{{collapsible.collapsible_subheader}}"></mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <div innerHTML="{{collapsible.collapsible_description | prismicDOM}}"></div>
+          <button mat-stroked-button *ngIf="collapsible.collapsible_button_text[0] != undefined && collapsible.collapsible_button_link[0] != undefined" routerLink="/{{collapsible.collapsible_button_link.uid}}" innerHTML="{{collapsible.collapsible_button_text[0].text}}"></button>
+        </mat-expansion-panel>
+
+      </mat-accordion>
+    </div>
+    <div class="col-5"></div>
+  </div>
+</div>
