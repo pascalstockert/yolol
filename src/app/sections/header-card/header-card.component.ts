@@ -12,6 +12,7 @@ export class HeaderCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.sectionData);
   }
 
 }
