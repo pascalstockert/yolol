@@ -40,13 +40,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageComponent } from './components/page/page.component';
 import { HeaderSliceComponent } from './sections/header-slice/header-slice.component';
+import { HeaderCardComponent } from './sections/header-card/header-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageComponent,
     HeaderSliceComponent,
-    PrismicDOMPipe
+    PrismicDOMPipe,
+    HeaderCardComponent
   ],
   imports: [
     BrowserModule,

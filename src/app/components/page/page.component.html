@@ -4,8 +4,12 @@
     <div *ngFor="let section of page?.data?.body">
       <div [ngSwitch]="section.slice_type">
         <app-header-slice *ngSwitchCase="'header-slice'" [sectionData]="section"></app-header-slice>
-        <div class="above" [class.top-500]="test == 'true'">
-
+      </div>
+    </div>
+    <div class="above" [class.top-500]="test == 'true'">
+      <div *ngFor="let section of page?.data?.body">
+        <div [ngSwitch]="section.slice_type">
+          <app-header-card *ngSwitchCase="'header-card'" [sectionData]="section"></app-header-card>
         </div>
       </div>
     </div>
