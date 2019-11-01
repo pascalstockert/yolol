@@ -3,6 +3,6 @@
   <div class="abs-center">
     <h1 innerHTML="{{sectionData.primary.header[0].text.toUpperCase()}}" class="white-text shadow-text text-center"></h1>
     <div class="seperator"></div>
-    <p innerHTML="{{sectionData.primary.description[0].text}}" class="white-text shadow-text text-center"></p>
+    <p innerHTML="{{sectionData.primary.description | prismicDOM}}" class="white-text shadow-text text-center"></p>
   </div>
 </div>

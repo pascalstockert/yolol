@@ -22,8 +22,12 @@ export class HeaderSliceComponent implements OnInit {
     }
     window.addEventListener('scroll', f);
     const slice = document.querySelector('#header-slice');
+    const headerContent = document.querySelector('.abs-center');
+    console.log(headerContent);
     function f() {
       slice.scrollTop = window.scrollY / 2;
+      // @ts-ignore
+      headerContent.style.opacity = 1 - window.scrollY / 300;
     }
   }
 

@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-//Angular Material Components
+import {PrismicDOMPipe} from './prismic-dom.pipe';
+
+// Angular Material Components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material';
@@ -39,12 +41,12 @@ import { AppComponent } from './app.component';
 import { PageComponent } from './components/page/page.component';
 import { HeaderSliceComponent } from './sections/header-slice/header-slice.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     PageComponent,
-    HeaderSliceComponent
+    HeaderSliceComponent,
+    PrismicDOMPipe
   ],
   imports: [
     BrowserModule,
