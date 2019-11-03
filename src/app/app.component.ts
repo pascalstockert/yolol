@@ -9,11 +9,10 @@ declare let gtag: Function;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(public router: Router) {
-    this.router.events.subscribe(event => {
+  constructor(router: Router) {
+    router.events.subscribe(event => {
         if (event instanceof NavigationEnd) {
-          gtag('config', 'UA-151346620-1',
-            {
+          gtag('config', 'UA-151346620-1', {
               'page_path': event.urlAfterRedirects
             }
           );

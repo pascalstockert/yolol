@@ -1,13 +1,13 @@
 <div class="container" id="collapsibles">
   <div class="row">
-    <div class="col-7">
+    <div class="col-12 col-md-7">
       <h2 innerHTML="{{sectionData.primary.header[0].text}}"></h2>
       <p innerHTML="{{sectionData.primary.description | prismicDOM}}"></p>
     </div>
-    <div class="col-5"></div>
+    <div class="col-12 col-md-5"></div>
   </div>
   <div class="row">
-    <div class="col-7">
+    <div class="col-12 col-md-7">
       <mat-accordion>
 
         <mat-expansion-panel *ngFor="let collapsible of sectionData.items">
@@ -22,6 +22,6 @@
 
       </mat-accordion>
     </div>
-    <div class="col-5"></div>
+    <div class="col-12 col-md-5"></div>
   </div>
 </div>

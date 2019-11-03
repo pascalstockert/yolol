@@ -1,11 +1,17 @@
 $color-dark: #161616;
 $color-light: #F6F6F6;
 
+$size-md: 768px;
+
 ::ng-deep h2 {
   margin-bottom: 12px;
+  padding: 0 5px;
 }
 ::ng-deep p {
   margin-bottom: 10px;
+  padding: 0 5px;
+  hyphens: auto;
+  word-wrap: break-spaces;
 }
 
 
