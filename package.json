@@ -35,6 +35,7 @@
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^2.1.1",
     "rxjs": "~6.5.3",
+    "simplebar-angular": "^1.0.12",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {

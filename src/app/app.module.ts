@@ -5,6 +5,8 @@ import {PrismicDOMPipe} from './prismic-dom.pipe';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import { SimplebarAngularModule } from 'simplebar-angular';
+
 // Angular Material Components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material';
@@ -92,7 +94,8 @@ import { FooterComponent } from './components/footer/footer.component';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    SimplebarAngularModule
   ],
   providers: [],
   bootstrap: [AppComponent]
