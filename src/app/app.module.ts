@@ -47,6 +47,7 @@ import { HeaderSliceComponent } from './sections/header-slice/header-slice.compo
 import { HeaderCardComponent } from './sections/header-card/header-card.component';
 import { CollapsiblesComponent } from './sections/collapsibles/collapsibles.component';
 import { FooterComponent } from './components/footer/footer.component';
+import {WindowScrollService} from './window-scroll.service';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,7 @@ import { FooterComponent } from './components/footer/footer.component';
     FontAwesomeModule,
     SimplebarAngularModule
   ],
-  providers: [],
+  providers: [WindowScrollService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
