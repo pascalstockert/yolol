@@ -1,32 +1,32 @@
-<ngx-simplebar>
-<div id="page">
-    <div *ngIf="page">
+<!--<ngx-simplebar>-->
+  <div id="page">
+      <div *ngIf="page">
 
-      <!-- Responsible for displaying header -->
-      <div *ngFor="let section of page?.data?.body">
-        <div [ngSwitch]="section.slice_type">
-          <app-header-slice *ngSwitchCase="'header-slice'" [sectionData]="section"></app-header-slice>
-        </div>
-      </div>
-
-      <!-- Handling routes that have no specified endpoint -->
-      <div *ngIf="page?.type == 404">
-        <h1>404</h1>
-      </div>
-
-      <!-- Responsible for displaying sections other than header -->
-      <div *ngIf="page?.type != 404" class="above" [class.top-500]="test == 'true'">
+        <!-- Responsible for displaying header -->
         <div *ngFor="let section of page?.data?.body">
           <div [ngSwitch]="section.slice_type">
-            <app-header-card *ngSwitchCase="'header-card'" [sectionData]="section"></app-header-card>
-            <app-collapsibles *ngSwitchCase="'collapsibles'" [sectionData]="section"></app-collapsibles>
+            <app-header-slice *ngSwitchCase="'header-slice'" [sectionData]="section"></app-header-slice>
           </div>
         </div>
 
-        <app-footer></app-footer>
+        <!-- Handling routes that have no specified endpoint -->
+        <div *ngIf="page?.type == 404">
+          <h1>404</h1>
+        </div>
+
+        <!-- Responsible for displaying sections other than header -->
+        <div *ngIf="page?.type != 404" class="above" [class.top-500]="test == 'true'">
+          <div *ngFor="let section of page?.data?.body">
+            <div [ngSwitch]="section.slice_type">
+              <app-header-card *ngSwitchCase="'header-card'" [sectionData]="section"></app-header-card>
+              <app-collapsibles *ngSwitchCase="'collapsibles'" [sectionData]="section"></app-collapsibles>
+            </div>
+          </div>
+
+          <app-footer></app-footer>
+
+        </div>
 
       </div>
-
-    </div>
-</div>
-</ngx-simplebar>
+  </div>
+<!--</ngx-simplebar>-->

@@ -13,23 +13,21 @@ export class HeaderSliceComponent implements OnInit {
 
   public background_img: any;
 
-  constructor(private scrollService: WindowScrollService) {
-    const slice = document.querySelector('#header-slice');
-    const headerContent = document.querySelector('.abs-center');
-    this.scrollService.scroll$.subscribe(pos => {
-      console.log(pos);
-      slice.scrollTop = pos / 2;
-      // @ts-ignore
-      headerContent.style.opacity = 1 - window.scrollY / 300;
-    });
-  }
+  constructor(private scrollService: WindowScrollService) {}
 
   ngOnInit() {
-    console.log(this.sectionData);
     this.background_img = this.sectionData.primary.background_image.url;
     if (this.background_img === undefined) {
       this.background_img = 'http://www.glittergraphics.org/img/78/780737/blue-square-wallpaper.jpg';
     }
+
+    const slice = document.querySelector('#header-slice');
+    const headerContent = document.querySelector('.abs-center');
+    this.scrollService.scroll$.subscribe(pos => {
+      slice.scrollTop = pos / 2;
+      // @ts-ignore
+      headerContent.style.opacity = 1 - window.scrollY / 300;
+    });
   }
 
 }
