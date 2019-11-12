@@ -11,6 +11,8 @@ export class CollapsiblesComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.sectionData);
+  }
 
 }

@@ -20,6 +20,7 @@
             <div [ngSwitch]="section.slice_type">
               <app-header-card *ngSwitchCase="'header-card'" [sectionData]="section"></app-header-card>
               <app-collapsibles *ngSwitchCase="'collapsibles'" [sectionData]="section"></app-collapsibles>
+              <typo-quote *ngSwitchCase="'quote'" [sectionData]="section"></typo-quote>
             </div>
           </div>
 

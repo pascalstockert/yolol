@@ -2,7 +2,7 @@
 
 #header-card {
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
 }
 mat-card {
   @media only screen and (max-width: $size-md) {
@@ -21,4 +21,12 @@ mat-card-header {
   width: 45px;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+::ng-deep ul {
+  padding-left: 20px;
+}
+::ng-deep li {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
 }

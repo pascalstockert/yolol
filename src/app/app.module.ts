@@ -48,6 +48,7 @@ import { HeaderCardComponent } from './sections/header-card/header-card.componen
 import { CollapsiblesComponent } from './sections/collapsibles/collapsibles.component';
 import { FooterComponent } from './components/footer/footer.component';
 import {WindowScrollService} from './window-scroll.service';
+import { QuoteComponent } from './sections/quote/quote.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import {WindowScrollService} from './window-scroll.service';
     PrismicDOMPipe,
     HeaderCardComponent,
     CollapsiblesComponent,
-    FooterComponent
+    FooterComponent,
+    QuoteComponent
   ],
   imports: [
     BrowserModule,
