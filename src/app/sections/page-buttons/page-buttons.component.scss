@@ -1,0 +1,17 @@
+@import "../imports";
+#page-buttons {
+  padding: 20px 0;
+}
+button {
+  ::ng-deep p {
+    margin: 0;
+    padding: 0;
+  }
+}
+button:nth-child(2) {
+  margin-left: 15px;
+}
+.highlighted {
+  background-color: $color-dark;
+  color: $color-accent;
+}

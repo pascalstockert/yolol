@@ -5,7 +5,7 @@
         <!-- Responsible for displaying header -->
         <div *ngFor="let section of page?.data?.body">
           <div [ngSwitch]="section.slice_type">
-            <app-header-slice *ngSwitchCase="'header-slice'" [sectionData]="section"></app-header-slice>
+            <app-header-slice data-depth="0.8" *ngSwitchCase="'header-slice'" [sectionData]="section"></app-header-slice>
           </div>
         </div>
 
@@ -21,6 +21,8 @@
               <app-header-card *ngSwitchCase="'header-card'" [sectionData]="section"></app-header-card>
               <app-collapsibles *ngSwitchCase="'collapsibles'" [sectionData]="section"></app-collapsibles>
               <typo-quote *ngSwitchCase="'quote'" [sectionData]="section"></typo-quote>
+              <app-text *ngSwitchCase="'text'" [sectionData]="section"></app-text>
+              <app-page-buttons *ngSwitchCase="'page-buttons'" [sectionData]="section"></app-page-buttons>
             </div>
           </div>
 

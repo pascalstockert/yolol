@@ -4,6 +4,8 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 
+declare var Parallax: any;
+
 @Component({
   selector: 'app-page',
   templateUrl: './page.component.html',

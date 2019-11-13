@@ -24,7 +24,8 @@ export class HeaderSliceComponent implements OnInit {
     const slice = document.querySelector('#header-slice');
     const headerContent = document.querySelector('.abs-center');
     this.scrollService.scroll$.subscribe(pos => {
-      slice.scrollTop = pos / 2;
+      // @ts-ignore
+      slice.style.transform = 'translateY(-' + pos / 2 + 'px)';
       // @ts-ignore
       headerContent.style.opacity = 1 - window.scrollY / 300;
     });

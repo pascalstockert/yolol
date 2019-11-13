@@ -49,6 +49,8 @@ import { CollapsiblesComponent } from './sections/collapsibles/collapsibles.comp
 import { FooterComponent } from './components/footer/footer.component';
 import {WindowScrollService} from './window-scroll.service';
 import { QuoteComponent } from './sections/quote/quote.component';
+import { TextComponent } from './sections/text/text.component';
+import { PageButtonsComponent } from './sections/page-buttons/page-buttons.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { QuoteComponent } from './sections/quote/quote.component';
     HeaderCardComponent,
     CollapsiblesComponent,
     FooterComponent,
-    QuoteComponent
+    QuoteComponent,
+    TextComponent,
+    PageButtonsComponent
   ],
   imports: [
     BrowserModule,

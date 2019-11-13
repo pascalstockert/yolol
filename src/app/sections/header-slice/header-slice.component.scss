@@ -3,6 +3,14 @@
 .full-width {
   width: 100vw;
 }
+.background-img {
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-size: cover;
+}
 .shader {
   position: absolute;
   top: 0;
@@ -10,7 +18,10 @@
   z-index: 0;
   height: 300px;
   width: 100vw;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.5 );
+}
+.center {
+  width: 100%
 }
 img {
   z-index: -1;
