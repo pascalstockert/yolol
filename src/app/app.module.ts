@@ -51,6 +51,7 @@ import {WindowScrollService} from './window-scroll.service';
 import { QuoteComponent } from './sections/quote/quote.component';
 import { TextComponent } from './sections/text/text.component';
 import { PageButtonsComponent } from './sections/page-buttons/page-buttons.component';
+import { PictureComponent } from './sections/picture/picture.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { PageButtonsComponent } from './sections/page-buttons/page-buttons.compo
     FooterComponent,
     QuoteComponent,
     TextComponent,
-    PageButtonsComponent
+    PageButtonsComponent,
+    PictureComponent
   ],
   imports: [
     BrowserModule,

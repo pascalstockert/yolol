@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import { CmsService } from '../../cms.service';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import {ActivatedRoute, NavigationEnd, ParamMap, Router} from '@angular/router';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
-
-declare var Parallax: any;
 
 @Component({
   selector: 'app-page',
@@ -33,6 +31,13 @@ export class PageComponent implements OnInit {
         return of(null);
       })
     ).subscribe(console.log);
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+
   }
 
   ngOnInit(): void {
