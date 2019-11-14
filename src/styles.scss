@@ -39,6 +39,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Quicksand', sans-serif;
 }
+::ng-deep h1,h2,h3,h4,h5,h6 {
+  font-family: 'Quicksand', sans-serif;
+}
 p, div {
   font-family: 'Open Sans', sans-serif;
 }
