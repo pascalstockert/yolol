@@ -32,9 +32,6 @@ $yolol-theme: mat-light-theme($yolol-primary, $yolol-accent, $yolol-warn);
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-// Import Open Sans and Quicksand fonts, set them as default for hx, p, div
-
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Quicksand&display=swap');
 
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Quicksand', sans-serif;
