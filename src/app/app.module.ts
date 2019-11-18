@@ -9,7 +9,7 @@ import { SimplebarAngularModule } from 'simplebar-angular';
 
 // Angular Material Components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatCheckboxModule} from '@angular/material';
+import {MatCheckboxModule, MatRippleModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -52,6 +52,7 @@ import { QuoteComponent } from './sections/quote/quote.component';
 import { TextComponent } from './sections/text/text.component';
 import { PageButtonsComponent } from './sections/page-buttons/page-buttons.component';
 import { PictureComponent } from './sections/picture/picture.component';
+import { ScrollTopButtonComponent } from './components/scroll-top-button/scroll-top-button.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { PictureComponent } from './sections/picture/picture.component';
     QuoteComponent,
     TextComponent,
     PageButtonsComponent,
-    PictureComponent
+    PictureComponent,
+    ScrollTopButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -104,7 +106,8 @@ import { PictureComponent } from './sections/picture/picture.component';
     MatSortModule,
     MatPaginatorModule,
     FontAwesomeModule,
-    SimplebarAngularModule
+    SimplebarAngularModule,
+    MatRippleModule
   ],
   providers: [WindowScrollService],
   bootstrap: [AppComponent]

@@ -14,6 +14,7 @@ export class PageComponent implements OnInit {
 
   page: any;
   public test: string;
+  docHeight: number;
 
   constructor(private cmsService: CmsService,
               private route: ActivatedRoute,
@@ -25,6 +26,12 @@ export class PageComponent implements OnInit {
       tap(page => {
         this.page = page ? page : {type: 404};
         this.test = this.page.data.body[0].primary.is_large;
+        this.docHeight = Math.max(
+          document.body.scrollHeight, document.documentElement.scrollHeight,
+          document.body.offsetHeight, document.documentElement.offsetHeight,
+          document.body.clientHeight, document.documentElement.clientHeight
+        );
+        console.log(this.docHeight);
       }),
       catchError(err => {
         console.log('here');
