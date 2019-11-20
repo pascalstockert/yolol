@@ -5,7 +5,7 @@
         <!-- Responsible for displaying header -->
         <div *ngFor="let section of page?.data?.body">
           <div [ngSwitch]="section.slice_type">
-            <app-header-slice data-depth="0.8" *ngSwitchCase="'header-slice'" [sectionData]="section"></app-header-slice>
+            <app-header-slice *ngSwitchCase="'header-slice'" [sectionData]="section"></app-header-slice>
           </div>
         </div>
 

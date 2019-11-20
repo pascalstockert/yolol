@@ -17,7 +17,7 @@
           </mat-expansion-panel-header>
 
           <div innerHTML="{{collapsible.collapsible_description | prismicDOM}}"></div>
-          <button mat-raised-button matRipple *ngIf="collapsible.collapsible_button_text[0] != undefined && collapsible.collapsible_button_link.uid != undefined" routerLink="/{{collapsible.collapsible_button_link.uid}}" innerHTML="{{collapsible.collapsible_button_text[0].text}}"></button>
+          <button mat-raised-button *ngIf="collapsible.collapsible_button_text[0] != undefined && collapsible.collapsible_button_link.uid != undefined" routerLink="/{{collapsible.collapsible_button_link.uid}}" innerHTML="{{collapsible.collapsible_button_text[0].text}}"></button>
           <button mat-stroked-button disabled *ngIf="collapsible.collapsible_button_link.uid == undefined">Coming soon!</button>
         </mat-expansion-panel>
 
