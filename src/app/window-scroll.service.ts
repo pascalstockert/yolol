@@ -18,7 +18,7 @@ export class WindowScrollService {
     if (isPlatformBrowser(this.platformId)) {
       this.scroll$ = fromEvent(window, 'scroll').pipe(
         map(event => {
-          return window.scrollY || this.document.documentElement.scrollTop;
+          return window.scrollY || this.document.documentElement.scrollTop ;
         }),
         share()
       );

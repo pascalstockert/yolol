@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { CmsService } from '../../cms.service';
 import {ActivatedRoute, NavigationEnd, ParamMap, Router} from '@angular/router';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import {Observable, of} from 'rxjs';
 
 @Component({
   selector: 'app-page',

@@ -10,6 +10,12 @@ export class CmsService {
   constructor() {
   }
 
+  async getPages() {
+    return Prismic.getApi(this.apiRoot)
+      .then(api => api.query('', {}))
+      .catch(e => console.error(e));
+  }
+
   async getPage(path: string = 'homepage') {
     return Prismic.getApi(this.apiRoot)
       .then(api => api.getByUID('page', path))

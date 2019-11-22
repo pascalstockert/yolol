@@ -1,0 +1,21 @@
+@import "../imports";
+.menu {
+  transform: translateY(-100%);
+  transition-duration: .3s;
+  width: 100vw;
+  padding: 10px;
+}
+button.menu-button {
+  overflow: hidden;
+  font-size: 18px;
+  color: $color-light;
+  background-color: transparent;
+}
+fa-icon {
+  color: $color-light;
+  font-size: 25px;
+}
+.toggled {
+  transform: translateY(0);
+  color:red;
+}

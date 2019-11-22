@@ -15,9 +15,9 @@ export class MousePosService {
   constructor(@Inject(DOCUMENT) private document: any,
               @Inject(PLATFORM_ID) private platformId: Object) {
     if (isPlatformBrowser(this.platformId)) {
-      this.position$ = fromEvent(window, 'onmousemove').pipe(
+      this.position$ = fromEvent(document.body, 'mousemove').pipe(
         map(event => {
-          return window.onmousemove;
+          return [document.body.clientX, document.body.clientY];
         }),
         share()
       );
