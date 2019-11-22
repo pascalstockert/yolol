@@ -1,7 +1,9 @@
-<div class="menu" [class.toggled]="windowPos < 100">
-  <button class="menu-button" mat-flat-button mat-ripple><fa-icon [icon]="faHome"></fa-icon></button>
+<div class="menu" [class.toggled]="windowPos < 200">
+  <button class="menu-button" mat-flat-button mat-ripple routerLink="/{{pages[0].uid}}"><fa-icon [icon]="faHome"></fa-icon></button>
   <button class="menu-button" mat-flat-button mat-ripple [matMenuTriggerFor]="chapters">Chapters</button>
   <mat-menu #chapters='matMenu'>
-    <button *ngFor="let page of pages" mat-menu-item>Menu</button>
+    <div *ngFor="let page of pages; index as i">
+      <button *ngIf="page.uid.includes('chapter')" mat-menu-item routerLink="/{{page.uid}}">Chapter {{i}}</button>
+    </div>
   </mat-menu>
 </div>

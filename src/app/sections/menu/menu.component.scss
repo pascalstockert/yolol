@@ -3,19 +3,28 @@
   transform: translateY(-100%);
   transition-duration: .3s;
   width: 100vw;
-  padding: 10px;
+  padding: 30px 10px 10px 10px;
+}
+::ng-deep .mat-menu-panel{
+  background-color: $color-dark;
+}
+.mat-menu-item {
+  font-family: 'Open Sans', sans-serif;
+  color: $color-accent;
 }
 button.menu-button {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
   overflow: hidden;
+  margin-left: 20px;
   font-size: 18px;
-  color: $color-light;
-  background-color: transparent;
+  color: $color-accent;
+  background-color: rgba(0,0,0,0.5);
 }
 fa-icon {
-  color: $color-light;
+  color: $color-accent;
   font-size: 25px;
 }
 .toggled {
   transform: translateY(0);
-  color:red;
 }

@@ -26,21 +26,24 @@ export class MenuComponent implements OnInit {
   constructor(@Inject(DOCUMENT) private document: any, private cmsService: CmsService, private scrollService: WindowScrollService) {
     cmsService.getPages().then(res => {
       // @ts-ignore
-      this.pages = res.results;
+      this.pages = res.results.reverse();
     });
   }
 
   ngOnInit() {
+    this.windowPos = 0;
     const elem = document.querySelector('.menu');
     this.scrollService.scroll$.subscribe(pos => {
       this.windowPos = pos;
     });
+
     this.document.body.onmousemove = function f(e) {
       this.clientX = e.clientX;
       this.clientY = e.clientY;
       if (this.clientY <= 200 || this.windowPos < 5) {
         elem.classList.add('toggled');
-      } else {
+      } else
+        if (this.windowPos > 200 && this.clientY > 200) {
         elem.classList.remove('toggled');
       }
     };

@@ -18,7 +18,7 @@ export class HeaderSliceComponent implements OnInit {
   ngOnInit() {
     this.background_img = this.sectionData.primary.background_image.url;
     if (this.background_img === undefined) {
-      this.background_img = 'http://www.glittergraphics.org/img/78/780737/blue-square-wallpaper.jpg';
+      this.background_img = 'https://cobaltcrowproductions.xyz/image/53289-full_backgrounds-1920x1080-wallpaper-cave.jpg';
     }
 
     const slice = document.querySelector('#header-slice');

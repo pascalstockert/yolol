@@ -5,8 +5,10 @@ mat-panel-title {
   font-family: 'Quicksand', sans-serif;
 }
 button {
-  color: $color-accent;
-  background-color: $color-dark;
+  &.clickable {
+    color: $color-accent;
+    background-color: $color-dark;
+  }
   font-family: 'Quicksand', sans-serif;
   font-weight: 700;
   font-size: 16px;
