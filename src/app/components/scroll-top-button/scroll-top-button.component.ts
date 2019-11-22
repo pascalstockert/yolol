@@ -38,7 +38,6 @@ export class ScrollTopButtonComponent implements OnInit {
     setTimeout( f => {
       let docHeight = document.body.scrollHeight;
       this.docHeight = docHeight;
-      console.log(this.docHeight);
     }, 1000);
     this.clientHeight = window.outerHeight;
   }

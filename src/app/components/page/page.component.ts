@@ -31,7 +31,6 @@ export class PageComponent implements OnInit {
           document.body.offsetHeight, document.documentElement.offsetHeight,
           document.body.clientHeight, document.documentElement.clientHeight
         );
-        console.log(this.docHeight);
       }),
       catchError(err => {
         console.log('here');

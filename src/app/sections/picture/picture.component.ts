@@ -12,7 +12,6 @@ export class PictureComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.sectionData);
   }
 
 }
