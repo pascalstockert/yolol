@@ -1,9 +1,12 @@
+@import "../imports";
 mat-panel-title {
   font-size: 18px;
   font-weight: 600;
   font-family: 'Quicksand', sans-serif;
 }
 button {
+  color: $color-accent;
+  background-color: $color-dark;
   font-family: 'Quicksand', sans-serif;
   font-weight: 700;
   font-size: 16px;
