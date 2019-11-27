@@ -24,9 +24,16 @@ export class MenuComponent implements OnInit {
   public clientY: number;
 
   constructor(@Inject(DOCUMENT) private document: any, private cmsService: CmsService, private scrollService: WindowScrollService) {
+    const sortByProperty = function (property) {
+      return function (x, y) {
+        return ((x[property] === y[property]) ? 0 : ((x[property] > y[property]) ? 1 : -1));
+      };
+    };
     cmsService.getPages().then(res => {
       // @ts-ignore
-      this.pages = res.results.reverse();
+      this.pages = res.results.sort(sortByProperty('uid'));
+
+      console.log(this.pages);
     });
   }
 
