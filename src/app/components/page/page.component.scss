@@ -1,3 +1,4 @@
+@import "../../sections/imports";
 ::ng-deep .simplebar-scrollbar {
   right: 5px !important;
 }
@@ -30,4 +31,17 @@ app-header-slice {
 
 .top-500 {
   margin-top: 500px !important;
+}
+
+::ng-deep .code-inline {
+  display: inline-block;
+  padding: 1px 5px;
+  width: fit-content;
+  color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 3px;
+}
+::ng-deep .bold-inline {
+  display: inline-block;
+  font-weight: bold;
 }

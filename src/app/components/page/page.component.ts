@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import { CmsService } from '../../cms.service';
 import {ActivatedRoute, NavigationEnd, ParamMap, Router} from '@angular/router';
-import { catchError, map, switchMap, tap } from 'rxjs/operators';
-import {Observable, of} from 'rxjs';
+import {catchError, map, switchMap, tap} from 'rxjs/operators';
+import {Observable, of, combineLatest} from 'rxjs';
 
 @Component({
   selector: 'app-page',
@@ -20,7 +20,7 @@ export class PageComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router,
   ) {
-    this.route.paramMap.pipe(
+    const pages = this.route.paramMap.pipe(
       map((params: ParamMap) => params.get('slug')),
       switchMap(slug => this.cmsService.getPage(slug)),
       tap(page => {
@@ -36,12 +36,26 @@ export class PageComponent implements OnInit {
         console.log('here');
         return of(null);
       })
-    ).subscribe(console.log);
-    this.router.events.subscribe((evt) => {
+    );
+    pages.subscribe(console.log);
+    const routing = this.router.events;
+    routing.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
         return;
       }
       window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+    const combinedThings = combineLatest(pages, routing);
+    combinedThings.subscribe(x => {
+      setTimeout(f => {
+        let pTags = Array.from(document.querySelectorAll('p, li'));
+        for (const pTag of pTags) {
+          if (pTag.innerHTML.includes('')) {
+            pTag.innerHTML = pTag.innerHTML.replace(/`([^`]+)`/g, '<div class=\'code-inline\'>$1</div>');
+          }
+        }
+        console.log(pTags);
+      });
     });
 
   }
