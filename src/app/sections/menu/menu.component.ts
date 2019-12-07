@@ -43,17 +43,16 @@ export class MenuComponent implements OnInit {
     this.scrollService.scroll$.subscribe(pos => {
       this.windowPos = pos;
     });
+    let tmpScroll = 0;
 
-    this.document.body.onmousemove = function f(e) {
-      this.clientX = e.clientX;
-      this.clientY = e.clientY;
-      if (this.clientY <= 200 || this.windowPos < 5) {
-        elem.classList.add('toggled');
-      } else
-        if (this.windowPos > 200 && this.clientY > 200) {
+    window.addEventListener('scroll', function f(e) {
+      const windowPos = window.scrollY;
+      console.log(tmpScroll, windowPos, e);
+      windowPos < tmpScroll ?
+        elem.classList.add('toggled') :
         elem.classList.remove('toggled');
-      }
-    };
+      tmpScroll = windowPos;
+    });
   }
 
 }
