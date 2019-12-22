@@ -54,6 +54,9 @@ always happy to answer!
   >**Stuff to learn in this chapter:**
   >+ Assigning strings to a variable
   >+ Combining strings through concatenation
+  >
+  >|[Read more](tutorial_md/c4.md)|
+  >|:--:|
 </details>
 
 <details>
@@ -63,6 +66,9 @@ always happy to answer!
   >**Stuff to learn in this chapter:**
   >+ The core concept of `goto`
   >+ Creating finite and infinite loops
+  >
+  >|[Read more](tutorial_md/c5.md)|
+  >|:--:|
 </details>
 
 <details>
