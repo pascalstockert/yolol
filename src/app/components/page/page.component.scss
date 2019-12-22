@@ -41,6 +41,29 @@ app-header-slice {
   background-color: rgba(0,0,0,0.1);
   border-radius: 3px;
 }
+::ng-deep .code-block {
+  display: block;
+  position: relative;
+  white-space: pre;
+  padding: 10px 13px;
+  margin: 20px 0;
+  width: 100%;
+  color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.05);
+  border-radius: 3px;
+  &:after {
+    content: 'CODE';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: fit-content;
+    width: fit-content;
+    padding: 5px;
+    font-size: 10px;
+    background-color: $color-light;
+    border-radius: 3px;
+  }
+}
 ::ng-deep .bold-inline {
   display: inline-block;
   font-weight: bold;

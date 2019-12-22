@@ -6,7 +6,7 @@
   padding: 30px 10px 10px 10px;
 }
 ::ng-deep .mat-menu-panel{
-  background-color: $color-dark;
+  background-color: $color-light-2;
 }
 .mat-menu-item {
   font-family: 'Open Sans', sans-serif;
@@ -19,7 +19,7 @@ button.menu-button {
   margin-left: 20px;
   font-size: 18px;
   color: $color-accent;
-  background-color: $color-dark;
+  background-color: $color-light-1;
 }
 fa-icon {
   color: $color-accent;

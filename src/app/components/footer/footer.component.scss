@@ -5,13 +5,13 @@
 }
 
 .full-width {
-  color: $color-light;
+  color: $color-dark-3;
   height: 75px;
-  background-color: $color-dark;
+  background-color: $color-light-1;
 }
 a {
-  color: $color-light;
+  color: $color-dark-3;
   :active {
-    color: #d6d6d6;
+    color: $color-dark;
   }
 }

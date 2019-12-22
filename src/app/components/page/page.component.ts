@@ -51,6 +51,9 @@ export class PageComponent implements OnInit {
         let pTags = Array.from(document.querySelectorAll('p, li'));
         for (const pTag of pTags) {
           if (pTag.innerHTML.includes('')) {
+            pTag.innerHTML = pTag.innerHTML.replace(/`{3}([^`]+)`{3}/g, '<div class=\'code-block\'>$1</div>');
+          }
+          if (pTag.innerHTML.includes('')) {
             pTag.innerHTML = pTag.innerHTML.replace(/`([^`]+)`/g, '<div class=\'code-inline\'>$1</div>');
           }
         }
