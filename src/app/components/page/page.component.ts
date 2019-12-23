@@ -48,7 +48,7 @@ export class PageComponent implements OnInit {
     const combinedThings = combineLatest(pages, routing);
     combinedThings.subscribe(x => {
       setTimeout(f => {
-        let pTags = Array.from(document.querySelectorAll('p, li'));
+        let pTags = Array.from(document.querySelectorAll('p, li, h1, h2, h3, h4, h5, h6'));
         for (const pTag of pTags) {
           if (pTag.innerHTML.includes('')) {
             pTag.innerHTML = pTag.innerHTML.replace(/`{3}([^`]+)`{3}/g, '<div class=\'code-block\'>$1</div>');
@@ -57,7 +57,6 @@ export class PageComponent implements OnInit {
             pTag.innerHTML = pTag.innerHTML.replace(/`([^`]+)`/g, '<div class=\'code-inline\'>$1</div>');
           }
         }
-        console.log(pTags);
       });
     });
 

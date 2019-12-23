@@ -54,6 +54,7 @@ import { PageButtonsComponent } from './sections/page-buttons/page-buttons.compo
 import { PictureComponent } from './sections/picture/picture.component';
 import { ScrollTopButtonComponent } from './components/scroll-top-button/scroll-top-button.component';
 import { MenuComponent } from './sections/menu/menu.component';
+import { LibraryComponent } from './components/library/library.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { MenuComponent } from './sections/menu/menu.component';
     PageButtonsComponent,
     PictureComponent,
     ScrollTopButtonComponent,
-    MenuComponent
+    MenuComponent,
+    LibraryComponent
   ],
   imports: [
     BrowserModule,

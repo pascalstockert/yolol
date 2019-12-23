@@ -32,8 +32,6 @@ export class MenuComponent implements OnInit {
     cmsService.getPages().then(res => {
       // @ts-ignore
       this.pages = res.results.sort(sortByProperty('uid'));
-
-      console.log(this.pages);
     });
   }
 
@@ -47,7 +45,6 @@ export class MenuComponent implements OnInit {
 
     window.addEventListener('scroll', function f(e) {
       const windowPos = window.scrollY;
-      console.log(tmpScroll, windowPos, e);
       windowPos < tmpScroll ?
         elem.classList.add('toggled') :
         elem.classList.remove('toggled');

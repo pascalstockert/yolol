@@ -1,0 +1,51 @@
+<div class="tab hide-sm" [class.open]="libraryOpen">
+
+  <button mat-flat-button class="handle shadow" (click)="toggleLibrary()">
+    <fa-icon [icon]="bookOpen"></fa-icon>
+  </button>
+
+  <div id="pages">
+
+    <div id="search-page">
+      <div class="search">
+        <div class="header-wrapper">
+          <mat-form-field class="search-bar">
+            <input matInput type="text" placeholder="Search.." (input)="inputChange($event.target.value)">
+          </mat-form-field>
+        </div>
+        <div class="scrollable">
+          <div class="entry" *ngFor="let key of keys" (click)="transitionToDetails(key)">
+            <h4 [innerHTML]="filteredLibrary[key].title"></h4>
+            <div class="content">
+              <p [innerText]="filteredLibrary[key].description"></p>
+              <p class="syntax" [innerText]="filteredLibrary[key].syntax"></p>
+            </div>
+          </div>
+        </div>
+        <p class="info-text">Click on any of these entries to learn more about them and their use cases through easy examples!</p>
+      </div>
+    </div>
+
+    <div id="details-page">
+      <div class="detail-wrapper">
+        <div class="header-wrapper">
+          <h3 [innerText]="activeKey.title" class="font-weight-bolder"></h3>
+        </div>
+        <button mat-icon-button class="close-icon" (click)="transitionToSearch()">
+          <fa-icon [icon]="chevronLeft"></fa-icon>
+        </button>
+        <div class="scrollable">
+          <p [innerText]="activeKey.det_desc"></p>
+          <br>
+          <div *ngFor="let example of activeKey.examples; index as i" class="example">
+            <p [innerText]="example.title ? example.title : 'Example #' + (i+1)"></p>
+            <div class="code-block" [innerText]="example.code"></div>
+            <p class="info-text-left" [innerHTML]="example.description"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,57 @@
+{
+  "goto": {
+    "search_terms": [
+      "goto",
+      "jump"
+    ],
+    "title": "Goto",
+    "description": "Jump to a specific line in your code.",
+    "syntax": "goto <number{1-20}>",
+    "det_desc": "Goto is used to jump to a specific line during runtime. With goto, loops can easily be implemented as seen in the following examples.",
+    "examples": [
+      {
+        "title": "Infinite loop",
+        "code": "i = 0\ni++\ngoto 2",
+        "description": "This loop will infinitely increase i by one (until an overflow-error occurs)"
+      },
+      {
+        "title": "Finite loop",
+        "code": "i = 0\nif i < 10 goto 3 end goto 4\ni++ goto 2",
+        "description": "For each iteration this loop compares if i is smaller than 10 and increases i by one if this is the case."
+      }
+    ]
+  },
+  "if": {
+    "search_terms": [
+      "if",
+      "condition"
+    ],
+    "title": "If",
+    "description": "Execute a block of code if expression is fulfilled.",
+    "syntax": "if <condition> then <code> end",
+    "det_desc": "An if clause is used to create more complex programs by introducing conditions. If a certain thing is given, then the program should do something - otherwise it shouldn't.",
+    "examples": [
+      {
+        "title": "Finite loop",
+        "code": "i = 0\nif i < 10 goto 3 end goto 4\ni++ goto 2",
+        "description": "For each iteration this loop compares if i is smaller than 10 and increases i by one if this is the case - i won't be increased above 10."
+      }
+    ]
+  },
+  "if else": {
+    "search_terms": [
+      "if else",
+      "condition"
+    ],
+    "title": "If else",
+    "description": "Execute a block of code if expression is fulfilled, otherwise execute something else.",
+    "syntax": "if <condition> then <code> else <code> end",
+    "det_desc": "Adding to the standard if clause, the 'else' keyword adds another layer of customization to conditions.",
+    "examples": [
+      {
+        "code": "thirsty = \"true\"\nif thirsty == \"true\" then milk = \"existent\" else milk = \"gone\" end",
+        "description": "If thirsty is set to true, then set another field called milk to existent, otherwise to gone."
+      }
+    ]
+  }
+}
