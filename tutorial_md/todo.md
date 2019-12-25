@@ -1,5 +1,10 @@
-- implement code-blocks
-- include Yoloxide, create a new component or service for it
-- page transitions
-- include CYLON as a reference on landing
-- darkmode
+### Big prio
+- Add trigonometric functions, modulo ( => existing operators) to library
+- Chapter 6
+
+### Less prio
+- Sort library by title
+- Darkmode
+- Include CYLON as a reference on landing
+- Page transitions
+- Include Yoloxide, create a new component or service for it
