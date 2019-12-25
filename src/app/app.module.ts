@@ -55,6 +55,7 @@ import { PictureComponent } from './sections/picture/picture.component';
 import { ScrollTopButtonComponent } from './components/scroll-top-button/scroll-top-button.component';
 import { MenuComponent } from './sections/menu/menu.component';
 import { LibraryComponent } from './components/library/library.component';
+import { CodePipe } from './components/pipes/code-pipe/code.pipe';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { LibraryComponent } from './components/library/library.component';
     PictureComponent,
     ScrollTopButtonComponent,
     MenuComponent,
-    LibraryComponent
+    LibraryComponent,
+    CodePipe
   ],
   imports: [
     BrowserModule,

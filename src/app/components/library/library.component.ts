@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faBookOpen } from '@fortawesome/free-solid-svg-icons';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+
 // @ts-ignore
 import libraryEntries from './library.json';
 
@@ -20,12 +21,14 @@ export class LibraryComponent implements OnInit {
   activeKey = this.library['goto'];
 
   searchPage: any;
+  detailPageScroll: any;
 
   constructor() { }
 
   ngOnInit() {
     console.log(Object.keys(this.library));
     this.searchPage = document.getElementById('search-page');
+    this.detailPageScroll = document.getElementsByClassName('scrollable')[1];
   }
 
   toggleLibrary() {
@@ -51,6 +54,7 @@ export class LibraryComponent implements OnInit {
   transitionToDetails(key) {
     this.searchPage.style.transform = 'translateX(-100%)';
     this.activeKey = this.library[key];
+    this.detailPageScroll.scrollTo(0, 0);
   }
 
   transitionToSearch() {

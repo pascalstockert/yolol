@@ -21,6 +21,7 @@
   width: 50px;
   border-radius: 3px 0 0 3px;
   background-color: $color-light-1;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   fa-icon {
     color: $color-accent;
   }
@@ -66,7 +67,6 @@ fa-icon {
     height: fit-content;
     width: 100%;
     padding: 17.5px 30px;
-    margin-bottom: 30px;
     background-color: $color-light-3;
     color: $color-accent;
   }
@@ -76,12 +76,12 @@ fa-icon {
 }
 .scrollable {
   overflow-y: auto;
-  padding: 0 30px 30px;
-  margin-bottom: 10px;
+  padding: 30px 20px 0 20px;
   flex-grow: 1;
 }
 .entry {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   &:hover {
     cursor: pointer;
   }
@@ -109,6 +109,7 @@ fa-icon {
   font-size: 12px;
   text-align: center;
   padding: 10px 30px;
+  background-color: $color-light-3;
 }
 .info-text-left {
   color: $color-dark-3;
@@ -137,12 +138,11 @@ fa-icon {
     height: fit-content;
     width: 100%;
     padding: 30px 30px;
-    margin-bottom: 30px;
     background-color: $color-light-3;
     color: $color-accent;
   }
   .scrollable {
-    padding: 0 30px;
+    padding: 30px 20px 0 20px;
     .example {
       padding: 8px;
       border: 2px solid rgba(0,0,0,0.05);
@@ -162,6 +162,7 @@ fa-icon {
   background-color: rgba(0,0,0,0.05);
   overflow-x: auto;
   border-radius: 3px;
+  border-left: 3px solid $color-dark;
   &:after {
     display: none;
     content: ''
