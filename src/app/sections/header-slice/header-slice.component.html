@@ -3,8 +3,8 @@
     <div class="shader" [class.height-500]="sectionData.primary.is_large == 'true'"></div>
   </div>
   <div class="abs-center">
-    <h1 innerHTML="{{sectionData.primary.header[0].text.toUpperCase()}}" class="white-text shadow-text text-center"></h1>
+    <h1 [innerHTML]="sectionData.primary.header[0].text.toUpperCase()" class="white-text shadow-text text-center"></h1>
     <div class="seperator"></div>
-    <p *ngIf="sectionData.primary.description != undefined" innerHTML="{{sectionData.primary.description | prismicDOM}}" class="white-text shadow-text text-center"></p>
+    <p *ngIf="sectionData.primary.description != undefined" [innerHTML]="sectionData.primary.description | prismicDOM" class="white-text shadow-text text-center"></p>
   </div>
 </div>

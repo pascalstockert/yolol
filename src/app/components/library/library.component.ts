@@ -26,7 +26,6 @@ export class LibraryComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(Object.keys(this.library));
     this.searchPage = document.getElementById('search-page');
     this.detailPageScroll = document.getElementsByClassName('scrollable')[1];
   }
@@ -36,7 +35,6 @@ export class LibraryComponent implements OnInit {
   }
 
   inputChange(input) {
-    console.log(input);
     this.filteredLibrary = {};
     this.keys = [];
     Object.keys(this.library).forEach(key => {
@@ -48,7 +46,6 @@ export class LibraryComponent implements OnInit {
         }
       }
     });
-    console.log(this.filteredLibrary);
   }
 
   transitionToDetails(key) {

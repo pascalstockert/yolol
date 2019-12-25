@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {PrismicDOMPipe} from './prismic-dom.pipe';
+import {PrismicDOMPipe} from './components/pipes/prismic-pipe/prismic-dom.pipe';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
