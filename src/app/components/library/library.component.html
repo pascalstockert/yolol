@@ -32,7 +32,7 @@
           <p [innerHTML]="activeKey.det_desc | code"></p>
           <br>
           <div *ngFor="let example of activeKey.examples; index as i" class="example">
-            <p [innerText]="example.title ? example.title : 'Example #' + (i+1)"></p>
+            <h5 [innerText]="example.title ? example.title : 'Example #' + (i+1)"></h5>
             <div class="code-block" [innerText]="example.code"></div>
             <p class="info-text-left" [innerHTML]="example.description | code"></p>
           </div>

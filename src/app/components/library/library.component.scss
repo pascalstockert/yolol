@@ -36,13 +36,13 @@ mat-form-field {
 }
 .entry-wrapper {
   position: relative;
-  max-height: calc(100vh - 220px);
+  max-height: calc(100vh - 250px);
   overflow: auto;
   padding: 20px 0;
 }
 .detail-wrapper {
   overflow: auto;
-  max-height: calc(100vh - 220px);
+  max-height: calc(100vh - 210px);
   padding: 20px 0;
   margin: 20px 0;
 }
@@ -57,6 +57,7 @@ mat-form-field {
 }
 .code-block {
   overflow-x: auto;
+  margin: 10px 0;
   &:after {
     display: none;
   }
@@ -87,4 +88,11 @@ mat-form-field {
 
 .hidden {
   transform: translateX(0);
+}
+.example {
+  padding-bottom: 20px;
+  h5 {
+    margin-top: 18px;
+    color: $color-accent;
+  }
 }
