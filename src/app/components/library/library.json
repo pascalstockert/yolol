@@ -1,146 +1,148 @@
 {
-  "goto": {
-    "search_terms": [
-      "goto",
-      "jump"
-    ],
-    "title": "Goto",
-    "description": "Jump to a specific line in your code.",
-    "syntax": "goto <number{1-20}>",
-    "det_desc": "Goto is used to jump to a specific line during runtime. With goto, loops can easily be implemented as seen in the following examples.",
-    "examples": [
-      {
-        "title": "Infinite loop",
-        "code": "i = 0\ni++\ngoto 2",
-        "description": "This loop will infinitely increase i by one (until an overflow-error occurs)"
-      },
-      {
-        "title": "Finite loop",
-        "code": "i = 0\nif i < 10 goto 3 end goto 4\ni++ goto 2",
-        "description": "For each iteration this loop compares if i is smaller than 10 and increases i by one if this is the case."
-      }
-    ]
-  },
-  "if": {
-    "search_terms": [
-      "if",
-      "condition"
-    ],
-    "title": "If",
-    "description": "Execute a block of code if expression is fulfilled.",
-    "syntax": "if <condition> then <code> end",
-    "det_desc": "An if clause is used to create more complex programs by introducing conditions. If a certain thing is given, then the program should do something - otherwise it shouldn't.",
-    "examples": [
-      {
-        "title": "Finite loop",
-        "code": "i = 0\nif i < 10 goto 3 end goto 4\ni++ goto 2",
-        "description": "For each iteration this loop compares if i is smaller than 10 and increases i by one if this is the case - i won't be increased above 10."
-      }
-    ]
-  },
-  "if else": {
-    "search_terms": [
-      "if else",
-      "condition"
-    ],
-    "title": "If else",
-    "description": "Execute a block of code if expression is fulfilled, otherwise execute something else.",
-    "syntax": "if <condition> then <code> else <code> end",
-    "det_desc": "Adding to the standard if clause, the 'else' keyword adds another layer of customization to conditions.",
-    "examples": [
-      {
-        "code": "thirsty = \"true\"\nif thirsty == \"true\" then milk = \"existent\" else milk = \"gone\" end",
-        "description": "If thirsty is set to true, then set another field called milk to existent, otherwise to gone."
-      }
-    ]
-  },
-  "chipwait": {
-    "search_terms": [
-      "chipwait",
-      "wait",
-      "pause",
-      "timeout"
-    ],
-    "title": "ChipWait",
-    "description": "Wait a given amount of time when this field is set to something other than '0'.",
-    "syntax": ":ChipWait = <number>",
-    "det_desc": "In order to temporarily or permanently pause the execution of your YOLOL-chip you can use this field. Positive numbers will be treated as seconds in which the chip will remain paused, negative numbers will permanently stop the execution of that chip.",
-    "examples": [
-      {
-        "code": ":ChipWait = 5\nhello = \"world!\"",
-        "description": "The local variable 'hello' will only be set after the 5 seconds of chip-timeout."
-      }
-    ]
-  },
-  "numops": {
-    "search_terms": [
-      "operators",
-      "+","-","/","*","+=","-=","/=","*=",
-      "mathematics"
-    ],
-    "title": "Math operators",
-    "description": "Operations performed on given numbers.",
-    "syntax": "result {+=, -=, *=, /=, =} <number> {+, -, *, / <number>}",
-    "det_desc": "It's math, baby!\nIf you've never seen operators like `+=` worry not, the following examples should clear up most things.",
-    "examples": [
-      {
-        "code": "result = 5 + 5",
-        "description": "The local variable 'result' will be assigned the result of given addition - in this case 10. Analog for `-`, `*`, `/`."
-      },
-      {
-        "code": "result = 5 + 5\nresult += 5",
-        "description": "The local variable 'result' will first be set to 10 like above. Then `5` will be added <b>onto</b> the variable, resulting in 15. In short: The operation is immediately applied with a given number. Analog for `-=`, `*=`, `/=`."
-      }
-    ]
-  },
-  "stringops": {
-    "search_terms": [
-      "operators",
-      "+","-","/","*","+=","-=","/=","*=",
-      "strings"
-    ],
-    "title": "String operators",
-    "description": "Operations performed on given Strings.",
-    "syntax": "result {+=, -=, =} <String> {+, - <String>}",
-    "det_desc": "Adding or removing something to/from a String. If you've never seen operators like `+=` worry not, the following examples should clear up most things.\n\nUnlike with math operators, `*=` and `/=` aswell as their counterparts without '=' fulfill no other purpose than throwing errors.",
-    "examples": [
-      {
-        "title": "Adding Strings",
-        "code": "result = \"Hello\" + \"World\"",
-        "description": "The local variable 'result' will hold the value `HelloWorld`."
-      },
-      {
-        "title": "Subtracting Strings",
-        "code": "result = \"HelloWorldHelloWorld\" - \"World\"",
-        "description": "The local variable 'result' will hold the value `HelloHelloWorld`. If you remove one String from another the program will always only delete the <b>first occurrence</b> of the part you're trying to remove."
-      },
-      {
-        "code": "result = \"Hello\"\nresult += \"World\"",
-        "description": "The local variable 'result' will hold the value `HelloWorld`. `+=` will apply the operator immediately with the given String and add it to the selected variable."
-      }
-    ]
-  },
-  "loops": {
-    "search_terms": [
-      "infinite loops",
-      "while",
-      "for"
-    ],
-    "title": "(In-)finite loops",
-    "description": "Finite and infinite loops like 'for' and 'while'",
-    "syntax": "Open for example code!",
-    "det_desc": "Unlike other languages, YOLOL doesn't come with pre-defined loops. No simple `for` or `while` - we'll have to do that ourselves with the help of if's and goto's!",
-    "examples": [
-      {
-        "title": "Infinite loop",
-        "code": "i = 0\ni++ goto 2",
-        "description": "For each iteration this loop increases `i` by one - i will increase until an overflow error occurs."
-      },
-      {
-        "title": "Finite loop",
-        "code": "i = 0\nif i < 10 goto 3 end goto 4\ni++ goto 2",
-        "description": "For each iteration this loop compares if `i` is smaller than 10 and increases `i` by one if this is the case - `i` won't be increased above 10."
-      }
-    ]
-  }
+  "entries": [
+    {
+      "search_terms": [
+        "goto",
+        "jump"
+      ],
+      "title": "Goto",
+      "description": "Jump to a specific line in your code.",
+      "syntax": "goto <number{1-20}>",
+      "det_desc": "Goto is used to jump to a specific line during runtime. With goto, loops can easily be implemented as seen in the following examples.",
+      "examples": [
+        {
+          "title": "Infinite loop",
+          "code": "i = 0\ni++\ngoto 2",
+          "description": "This loop will infinitely increase i by one (until an overflow-error occurs)"
+        },
+        {
+          "title": "Finite loop",
+          "code": "i = 0\nif i < 10 goto 3 end goto 4\ni++ goto 2",
+          "description": "For each iteration this loop compares if i is smaller than 10 and increases i by one if this is the case."
+        }
+      ]
+    },
+    {
+      "search_terms": [
+        "if",
+        "condition"
+      ],
+      "title": "If",
+      "description": "Execute a block of code if expression is fulfilled.",
+      "syntax": "if <condition> then <code> end",
+      "det_desc": "An if clause is used to create more complex programs by introducing conditions. If a certain thing is given, then the program should do something - otherwise it shouldn't.",
+      "examples": [
+        {
+          "title": "Finite loop",
+          "code": "i = 0\nif i < 10 goto 3 end goto 4\ni++ goto 2",
+          "description": "For each iteration this loop compares if i is smaller than 10 and increases i by one if this is the case - i won't be increased above 10."
+        }
+      ]
+    },
+    {
+      "search_terms": [
+        "if else",
+        "condition"
+      ],
+      "title": "If else",
+      "description": "Execute a block of code if expression is fulfilled, otherwise execute something else.",
+      "syntax": "if <condition> then <code> else <code> end",
+      "det_desc": "Adding to the standard if clause, the 'else' keyword adds another layer of customization to conditions.",
+      "examples": [
+        {
+          "code": "thirsty = \"true\"\nif thirsty == \"true\" then milk = \"existent\" else milk = \"gone\" end",
+          "description": "If thirsty is set to true, then set another field called milk to existent, otherwise to gone."
+        }
+      ]
+    },
+    {
+      "search_terms": [
+        "chipwait",
+        "wait",
+        "pause",
+        "timeout"
+      ],
+      "title": "ChipWait",
+      "description": "Wait a given amount of time when this field is set to something other than '0'.",
+      "syntax": ":ChipWait = <number>",
+      "det_desc": "In order to temporarily or permanently pause the execution of your YOLOL-chip you can use this field. Positive numbers will be treated as seconds in which the chip will remain paused, negative numbers will permanently stop the execution of that chip.",
+      "examples": [
+        {
+          "code": ":ChipWait = 5\nhello = \"world!\"",
+          "description": "The local variable 'hello' will only be set after the 5 seconds of chip-timeout."
+        }
+      ]
+    },
+    {
+      "search_terms": [
+        "operators",
+        "+","-","/","*","+=","-=","/=","*=",
+        "mathematics"
+      ],
+      "title": "Math operators",
+      "description": "Operations performed on given numbers.",
+      "syntax": "result {+=, -=, *=, /=, =} <number> {+, -, *, / <number>}",
+      "det_desc": "It's math, baby!\nIf you've never seen operators like `+=` worry not, the following examples should clear up most things.",
+      "examples": [
+        {
+          "code": "result = 5 + 5",
+          "description": "The local variable 'result' will be assigned the result of given addition - in this case 10. Analog for `-`, `*`, `/`."
+        },
+        {
+          "code": "result = 5 + 5\nresult += 5",
+          "description": "The local variable 'result' will first be set to 10 like above. Then `5` will be added <b>onto</b> the variable, resulting in 15. In short: The operation is immediately applied with a given number. Analog for `-=`, `*=`, `/=`."
+        }
+      ]
+    },
+    {
+      "search_terms": [
+        "operators",
+        "+","-","/","*","+=","-=","/=","*=",
+        "strings"
+      ],
+      "title": "String operators",
+      "description": "Operations performed on given Strings.",
+      "syntax": "result {+=, -=, =} <String> {+, - <String>}",
+      "det_desc": "Adding or removing something to/from a String. If you've never seen operators like `+=` worry not, the following examples should clear up most things.\n\nUnlike with math operators, `*=` and `/=` aswell as their counterparts without '=' fulfill no other purpose than throwing errors.",
+      "examples": [
+        {
+          "title": "Adding Strings",
+          "code": "result = \"Hello\" + \"World\"",
+          "description": "The local variable 'result' will hold the value `HelloWorld`."
+        },
+        {
+          "title": "Subtracting Strings",
+          "code": "result = \"HelloWorldHelloWorld\" - \"World\"",
+          "description": "The local variable 'result' will hold the value `HelloHelloWorld`. If you remove one String from another the program will always only delete the <b>first occurrence</b> of the part you're trying to remove."
+        },
+        {
+          "code": "result = \"Hello\"\nresult += \"World\"",
+          "description": "The local variable 'result' will hold the value `HelloWorld`. `+=` will apply the operator immediately with the given String and add it to the selected variable."
+        }
+      ]
+    },
+    {
+      "search_terms": [
+        "infinite loops",
+        "while",
+        "for"
+      ],
+      "title": "(In-)finite loops",
+      "description": "Finite and infinite loops like 'for' and 'while'",
+      "syntax": "Open for example code!",
+      "det_desc": "Unlike other languages, YOLOL doesn't come with pre-defined loops. No simple `for` or `while` - we'll have to do that ourselves with the help of if's and goto's!",
+      "examples": [
+        {
+          "title": "Infinite loop",
+          "code": "i = 0\ni++ goto 2",
+          "description": "For each iteration this loop increases `i` by one - i will increase until an overflow error occurs."
+        },
+        {
+          "title": "Finite loop",
+          "code": "i = 0\nif i < 10 goto 3 end goto 4\ni++ goto 2",
+          "description": "For each iteration this loop compares if `i` is smaller than 10 and increases `i` by one if this is the case - `i` won't be increased above 10."
+        }
+      ]
+    }
+  ]
 }

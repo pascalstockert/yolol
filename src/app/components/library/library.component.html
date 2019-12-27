@@ -1,39 +1,33 @@
-<div class="tab hide-sm" [class.open]="libraryOpen">
+<button mat-raised-button class="lib-button" mat-flat-button (click)="toggle()"><fa-icon [icon]="bookOpen"></fa-icon></button>
 
-  <button mat-flat-button class="handle" (click)="toggleLibrary()">
-    <fa-icon [icon]="bookOpen"></fa-icon>
-  </button>
+<div class="library-wrapper shadow" [class.hidden]="toggled">
+  <mat-horizontal-stepper labelPosition="bottom" #stepper>
 
-  <div id="pages">
-
-    <div id="search-page">
-      <div class="search">
-        <div class="header-wrapper">
-          <mat-form-field class="search-bar">
-            <input matInput type="text" placeholder="Search.." (input)="inputChange($event.target.value)">
-          </mat-form-field>
-        </div>
-        <div class="scrollable">
-          <div class="entry" *ngFor="let key of keys" (click)="transitionToDetails(key)">
-            <h4 [innerHTML]="filteredLibrary[key].title"></h4>
-            <div class="content">
-              <p [innerText]="filteredLibrary[key].description"></p>
-              <p class="syntax" [innerText]="filteredLibrary[key].syntax"></p>
-            </div>
+    <mat-step>
+      <ng-template matStepLabel>Features and topics</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Search" (input)="inputChange($event.target.value)">
+      </mat-form-field>
+      <div class="entry-wrapper">
+        <div *ngFor="let entry of filteredEntries; index as i">
+          <div class="entry" (click)="stepper.next(); activeKey = entry">
+            <h4 [innerText]="entry.title"></h4>
+            <p class="entry-description" [innerHTML]="entry.description | code"></p>
+            <div class="syntax" [innerText]="entry.syntax"></div>
+            <hr *ngIf="i < filteredEntries.length - 1">
           </div>
         </div>
-        <p class="info-text">Click on any of these entries to learn more about them and their use cases through easy examples!</p>
       </div>
-    </div>
+      <button class="close-button" (click)="toggle()" mat-raised-button>Close</button>
+    </mat-step>
 
-    <div id="details-page">
+    <mat-step>
+      <ng-template matStepLabel>Details</ng-template>
+
       <div class="detail-wrapper">
         <div class="header-wrapper">
           <h3 [innerText]="activeKey.title" class="font-weight-bolder"></h3>
         </div>
-        <button mat-icon-button class="close-icon" (click)="transitionToSearch()">
-          <fa-icon [icon]="chevronLeft"></fa-icon>
-        </button>
         <div class="scrollable">
           <p [innerHTML]="activeKey.det_desc | code"></p>
           <br>
@@ -44,8 +38,16 @@
           </div>
         </div>
       </div>
-    </div>
 
-  </div>
+      <div class="d-flex align-content-around full-width">
+        <div class="back-button">
+          <button mat-raised-button matStepperPrevious>Back to search</button>
+        </div>
+        <div (click)="toggle()">
+          <button class="close-button-second" mat-raised-button>Close</button>
+        </div>
+      </div>
+    </mat-step>
 
+  </mat-horizontal-stepper>
 </div>

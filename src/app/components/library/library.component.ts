@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faBookOpen } from '@fortawesome/free-solid-svg-icons';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faBookOpen, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 // @ts-ignore
 import libraryEntries from './library.json';
@@ -12,50 +11,34 @@ import libraryEntries from './library.json';
 })
 export class LibraryComponent implements OnInit {
 
-  library = libraryEntries;
-  keys = Object.keys(libraryEntries);
-  filteredLibrary = libraryEntries;
   bookOpen = faBookOpen;
-  chevronLeft = faChevronLeft;
-  libraryOpen = false;
-  activeKey = this.library['goto'];
+  times = faTimes;
+  entries = libraryEntries.entries.sort((a, b) => {
+    return a.title.localeCompare(b.title);
+  });
+  filteredEntries: any;
+  activeKey = this.entries[0];
+  toggled = false;
 
-  searchPage: any;
-  detailPageScroll: any;
-
-  constructor() { }
-
-  ngOnInit() {
-    this.searchPage = document.getElementById('search-page');
-    this.detailPageScroll = document.getElementsByClassName('scrollable')[1];
+  constructor() {
+    this.filteredEntries = this.entries;
   }
 
-  toggleLibrary() {
-    this.libraryOpen = !this.libraryOpen;
+  ngOnInit() {
   }
 
   inputChange(input) {
-    this.filteredLibrary = {};
-    this.keys = [];
-    Object.keys(this.library).forEach(key => {
-      for (const term of this.library[key].search_terms) {
-        if (term.includes(input.toLowerCase())) {
-          this.keys.push(key);
-          this.filteredLibrary[key] = this.library[key];
-          break;
+    this.filteredEntries = [];
+    this.entries.forEach(entry => {
+      entry.search_terms.forEach(searchTerm => {
+        if (searchTerm.includes(input.toLowerCase()) && !this.filteredEntries.includes(entry)) {
+          this.filteredEntries.push(entry);
         }
-      }
+      });
     });
   }
 
-  transitionToDetails(key) {
-    this.searchPage.style.transform = 'translateX(-100%)';
-    this.activeKey = this.library[key];
-    this.detailPageScroll.scrollTo(0, 0);
+  toggle() {
+    this.toggled = !this.toggled;
   }
-
-  transitionToSearch() {
-    this.searchPage.style.transform = 'translateX(0)';
-  }
-
 }
