@@ -6,7 +6,7 @@ i=1
 i=i+3 // => i=4
 //it is same as:
 i=1
-i+=3 // => i=2
+i+=3 // => i=4
 number=10
 number=number-5 // => number=5
 //it is same as:
