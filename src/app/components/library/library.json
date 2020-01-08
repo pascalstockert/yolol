@@ -75,35 +75,37 @@
     },
     {
       "search_terms": [
-        "operators",
-        "+","-","/","*","+=","-=","/=","*=",
-        "mathematics"
+        "+","-","/","*","%","+=","-=","/=","*=","%=",
+        "modulo",
+        "mathematics",
+        "mathematical operators"
       ],
       "title": "Math operators",
       "description": "Operations performed on given numbers.",
-      "syntax": "result {+=, -=, *=, /=, =} <number> {+, -, *, / <number>}",
+      "syntax": "result {+=, -=, *=, /=, %=, =} <number> {+, -, *, /, % <number>}",
       "det_desc": "It's math, baby!\nIf you've never seen operators like `+=` worry not, the following examples should clear up most things.",
       "examples": [
         {
           "code": "result = 5 + 5",
-          "description": "The local variable 'result' will be assigned the result of given addition - in this case 10. Analog for `-`, `*`, `/`."
+          "description": "The local variable 'result' will be assigned the result of given addition - in this case 10. Analog for `-`, `*`, `/`, `%`."
         },
         {
           "code": "result = 5 + 5\nresult += 5",
-          "description": "The local variable 'result' will first be set to 10 like above. Then `5` will be added <b>onto</b> the variable, resulting in 15. In short: The operation is immediately applied with a given number. Analog for `-=`, `*=`, `/=`."
+          "description": "The local variable 'result' will first be set to 10 like above. Then `5` will be added <b>onto</b> the variable, resulting in 15. In short: The operation is immediately applied with a given number. Analog for `-=`, `*=`, `/=`, `%=`."
         }
       ]
     },
     {
       "search_terms": [
+        "string operations",
         "operators",
-        "+","-","/","*","+=","-=","/=","*=",
+        "+","-","+=","-=",
         "strings"
       ],
       "title": "String operators",
       "description": "Operations performed on given Strings.",
       "syntax": "result {+=, -=, =} <String> {+, - <String>}",
-      "det_desc": "Adding or removing something to/from a String. If you've never seen operators like `+=` worry not, the following examples should clear up most things.\n\nUnlike with math operators, `*=` and `/=` aswell as their counterparts without '=' fulfill no other purpose than throwing errors.",
+      "det_desc": "Adding or removing something to/from a String. If you've never seen operators like `+=` worry not, the following examples should clear up most things.\n\nUnlike with math operators, `ABS <String>`, `/=` or any other operator apart from adding or subtracting fulfill no other purpose than throwing errors - errors make the program skip the remaining line and jump to the next.",
       "examples": [
         {
           "title": "Adding Strings",
@@ -127,8 +129,8 @@
         "while",
         "for"
       ],
-      "title": "(In-)finite loops",
-      "description": "Finite and infinite loops like 'for' and 'while'",
+      "title": "Loops",
+      "description": "Finite and infinite loops like `for` and `while`.",
       "syntax": "Open for example code!",
       "det_desc": "Unlike other languages, YOLOL doesn't come with pre-defined loops. No simple `for` or `while` - we'll have to do that ourselves with the help of if's and goto's!",
       "examples": [
@@ -141,6 +143,63 @@
           "title": "Finite loop",
           "code": "i = 0\nif i < 10 goto 3 end goto 4\ni++ goto 2",
           "description": "For each iteration this loop compares if `i` is smaller than 10 and increases `i` by one if this is the case - `i` won't be increased above 10."
+        }
+      ]
+    },
+    {
+      "search_terms": [
+        "trigonometry",
+        "trigonometric functions",
+        "absolute value",
+        "!", "factorial",
+        "sine", "cosine", "tangent",
+        "asine", "acosine", "atangent",
+        "mathematics",
+        "mathematical operators"
+      ],
+      "title": "Math operators +",
+      "description": "All about SIN, COS, TAN, roots and exponents.",
+      "syntax": "{SIN, COS, TAN, SQRT, ABS} <number>(^<number>)(!)",
+      "det_desc": "More complex math for more complex things! With these functions you can calculate all sorts of things - Angles, distances or simply the root of 16.",
+      "examples": [
+        {
+          "title": "Length of hypotenuse in a right triangle",
+          "code": "# a &#9699; c\n#     b\nb = 4\nalpha = 30\nbeta = 180 - 90 - alpha\nc = b / SIN beta",
+          "description": "Note: A triangle only has 180 degrees in total - a right triangle always has one angle of 90 degrees. With that and the single given angle we can easily calculate the missing angle and with that calculate the hypotenuse (c)."
+        },
+        {
+          "title": "Absolute calculations",
+          "code": "a = 2\nb = 3\nc = ABS (a - b)",
+          "description": "`c` will hold `1`, even though `2 - 3 = -1`"
+        },
+        {
+          "title": "Factorial calculations",
+          "code": "a = 3!\nb = a!\nc = a! + b!",
+          "description": "`a` will hold the result of `3 * 2 * 1 = 6`, `b` will hold the factorial of 6 (= 720) and `c` the result of 6 + 720."
+        },
+        {
+          "title": "Uncovering the trooth",
+          "code": "release = SQRT 16",
+          "description": "`release` now holds the root that will answer all of our questions.."
+        }
+      ]
+    },
+    {
+      "search_terms": [
+        "increment", "decrement",
+        "++", "--",
+        "mathematics",
+        "mathematical operators"
+      ],
+      "title": "Increments and decrements",
+      "description": "Adding or removing 'one'.",
+      "syntax": "{++, --}<number>{++, --}",
+      "det_desc": "An increment `++` adds 'one' to a variable. A decrement `--` removes 'one' from a variable. One in this case is dependant on the type of the variable you want to in-/ decrement - a number will be in-/ decreased by `1`, a String will be appended an empty space or removed the last character.\n\nThere's also a big difference between using `++` and `--` before or after the field's name - learn more about <a href=\"https://www.geeksforgeeks.org/pre-increment-and-post-increment-in-c/\" target=\"_blank\">post- and pre-increments</a>.",
+      "examples": [
+        {
+          "title": "Calculating String length",
+          "code": "y = \"Hello World!\"\ny-- i++ y-- i++ y-- i++ y-- i++ y-- i++ y-- i++ y-- i++ y-- i++ goto 2",
+          "description": "After this code 'terminated' `i` will hold the length of given String."
         }
       ]
     }
