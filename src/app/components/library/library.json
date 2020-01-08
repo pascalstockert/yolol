@@ -143,6 +143,24 @@
           "description": "For each iteration this loop compares if `i` is smaller than 10 and increases `i` by one if this is the case - `i` won't be increased above 10."
         }
       ]
+    },
+    {
+      "search_terms": [
+        "assignment",
+        "comparison",
+        "=="
+      ],
+      "title": "Assignments and comparisons",
+      "description": "Difference between assignments (=) and comparisons (==) ",
+      "syntax": "<number|String|variable> =(=) <number|String|variable>",
+      "det_desc": "There's a big difference between a single `=` and `==`. The first is used for assignments - you assign a value to something. The latter is used for comparisons in which you check if something equals a certain value.",
+      "examples": [
+        {
+          "title": "Assignment and comparison in action",
+          "code": "i = 0\nif i == 5 then goto 2 end goto 3\ngoto 20\ni = i + 1",
+          "description": "As long as i is not equal to 5 it will be increased. It won't be increased anymore if it reaches 5."
+        }
+      ]
     }
   ]
 }
