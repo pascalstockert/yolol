@@ -3,6 +3,7 @@
 - Impressum
 - Datenschutz
 - Cookie notice
+- Adjust darkmode colors to be darker
 
 ### Less prio
 - Darkmode
