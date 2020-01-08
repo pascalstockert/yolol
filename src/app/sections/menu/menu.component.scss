@@ -20,10 +20,17 @@ button.menu-button {
   font-size: 18px;
   color: $color-accent;
   background-color: $color-light-1;
+  &.dark {
+    color: $color-accent-dark;
+    background-color: $color-dark-1;
+  }
 }
 fa-icon {
   color: $color-accent;
   font-size: 25px;
+  &.dark {
+    color: $color-accent-dark;
+  }
 }
 .toggled {
   transform: translateY(0);

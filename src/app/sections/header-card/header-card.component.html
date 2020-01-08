@@ -1,15 +1,18 @@
 <div class="container" id="header-card">
   <div class="row">
     <div class="col-12 col-md-7">
-      <h2 [innerHTML]="sectionData.primary.header[0].text | code"></h2>
-      <div [innerHTML]="sectionData.primary.description | prismicDOM"></div>
+      <h2 [innerHTML]="sectionData.primary.header[0].text | code" [class.dark]="darkMode"></h2>
+      <div [innerHTML]="sectionData.primary.description | prismicDOM" [class.dark]="darkMode"></div>
     </div>
     <div class="col-12 col-md-4 offset-md-1">
-      <mat-card>
-        <mat-card-header [innerHTML]="sectionData.primary.card_header[0].text"></mat-card-header>
-        <mat-card-content [innerHTML]="sectionData.primary.card_description | prismicDOM"></mat-card-content>
+      <mat-card [class.dark]="darkMode">
+        <mat-card-header [innerHTML]="sectionData.primary.card_header[0].text" [class.dark]="darkMode"></mat-card-header>
+        <mat-card-content [innerHTML]="sectionData.primary.card_description | prismicDOM" [class.dark]="darkMode"></mat-card-content>
         <div *ngIf="sectionData.items[0] != undefined" class="d-flex full-width justify-content-center">
-          <a *ngFor="let logo of sectionData.items" class="logo-bg" [style.backgroundImage]="'url('+logo.social_picture.url+')'" matTooltip="{{logo.hover_text[0].text}}" [href]="logo.click_link[0].text" target="_blank"></a>
+          <a *ngFor="let logo of sectionData.items" class="logo-bg"
+             [style.backgroundImage]="'url('+logo.social_picture.url+')'"
+             [class.dark]="darkMode"
+             matTooltip="{{logo.hover_text[0].text}}" [href]="logo.click_link[0].text" target="_blank"></a>
         </div>
       </mat-card>
     </div>

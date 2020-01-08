@@ -1,7 +1,9 @@
 <div class="menu" [class.toggled]="windowPos < 200">
-  <button mat-raised-button class="menu-button" mat-flat-button mat-ripple routerLink="/{{pages[pages?.length-1]?.uid}}"><fa-icon [icon]="faHome"></fa-icon></button>
-  <button mat-raised-button class="menu-button" mat-flat-button mat-ripple [matMenuTriggerFor]="chapters">Chapters</button>
-  <button mat-raised-button class="menu-button" mat-flat-button mat-ripple [innerHTML]="!darkMode ? 'Darkmode' : 'Lightmode'"
+  <button mat-raised-button class="menu-button" mat-flat-button mat-ripple routerLink="/{{pages[pages?.length-1]?.uid}}" [class.dark]="darkMode">
+    <fa-icon [icon]="faHome" [class.dark]="darkMode"></fa-icon>
+  </button>
+  <button mat-raised-button class="menu-button" mat-flat-button mat-ripple [matMenuTriggerFor]="chapters" [class.dark]="darkMode">Chapters</button>
+  <button mat-raised-button class="menu-button" mat-flat-button mat-ripple [innerHTML]="!darkMode ? 'Darkmode' : 'Lightmode'" [class.dark]="darkMode"
   [routerLink]="'./'" [queryParams]="!darkMode ? { mode: 'dark' } : { mode: undefined }"></button>
   <mat-menu #chapters='matMenu'>
     <div *ngFor="let page of pages; index as i">

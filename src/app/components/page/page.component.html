@@ -15,7 +15,7 @@
         </div>
 
         <!-- Responsible for displaying sections other than header -->
-        <div *ngIf="page?.type != 404" class="above" [class.top-500]="test == 'true'">
+        <div *ngIf="page?.type != 404" class="above" [class.dark]="darkMode" [class.top-500]="test == 'true'">
           <div *ngFor="let section of page?.data?.body">
             <div [ngSwitch]="section.slice_type">
               <app-header-card *ngSwitchCase="'header-card'" [sectionData]="section"></app-header-card>

@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {DarkmodeService} from '../../darkmode.service';
 
 @Component({
   selector: 'app-header-card',
@@ -7,10 +8,15 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class HeaderCardComponent implements OnInit {
 
+  darkMode = false;
   @Input() sectionData;
 
-  constructor() { }
+  constructor(private darkModeService: DarkmodeService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.darkModeService.darkMode$.subscribe(mode => {
+      this.darkMode = mode;
+    });
+  }
 
 }

@@ -30,6 +30,7 @@ export class DarkmodeService {
         if (val instanceof NavigationEnd) {
           this.darkMode$ = router.events.pipe(
             map(event => {
+              // @ts-ignore
               return route.queryParams.value.mode === 'dark';
             }),
             share()

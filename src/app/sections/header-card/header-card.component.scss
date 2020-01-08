@@ -8,6 +8,9 @@ mat-card {
   @media only screen and (max-width: $size-md) {
     margin-top: 50px;
   }
+  &.dark {
+    background-color: $color-dark;
+  }
 }
 mat-card-header {
   font-family: 'Quicksand', sans-serif;

@@ -60,10 +60,6 @@ export class MenuComponent implements OnInit {
         elem.classList.remove('toggled');
       tmpScroll = windowPos;
     });
-
-    this.darkModeService.darkMode$.subscribe(mode => {
-      console.log(mode);
-    });
   }
 
 }
