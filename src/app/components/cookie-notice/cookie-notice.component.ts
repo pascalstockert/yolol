@@ -10,13 +10,13 @@ export class CookieNoticeComponent implements OnInit {
 
   cookie = faCookieBite;
   times = faTimes;
-  hidden = true;
+  shown = false;
 
   constructor() { }
 
   ngOnInit() {
     if (!document.cookie.includes('cookieAccepted')) {
-      this.hidden = false;
+      this.shown = true;
     }
   }
 

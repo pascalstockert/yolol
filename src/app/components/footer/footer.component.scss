@@ -6,12 +6,16 @@
 
 .full-width {
   color: $color-dark-3;
-  height: 75px;
   background-color: $color-light-1;
+  height: fit-content;
+  padding: 20px 0;
 }
 a {
   color: $color-dark-3;
   :active {
     color: $color-dark;
   }
+}
+.margin-left-10 {
+  margin-left: 10px;
 }

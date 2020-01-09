@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faUser, faCopyright } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-footer',
@@ -11,6 +10,7 @@ export class FooterComponent implements OnInit {
 
   heart = faHeart;
   user = faUser;
+  copyright = faCopyright;
 
   @Input() sectionData;
 
