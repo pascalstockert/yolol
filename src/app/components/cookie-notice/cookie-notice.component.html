@@ -1,0 +1,12 @@
+<section id="cookie-notice" [class.hidden]="hidden">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 d-flex">
+        <fa-icon [icon]="cookie" class="large"></fa-icon>
+        <p>This site uses your favorite hand-crafted doughy snacc - commonly known as cookies - to make your stay as enjoyable as possible.<br>
+          <a [routerLink]="'/cookies'">Learn more</a></p>
+        <button mat-icon-button><fa-icon [icon]="times" (click)="hidden = true; createCookie()"></fa-icon></button>
+      </div>
+    </div>
+  </div>
+</section>
