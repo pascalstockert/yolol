@@ -1,4 +1,4 @@
-<div class="container" id="text">
+<div class="container" id="text" [class.dark]="darkmode">
   <div class="col-lg-{{sectionData.primary.content_width}}">
     <div *ngIf="sectionData.primary.header[0] != undefined" [innerHTML]="sectionData.primary.header | prismicDOM"></div>
     <div [innerHTML]="sectionData.primary.description | prismicDOM"></div>

@@ -1,4 +1,4 @@
-<div class="container" id="collapsibles">
+<div class="container" id="collapsibles" [class.dark]="darkmode">
   <div class="row">
     <div class="col-12 col-md-7">
       <h2 [innerHTML]="sectionData.primary.header[0].text | code"></h2>
@@ -10,15 +10,16 @@
     <div class="col-12 col-md-7">
       <mat-accordion>
 
-        <mat-expansion-panel *ngFor="let collapsible of sectionData.items">
+        <mat-expansion-panel *ngFor="let collapsible of sectionData.items" [class.dark]="darkmode">
           <mat-expansion-panel-header>
-            <mat-panel-title [innerHTML]="collapsible.collapsible_header[0].text | code"></mat-panel-title>
+            <mat-panel-title [innerHTML]="collapsible.collapsible_header[0].text | code"
+                             [class.dark]="darkmode"></mat-panel-title>
             <mat-panel-description [innerHTML]="collapsible.collapsible_subheader | code"></mat-panel-description>
           </mat-expansion-panel-header>
 
           <div [innerHTML]="collapsible.collapsible_description | prismicDOM"></div>
-          <button class="clickable" mat-flat-button *ngIf="collapsible.collapsible_button_text[0] != undefined && collapsible.collapsible_button_link.uid != undefined" routerLink="/{{collapsible.collapsible_button_link.uid}}" [innerHTML]="collapsible.collapsible_button_text[0].text"></button>
-          <button mat-stroked-button disabled *ngIf="collapsible.collapsible_button_link.uid == undefined">Coming soon!</button>
+          <button class="clickable" mat-flat-button *ngIf="collapsible.collapsible_button_text[0] != undefined && collapsible.collapsible_button_link.uid != undefined" routerLink="/{{collapsible.collapsible_button_link.uid}}" [queryParams]="darkmode ? { mode: 'dark' } : {}" [innerHTML]="collapsible.collapsible_button_text[0].text" [class.dark] = darkmode></button>
+          <button mat-stroked-button disabled *ngIf="collapsible.collapsible_button_link.uid == undefined" [class.dark]="darkmode">Coming soon!</button>
         </mat-expansion-panel>
 
       </mat-accordion>

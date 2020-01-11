@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, AfterViewChecked} from '@angular/core';
 import { CmsService } from '../../cms.service';
 import {ActivatedRoute, NavigationEnd, ParamMap, Router} from '@angular/router';
 import {catchError, map, switchMap, tap} from 'rxjs/operators';
@@ -11,9 +11,9 @@ import {DarkmodeService} from '../../darkmode.service';
   styleUrls: ['./page.component.scss'],
   providers: [CmsService]
 })
-export class PageComponent implements OnInit {
+export class PageComponent implements OnInit, AfterViewChecked {
 
-  darkMode = false;
+  darkMode: boolean;
   page: any;
   public test: string;
   docHeight: number;
@@ -62,12 +62,46 @@ export class PageComponent implements OnInit {
         }
       });
     });
-
+    // @ts-ignore
+    this.darkMode = route.queryParams.value.mode === 'dark';
   }
 
   ngOnInit(): void {
     this.darkModeService.darkMode$.subscribe(mode => {
       this.darkMode = mode;
     });
+
+    this.router.events.subscribe( val => {
+    });
+  }
+
+  ngAfterViewChecked() {
+    const aElems = document.getElementsByTagName('a');
+    const codeElems = document.getElementsByClassName('code-inline');
+    const codeBlockElems = document.getElementsByClassName('code-block');
+    window.setTimeout( () => {
+      if (!this.darkMode) {
+        for (let i = 0; i < aElems.length; i++) {
+          aElems[i].classList.remove('dark');
+        }
+        for (let i = 0; i < codeElems.length; i++) {
+          codeElems[i].classList.remove('dark');
+        }
+        for (let i = 0; i < codeBlockElems.length; i++) {
+          codeBlockElems[i].classList.remove('dark');
+        }
+      }
+      if (this.darkMode) {
+        for (let i = 0; i < aElems.length; i++) {
+          aElems[i].classList.add('dark');
+        }
+        for (let i = 0; i < codeElems.length; i++) {
+          codeElems[i].classList.add('dark');
+        }
+        for (let i = 0; i < codeBlockElems.length; i++) {
+          codeBlockElems[i].classList.add('dark');
+        }
+      }
+    }, 0);
   }
 }

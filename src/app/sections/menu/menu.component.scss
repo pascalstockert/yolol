@@ -11,6 +11,14 @@
 .mat-menu-item {
   font-family: 'Open Sans', sans-serif;
   color: $color-accent;
+  transition-duration: .3s;
+  &.dark {
+    color: $color-accent-dark;
+    background-color: $color-dark-1;
+    &:hover {
+      background-color: $color-dark-2;
+    }
+  }
 }
 button.menu-button {
   font-family: 'Quicksand', sans-serif;

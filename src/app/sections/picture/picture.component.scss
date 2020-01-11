@@ -11,6 +11,9 @@ img {
   border-radius: 3px;
   box-sizing: border-box;
   border-left: 3px solid $color-dark;
+  &.dark {
+    border-left: 3px solid $color-light-3;
+  }
 }
 img {
   border-radius: 3px;

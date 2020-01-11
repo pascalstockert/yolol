@@ -27,6 +27,7 @@ app-header-slice {
   margin-top: 300px;
   background-color: white;
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.4);
+  transition: background-color .3s;
   &.dark {
     background-color: $color-dark;
   }

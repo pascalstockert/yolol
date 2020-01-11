@@ -16,7 +16,7 @@ button {
 }
 
 #cookie-notice {
-  display: none;
+  display: block;
   position: fixed;
   bottom: 30px;
   margin-left: 50%;
@@ -42,6 +42,6 @@ fa-icon {
   }
 }
 
-.shown {
-  display: block;
+.hidden {
+  display: none !important;
 }

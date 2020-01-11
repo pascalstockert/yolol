@@ -8,20 +8,13 @@ import { faCookieBite, faTimes } from '@fortawesome/free-solid-svg-icons';
 })
 export class CookieNoticeComponent implements OnInit {
 
+  hidden = false;
   cookie = faCookieBite;
   times = faTimes;
-  shown = false;
 
   constructor() { }
 
   ngOnInit() {
-    if (!document.cookie.includes('cookieAccepted')) {
-      this.shown = true;
-    }
-  }
-
-  createCookie() {
-    document.cookie = 'cookieAccepted=accepted';
   }
 
 }
