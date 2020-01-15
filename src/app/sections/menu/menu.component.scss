@@ -5,6 +5,11 @@
   width: 100vw;
   padding: 30px 10px 10px 10px;
 }
+.mat-menu-content {
+  &.dark {
+    background-color: $color-dark-1;
+  }
+}
 ::ng-deep .mat-menu-panel{
   background-color: $color-light-2;
 }

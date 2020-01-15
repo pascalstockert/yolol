@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit, ViewEncapsulation, AfterViewInit} from '@angular/core';
+import {Component, Inject, OnInit, ViewEncapsulation, AfterViewInit, AfterViewChecked} from '@angular/core';
 import {WindowScrollService} from '../../window-scroll.service';
 import { DOCUMENT } from '@angular/common';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
@@ -17,7 +17,7 @@ import {DarkmodeService} from '../../darkmode.service';
   providers: [CmsService],
   encapsulation: ViewEncapsulation.None
 })
-export class MenuComponent implements OnInit, AfterViewInit {
+export class MenuComponent implements OnInit, AfterViewChecked {
 
   faHome = faHome;
 
@@ -63,10 +63,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit() {
-    window.setTimeout( () => {
-      console.log(document.getElementById('cdk-overlay-0'));
-    }, 300);
+  ngAfterViewChecked() {
   }
 
 }

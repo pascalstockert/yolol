@@ -101,6 +101,7 @@ export class PageComponent implements OnInit, AfterViewChecked {
         for (let i = 0; i < codeBlockElems.length; i++) {
           codeBlockElems[i].classList.add('dark');
         }
+        document.getElementsByClassName('mat-menu-content')[0].classList.add('dark');
       }
     }, 0);
   }
