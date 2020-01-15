@@ -11,9 +11,27 @@
   font-size: 18px;
   font-weight: 700;
   color: $color-accent;
+  &.dark {
+    background-color: $color-dark-1;
+  }
+}
+fa-icon .dark {
+  color: $color-accent-dark;
+}
+mat-horizontal-stepper {
+  &.dark {
+    background-color: $color-dark-1;
+    color: $text-dark;
+    ::ng-deep .mat-step-label {
+      color: $text-dark;
+    }
+  }
 }
 .mat-horizontal-stepper-header-container {
   max-width: 80%;
+  &.dark {
+    color: $text-dark;
+  }
 }
 ::ng-deep mat-step-header {
   min-width: 180px;
@@ -24,6 +42,11 @@ mat-horizontal-stepper {
 }
 mat-form-field {
   width: 100%;
+  &.dark {
+    ::ng-deep .mat-form-field-underline {
+      background-color: $text-dark;
+    }
+  }
 }
 .library-wrapper {
   position: fixed;
@@ -54,12 +77,20 @@ mat-form-field {
   .entry-description {
     font-size: 14px;
   }
+  &.dark {
+    h4 {
+      color: $color-accent-dark;
+    }
+  }
 }
 .code-block {
   overflow-x: auto;
   margin: 10px 0;
   &:after {
     display: none;
+  }
+  &.dark {
+    background-color: $color-dark-2;
   }
 }
 .syntax {
@@ -71,6 +102,10 @@ mat-form-field {
   color: rgba(0,0,0,0.7);
   background-color: rgba(0,0,0,0.1);
   border-radius: 3px;
+  &.dark {
+    color: $text-dark;
+    background-color: $color-dark-2;
+  }
 }
 .close-button{
   position: absolute;
@@ -78,12 +113,20 @@ mat-form-field {
   bottom: 20px;
   background-color: $color-accent;
   color: $color-light-3;
+  &.dark {
+    background-color: $color-accent-dark;
+    color: $color-dark;
+  }
 }
 .close-button-second{
   position: absolute;
   right: 24px;
   color: $color-light-1;
   background-color: $color-accent;
+  &.dark {
+    background-color: $color-accent-dark;
+    color: $color-dark;
+  }
 }
 
 .hidden {
@@ -94,5 +137,10 @@ mat-form-field {
   h5 {
     margin-top: 18px;
     color: $color-accent;
+  }
+  &.dark {
+    h5 {
+      color: $color-accent-dark;
+    }
   }
 }

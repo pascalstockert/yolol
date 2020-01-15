@@ -1,24 +1,26 @@
-<button mat-raised-button class="lib-button" mat-flat-button (click)="toggle()"><fa-icon [icon]="bookOpen"></fa-icon></button>
+<button mat-raised-button class="lib-button" [class.dark]="darkmode" mat-flat-button (click)="toggle()">
+  <fa-icon [icon]="bookOpen" [class.dark]="darkmode"></fa-icon>
+</button>
 
 <div class="library-wrapper shadow" [class.hidden]="toggled">
-  <mat-horizontal-stepper labelPosition="bottom" #stepper>
+  <mat-horizontal-stepper labelPosition="bottom" #stepper [class.dark]="darkmode">
 
     <mat-step>
       <ng-template matStepLabel>Features and topics</ng-template>
-      <mat-form-field>
+      <mat-form-field [class.dark]="darkmode">
         <input matInput placeholder="Search" (input)="inputChange($event.target.value)">
       </mat-form-field>
       <div class="entry-wrapper">
         <div *ngFor="let entry of filteredEntries; index as i">
-          <div class="entry" (click)="stepper.next(); activeKey = entry">
+          <div class="entry" (click)="stepper.next(); activeKey = entry" [class.dark]="darkmode">
             <h4 [innerText]="entry.title"></h4>
             <p class="entry-description" [innerHTML]="entry.description | code"></p>
-            <div class="syntax" [innerText]="entry.syntax"></div>
+            <div class="syntax" [innerText]="entry.syntax" [class.dark]="darkmode"></div>
             <hr *ngIf="i < filteredEntries.length - 1">
           </div>
         </div>
       </div>
-      <button class="close-button" (click)="toggle()" mat-raised-button>Close</button>
+      <button class="close-button" (click)="toggle()" mat-raised-button [class.dark]="darkmode">Close</button>
     </mat-step>
 
     <mat-step>
@@ -31,9 +33,9 @@
         <div class="scrollable">
           <p [innerHTML]="activeKey.det_desc | code"></p>
           <br>
-          <div *ngFor="let example of activeKey.examples; index as i" class="example">
+          <div *ngFor="let example of activeKey.examples; index as i" class="example" [class.dark]="darkmode">
             <h5 [innerText]="example.title ? example.title : 'Example #' + (i+1)"></h5>
-            <div class="code-block" [innerHTML]="example.code"></div>
+            <div class="code-block" [innerHTML]="example.code" [class.dark]="darkmode"></div>
             <p class="info-text-left" [innerHTML]="example.description | code"></p>
           </div>
         </div>
@@ -44,7 +46,7 @@
           <button mat-raised-button matStepperPrevious>Back to search</button>
         </div>
         <div (click)="toggle()">
-          <button class="close-button-second" mat-raised-button>Close</button>
+          <button class="close-button-second" mat-raised-button [class.dark]="darkmode">Close</button>
         </div>
       </div>
     </mat-step>

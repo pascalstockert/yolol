@@ -56,6 +56,7 @@ import { ScrollTopButtonComponent } from './components/scroll-top-button/scroll-
 import { MenuComponent } from './sections/menu/menu.component';
 import { LibraryComponent } from './components/library/library.component';
 import { CodePipe } from './components/pipes/code-pipe/code.pipe';
+import { CookieNoticeComponent } from './components/cookie-notice/cookie-notice.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { CodePipe } from './components/pipes/code-pipe/code.pipe';
     ScrollTopButtonComponent,
     MenuComponent,
     LibraryComponent,
-    CodePipe
+    CodePipe,
+    CookieNoticeComponent
   ],
   imports: [
     BrowserModule,

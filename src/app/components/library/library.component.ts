@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { faBookOpen, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBookOpen } from '@fortawesome/free-solid-svg-icons';
 
 // @ts-ignore
 import libraryEntries from './library.json';
+import {DarkmodeService} from '../../darkmode.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-library',
@@ -12,19 +14,25 @@ import libraryEntries from './library.json';
 export class LibraryComponent implements OnInit {
 
   bookOpen = faBookOpen;
-  times = faTimes;
   entries = libraryEntries.entries.sort((a, b) => {
     return a.title.localeCompare(b.title);
   });
   filteredEntries: any;
   activeKey = this.entries[0];
   toggled = false;
+  darkmode: boolean;
 
-  constructor() {
+  constructor(private darkmodeService: DarkmodeService,
+              private route: ActivatedRoute) {
+    // @ts-ignore
+    this.darkmode = route.queryParams.value.mode === 'dark';
     this.filteredEntries = this.entries;
   }
 
   ngOnInit() {
+    this.darkmodeService.darkMode$.subscribe( val => {
+      this.darkmode = val;
+    });
   }
 
   inputChange(input) {

@@ -1,4 +1,4 @@
-<div class="container" id="header-card">
+<div class="container" id="header-card" [class.dark]="darkMode">
   <div class="row">
     <div class="col-12 col-md-7">
       <h2 [innerHTML]="sectionData.primary.header[0].text | code" [class.dark]="darkMode"></h2>

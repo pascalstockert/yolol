@@ -2,11 +2,15 @@
   <div class="col-12 justify-content-start d-flex">
     <button class="prev" *ngIf="sectionData.primary.prev_button_link.uid != undefined" mat-raised-button
             [innerHTML]="sectionData.primary.prev_button_text | prismicDOM"
-            routerLink="/{{sectionData.primary.prev_button_link.uid}}">
+            [class.dark]="darkmode"
+            routerLink="/{{sectionData.primary.prev_button_link.uid}}"
+            [queryParams]="darkmode ? { mode: 'dark' } : {}">
     </button>
     <button class="next highlighted" *ngIf="sectionData.primary.next_button_link.uid != undefined" mat-raised-button
             [innerHTML]="sectionData.primary.next_button_text | prismicDOM"
-            routerLink="/{{sectionData.primary.next_button_link.uid}}">
+            [class.dark]="darkmode"
+            routerLink="/{{sectionData.primary.next_button_link.uid}}"
+            [queryParams]="darkmode ? { mode: 'dark' } : {}">
     </button>
   </div>
 </div>

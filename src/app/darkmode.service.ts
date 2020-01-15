@@ -1,9 +1,8 @@
 import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { isPlatformBrowser } from '@angular/common';
-import { fromEvent ,  Observable, empty } from 'rxjs';
-import { map, share } from 'rxjs/operators';
-import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import { Observable, empty } from 'rxjs';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -25,22 +24,16 @@ export class DarkmodeService {
               @Inject(PLATFORM_ID) private platformId: Object,
               private router: Router,
               private route: ActivatedRoute) {
-    router.events.subscribe(val => {
-      if (isPlatformBrowser(this.platformId)) {
-        if (val instanceof NavigationEnd) {
-          this.darkMode$ = router.events.pipe(
-            map(event => {
-              // @ts-ignore
-              return route.queryParams.value.mode === 'dark';
-            }),
-            share()
-          );
+    this.darkMode$ = new Observable(observer => {
+      router.events.subscribe(val => {
+        if (isPlatformBrowser(this.platformId)) {
+          // @ts-ignore
+          observer.next(route.queryParams.value.mode === 'dark');
+        } else {
+          // in non-browser environments, provide an empty observable so you can safely subscribe to scroll$
+          this.darkMode$ = empty();
         }
-      } else {
-        // in non-browser environments, provide an empty observable so you can safely subscribe to scroll$
-        this.darkMode$ = empty();
-
-      }
+      });
     });
   }
 }

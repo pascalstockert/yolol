@@ -1,13 +1,40 @@
 @import "../imports";
+
+#collapsibles {
+  &.dark {
+    color: $text-dark;
+  }
+}
+
+mat-expansion-panel {
+  &.dark {
+    background-color: $color-dark-1;
+    color: $text-dark;
+  }
+}
 mat-panel-title {
   font-size: 18px;
   font-weight: 600;
   font-family: 'Quicksand', sans-serif;
+  &.dark {
+    color: $text-dark;
+    .code-inline {
+      color: $text-dark !important;
+    }
+  }
 }
 button {
+  &.dark {
+    border-color: $text-dark;
+    color: $text-dark !important;
+  }
   &.clickable {
     color: $color-accent;
     background-color: $color-light-1;
+    &.dark {
+      color: $color-accent-dark !important;
+      background-color: $color-dark-2;
+    }
   }
   font-family: 'Quicksand', sans-serif;
   font-weight: 700;

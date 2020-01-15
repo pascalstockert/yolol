@@ -18,6 +18,14 @@ button:nth-child(2) {
   margin-left: 15px;
 }
 .highlighted {
-  background-color: $color-light-1;
   color: $color-accent;
+}
+button {
+  &.dark {
+    background-color: $color-dark-1;
+    color: $text-dark;
+    &.highlighted {
+      color: $color-accent-dark;
+    }
+  }
 }

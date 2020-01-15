@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faUser, faCopyright } from '@fortawesome/free-solid-svg-icons';
+import {DarkmodeService} from '../../darkmode.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -11,12 +12,21 @@ export class FooterComponent implements OnInit {
 
   heart = faHeart;
   user = faUser;
+  copyright = faCopyright;
+  darkmode: boolean;
 
   @Input() sectionData;
 
-  constructor() { }
+  constructor(private darkmodeService: DarkmodeService,
+              private route: ActivatedRoute) {
+    // @ts-ignore
+    this.darkmode = route.queryParams.value.mode === 'dark';
+  }
 
   ngOnInit() {
+    this.darkmodeService.darkMode$.subscribe( val => {
+      this.darkmode = val;
+    });
   }
 
 }

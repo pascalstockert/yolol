@@ -12,10 +12,16 @@ button{
   transform: translateX(-50%);
   transition-duration: .3s !important;
   opacity: 1;
+  &.dark {
+    background-color: $color-dark-1;
+  }
 }
 fa-icon {
   z-index: 11;
   color: $color-accent;
+  &.dark {
+    color: $color-accent-dark;
+  }
 }
 .scrolled {
   bottom: 50px;

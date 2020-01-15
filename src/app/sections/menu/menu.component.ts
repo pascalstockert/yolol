@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, ViewEncapsulation, AfterViewInit} from '@angular/core';
 import {WindowScrollService} from '../../window-scroll.service';
 import { DOCUMENT } from '@angular/common';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
@@ -14,9 +14,10 @@ import {DarkmodeService} from '../../darkmode.service';
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
-  providers: [CmsService]
+  providers: [CmsService],
+  encapsulation: ViewEncapsulation.None
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit, AfterViewInit {
 
   faHome = faHome;
 
@@ -60,6 +61,12 @@ export class MenuComponent implements OnInit {
         elem.classList.remove('toggled');
       tmpScroll = windowPos;
     });
+  }
+
+  ngAfterViewInit() {
+    window.setTimeout( () => {
+      console.log(document.getElementById('cdk-overlay-0'));
+    }, 300);
   }
 
 }
