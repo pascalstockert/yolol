@@ -1,7 +1,8 @@
-$color-dark-3: #161616;
-$color-dark-2: #363636;
-$color-dark-1: #545454;
-$color-dark: #676767;
+$color-dark-3: #676767;
+$color-dark-2: #545454;
+$color-dark-1: #363636;
+$color-dark: #161616;
+$text-dark: rgba(255,255,255,0.7);
 
 $color-light: #F8F8F8;
 $color-light-1: #F0F0F0;
@@ -30,15 +31,22 @@ $size-md: 768px;
   margin-bottom: 0;
 }
 ::ng-deep a:not(.logo-bg) {
-  color: $color-accent;
-  padding: initial;
-  transition-duration: .1s;
-  border-radius: 3px;
-  &:hover{
-    color: $color-light;
-    padding: 3px 5px;
-    background-color: $color-dark;
-    text-decoration: none;
+  color: $color-accent !important;
+  padding: initial !important;
+  transition-duration: .1s !important;
+  border-radius: 3px !important;
+  &:hover {
+    color: $color-light !important;
+    padding: 3px 5px !important;
+    background-color: $color-dark !important;
+    text-decoration: none !important;
+  }
+  &.dark {
+    color: $color-accent-dark !important;
+    &:hover {
+      color: $color-dark !important;
+      background-color: $color-light-3 !important;
+    }
   }
 }
 
@@ -86,6 +94,10 @@ $size-md: 768px;
   color: rgba(0,0,0,0.7);
   background-color: rgba(0,0,0,0.1);
   border-radius: 3px;
+  &.dark {
+    color: $text-dark;
+    background-color: rgba(255,255,255,0.1);
+  }
 }
 ::ng-deep .code-block {
   display: block;
@@ -97,7 +109,7 @@ $size-md: 768px;
   color: rgba(0,0,0,0.7);
   background-color: rgba(0,0,0,0.05);
   border-radius: 3px;
-  border-left: 3px solid #676767;
+  border-left: 3px solid $color-dark-3;
   &:after {
     content: 'CODE';
     position: absolute;
@@ -109,6 +121,15 @@ $size-md: 768px;
     font-size: 10px;
     background-color: $color-light;
     border-radius: 3px;
+  }
+  &.dark {
+    color: $text-dark;
+    background-color: $color-dark-1;
+    border-left: 3px solid $color-light-3;
+    &:after {
+      color: $text-dark;
+      background-color: $color-dark-2;
+    }
   }
 }
 
