@@ -11,6 +11,39 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
+$mat-yolol-light: (
+  50: #f3e6f0,
+  100: #e2bfdc,
+  200: #cf95c5,
+  300: #ba6dae,
+  400: #ab509d,
+  500: #9b378d,
+  600: #8f3287,
+  700: #7f2b7f,
+  800: #702776,
+  900: #551f65,
+  A100: #e2bfdc,
+  A200: #cf95c5,
+  A400: #ab509d,
+  A700: #7f2b7f,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
+
 $yolol-primary: mat-palette($mat-yolol-light);
 $yolol-accent: mat-palette($mat-yolol-light);
 
