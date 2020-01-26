@@ -24,6 +24,7 @@ export class MenuComponent implements OnInit, AfterViewChecked {
   pages: any;
   windowPos = 0;
   darkMode = false;
+  pageCount: number;
 
   constructor(@Inject(DOCUMENT) private document: any,
               private cmsService: CmsService,
@@ -39,6 +40,7 @@ export class MenuComponent implements OnInit, AfterViewChecked {
     cmsService.getPages().then(res => {
       // @ts-ignore
       this.pages = res.results.sort(sortByProperty('uid'));
+      this.pageCount = this.pages.length - 1;
     });
     router.events.subscribe(val => {
       // @ts-ignore
@@ -54,7 +56,7 @@ export class MenuComponent implements OnInit, AfterViewChecked {
     });
     let tmpScroll = 0;
 
-    window.addEventListener('scroll', function f(e) {
+    window.addEventListener('scroll', function f() {
       const windowPos = window.scrollY;
       windowPos < tmpScroll ?
         elem.classList.add('toggled') :

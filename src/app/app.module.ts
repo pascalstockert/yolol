@@ -57,6 +57,7 @@ import { MenuComponent } from './sections/menu/menu.component';
 import { LibraryComponent } from './components/library/library.component';
 import { CodePipe } from './components/pipes/code-pipe/code.pipe';
 import { CookieNoticeComponent } from './components/cookie-notice/cookie-notice.component';
+import { PrismicDOMtextPipe } from './components/pipes/prismic-pipe/prismic-domtext.pipe';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { CookieNoticeComponent } from './components/cookie-notice/cookie-notice.
     MenuComponent,
     LibraryComponent,
     CodePipe,
-    CookieNoticeComponent
+    CookieNoticeComponent,
+    PrismicDOMtextPipe
   ],
   imports: [
     BrowserModule,

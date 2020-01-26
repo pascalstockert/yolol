@@ -100,6 +100,7 @@ $size-md: 768px;
   }
 }
 ::ng-deep .code-block {
+  overflow-x: auto;
   display: block;
   position: relative;
   white-space: pre;
@@ -109,18 +110,19 @@ $size-md: 768px;
   color: rgba(0,0,0,0.7);
   background-color: rgba(0,0,0,0.05);
   border-radius: 3px;
-  border-left: 3px solid $color-dark-3;
-  &:after {
-    content: 'CODE';
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: fit-content;
-    width: fit-content;
-    padding: 5px;
-    font-size: 10px;
-    background-color: $color-light;
-    border-radius: 3px;
+  @media only screen and (min-width: 768px) {
+    padding: 10px 13px 10px 26px;
+    &:after {
+      content: 'CODE';
+      position: absolute;
+      top: 50%;
+      height: fit-content;
+      left: 0;
+      width: fit-content;
+      color: black;
+      font-size: 10px;
+      transform: translateY(-50%) rotate(-90deg);
+    }
   }
   &.dark {
     color: $text-dark;

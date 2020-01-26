@@ -13,7 +13,8 @@ export class TextComponent implements OnInit {
   @Input() sectionData;
 
   constructor(private darkmodeService: DarkmodeService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute
+  ) {
     // @ts-ignore
     this.darkmode = route.queryParams.value.mode === 'dark';
   }

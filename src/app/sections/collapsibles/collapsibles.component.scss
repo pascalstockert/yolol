@@ -42,3 +42,7 @@ button {
   margin-top: 20px;
 }
 
+.mat-expansion-panel-header-title::ng-deep h3 {
+  font-size: 1.3rem;
+}
+

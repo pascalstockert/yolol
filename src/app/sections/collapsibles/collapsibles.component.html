@@ -1,7 +1,7 @@
 <div class="container" id="collapsibles" [class.dark]="darkmode">
   <div class="row">
     <div class="col-12 col-md-7">
-      <h2 [innerHTML]="sectionData.primary.header[0].text | code"></h2>
+      <h2 [innerHTML]="sectionData.primary.header| prismicDOMtext | code"></h2>
       <p [innerHTML]="sectionData.primary.description | prismicDOM"></p>
     </div>
     <div class="col-12 col-md-5"></div>
@@ -12,9 +12,9 @@
 
         <mat-expansion-panel *ngFor="let collapsible of sectionData.items" [class.dark]="darkmode">
           <mat-expansion-panel-header>
-            <mat-panel-title [innerHTML]="collapsible.collapsible_header[0].text | code"
+            <mat-panel-title [innerHTML]="collapsible.collapsible_header | prismicDOMtext | code"
                              [class.dark]="darkmode"></mat-panel-title>
-            <mat-panel-description [innerHTML]="collapsible.collapsible_subheader | code"></mat-panel-description>
+            <mat-panel-description [innerHTML]="collapsible.collapsible_subheader | prismicDOMtext | code"></mat-panel-description>
           </mat-expansion-panel-header>
 
           <div [innerHTML]="collapsible.collapsible_description | prismicDOM"></div>

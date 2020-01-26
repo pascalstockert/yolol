@@ -1,5 +1,5 @@
 <div class="menu" [class.toggled]="windowPos < 200" [class.dark]="darkMode">
-  <button mat-raised-button class="menu-button" mat-flat-button mat-ripple routerLink="/{{pages[pages?.length-1]?.uid}}"
+  <button mat-raised-button class="menu-button" mat-flat-button mat-ripple [routerLink]="'/landing'"
                                                                         [queryParams]="darkMode ? { mode: 'dark' } : {}"
                                                                         [class.dark]="darkMode">
     <fa-icon [icon]="faHome" [class.dark]="darkMode"></fa-icon>
