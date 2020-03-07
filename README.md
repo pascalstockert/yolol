@@ -12,7 +12,7 @@ always happy to answer!
 <details>
   <summary> What is Starbase? </summary>
   
-  >Everything about YOLOL, it's creators and documentation.<br><br>
+  > An overview of YOLOL, it's creators and documentation.<br><br>
   >**Stuff to learn in this chapter:**
   >+ YOLOL and the name's meaning
   >+ Information about Starbase and it's creators Frozenbyte
