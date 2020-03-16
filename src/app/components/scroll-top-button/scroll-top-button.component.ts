@@ -13,7 +13,7 @@ import {DarkmodeService} from '../../darkmode.service';
 export class ScrollTopButtonComponent implements OnInit {
 
   arrowUp = faArrowUp;
-  scrollY: number;
+  scrollY: boolean;
   docHeight: number;
   clientHeight: number;
   darkmode: boolean;
@@ -29,11 +29,20 @@ export class ScrollTopButtonComponent implements OnInit {
     });
     // @ts-ignore
     this.darkmode = route.queryParams.value.mode === 'dark';
+    this.scrollY = true;
   }
 
   ngOnInit() {
+    let temp = 0;
     this.scrollService.scroll$.subscribe(pos => {
-      this.scrollY = pos;
+      if (pos > temp || pos <= 110) {
+        temp = pos;
+        this.scrollY = true;
+      } else if (pos < temp) {
+        this.scrollY = false;
+        temp = pos;
+      }
+      console.log(this.scrollY);
     });
     this.darkmodeService.darkMode$.subscribe( val => {
       this.darkmode = val;
@@ -46,7 +55,7 @@ export class ScrollTopButtonComponent implements OnInit {
 
   resolution() {
     setTimeout( f => {
-      let docHeight = document.body.scrollHeight;
+      const docHeight = document.body.scrollHeight;
       this.docHeight = docHeight;
     }, 1000);
     this.clientHeight = window.outerHeight;
