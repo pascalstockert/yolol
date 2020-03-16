@@ -1,31 +1,26 @@
 @import "../../sections/imports";
 
-#footer {
+.footer {
+  width: 100%;
   margin-top: 100px;
-}
-fa-icon {
-  font-size: 1rem;
-  &.dark {
-    color: $color-accent-dark;
-  }
-}
-.full-width {
-  color: $color-dark-3;
+  padding: 50px 0;
   background-color: $color-light-1;
-  height: 70px;
-  padding: 20px 0;
+  color: $color-dark;
+  transition-duration: .3s;
   &.dark {
-    color: $text-dark;
     background-color: $color-dark-1;
+    color: $color-light;
   }
-}
-a {
-  color: $color-dark-3;
-}
-.margin-left-10 {
-  margin-left: 10px;
-}
-.footer-container {
-  display: flex;
-  justify-content: center;
+  @media screen and (max-width: 767px){
+    text-align: center;
+    .col-12 {
+      margin: 20px 0
+    }
+  }
+  fa-icon {
+    font-size: 20px;
+  }
+  p {
+    font-size: 15px;
+  }
 }
