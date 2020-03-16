@@ -18,11 +18,12 @@ button {
 #cookie-notice {
   display: block;
   position: fixed;
-  bottom: 30px;
+  opacity: 0;
+  bottom: -100px;
   margin-left: 50%;
   padding: 20px;
   border-radius: 3px;
-  transform: translateX(-50%);
+  transform: translateX(-50%) scale(0, 0);
   background-color: $color-light-3;
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   transition-duration: .3s;
@@ -40,8 +41,4 @@ fa-icon {
   &::ng-deep svg {
     height: 100%;
   }
-}
-
-.hidden {
-  display: none !important;
 }
