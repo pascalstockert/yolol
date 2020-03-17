@@ -42,7 +42,6 @@ export class ScrollTopButtonComponent implements OnInit {
         this.scrollY = false;
         temp = pos;
       }
-      console.log(this.scrollY);
     });
     this.darkmodeService.darkMode$.subscribe( val => {
       this.darkmode = val;

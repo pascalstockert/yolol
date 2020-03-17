@@ -3,16 +3,21 @@
 </button>
 
 <div class="library-wrapper shadow" [class.hidden]="toggled">
-  <mat-horizontal-stepper labelPosition="bottom" #stepper [class.dark]="darkmode">
+  <div class="page-wrapper" id="page-view">
+    <div class="page">
 
-    <mat-step>
-      <ng-template matStepLabel>Features and topics</ng-template>
-      <mat-form-field [class.dark]="darkmode">
-        <input matInput placeholder="Search" (input)="inputChange($event.target.value)">
-      </mat-form-field>
+      <h3 class="text-center">Library</h3>
+
+      <mat-card>
+        <mat-form-field>
+          <mat-label>Search</mat-label>
+          <input matInput placeholder="Search for YOLOL-Stuff" (input)="inputChange($event.target.value)">
+        </mat-form-field>
+      </mat-card>
+
       <div class="entry-wrapper">
         <div *ngFor="let entry of filteredEntries; index as i">
-          <div class="entry" (click)="stepper.next(); activeKey = entry" [class.dark]="darkmode">
+          <div class="entry" (click)="nextPage(); activeKey = entry" [class.dark]="darkmode">
             <h4 [innerText]="entry.title"></h4>
             <p class="entry-description" [innerHTML]="entry.description | code"></p>
             <div class="syntax" [innerText]="entry.syntax" [class.dark]="darkmode"></div>
@@ -21,14 +26,15 @@
         </div>
       </div>
       <button class="close-button" (click)="toggle()" mat-raised-button [class.dark]="darkmode">Close</button>
-    </mat-step>
 
-    <mat-step>
-      <ng-template matStepLabel>Details</ng-template>
+    </div>
+    <div class="page">
 
       <div class="detail-wrapper">
         <div class="header-wrapper">
           <h3 [innerText]="activeKey.title" class="font-weight-bolder"></h3>
+          <button class="back-button" (click)="previousPage()" mat-raised-button><fa-icon [icon]="chevronLeft"></fa-icon></button>
+          <button class="close-button" (click)="toggle()" mat-raised-button><fa-icon [icon]="cross"></fa-icon></button>
         </div>
         <div class="scrollable">
           <p [innerHTML]="activeKey.det_desc | code"></p>
@@ -41,15 +47,6 @@
         </div>
       </div>
 
-      <div class="d-flex align-content-around full-width">
-        <div class="back-button">
-          <button mat-raised-button matStepperPrevious>Back to search</button>
-        </div>
-        <div (click)="toggle()">
-          <button class="close-button-second" mat-raised-button [class.dark]="darkmode">Close</button>
-        </div>
-      </div>
-    </mat-step>
-
-  </mat-horizontal-stepper>
+    </div>
+  </div>
 </div>

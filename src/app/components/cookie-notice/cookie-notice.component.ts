@@ -26,7 +26,7 @@ export class CookieNoticeComponent implements OnInit, AfterViewInit {
   enter() {
     setTimeout(() => {
       this.cookieNotice.style.opacity = '1';
-      this.cookieNotice.style.transform = 'scale(1, 1)';
+      this.cookieNotice.style.transform = 'translateX(-50%) scale(1, 1)';
       this.cookieNotice.style.bottom = '30px';
     }, 500);
   }

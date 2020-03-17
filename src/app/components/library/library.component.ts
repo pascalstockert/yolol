@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { faBookOpen } from '@fortawesome/free-solid-svg-icons';
 
 // @ts-ignore
 import libraryEntries from './library.json';
 import {DarkmodeService} from '../../darkmode.service';
 import {ActivatedRoute} from '@angular/router';
+import {faChevronCircleLeft} from '@fortawesome/free-solid-svg-icons/faChevronCircleLeft';
+import { faBookOpen } from '@fortawesome/free-solid-svg-icons';
+import {faTimes} from '@fortawesome/free-solid-svg-icons/faTimes';
+
 
 @Component({
   selector: 'app-library',
@@ -14,6 +17,8 @@ import {ActivatedRoute} from '@angular/router';
 export class LibraryComponent implements OnInit {
 
   bookOpen = faBookOpen;
+  chevronLeft = faChevronCircleLeft;
+  cross = faTimes;
   entries = libraryEntries.entries.sort((a, b) => {
     return a.title.localeCompare(b.title);
   });
@@ -44,6 +49,20 @@ export class LibraryComponent implements OnInit {
         }
       });
     });
+  }
+
+  nextPage () {
+    // @ts-ignore
+    document.getElementsByClassName('page')[0].style.transform = 'translateX(-100%)';
+    // @ts-ignore
+    document.getElementsByClassName('page')[1].style.transform = 'translateX(-100%)';
+  }
+
+  previousPage () {
+    // @ts-ignore
+    document.getElementsByClassName('page')[0].style.transform = 'translateX(0)';
+    // @ts-ignore
+    document.getElementsByClassName('page')[1].style.transform = 'translateX(0)';
   }
 
   toggle() {

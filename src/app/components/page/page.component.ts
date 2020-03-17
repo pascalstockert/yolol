@@ -36,11 +36,11 @@ export class PageComponent implements OnInit, AfterViewChecked {
         );
       }),
       catchError(err => {
-        console.log('here');
+        console.log(err);
         return of(null);
       })
     );
-    pages.subscribe(console.log);
+    pages.subscribe();
     const routing = this.router.events;
     routing.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {

@@ -1,8 +1,6 @@
 @import '../../sections/imports';
 
-.full-width {
-  width: 100%;
-}
+$width: 30vw;
 
 .lib-button {
   position: fixed;
@@ -15,132 +13,217 @@
     background-color: $color-dark-1;
   }
 }
-fa-icon .dark {
-  color: $color-accent-dark;
-}
-mat-horizontal-stepper {
-  &.dark {
-    background-color: $color-dark-1;
-    color: $text-dark;
-    ::ng-deep .mat-step-label {
-      color: $text-dark;
-    }
-  }
-}
-.mat-horizontal-stepper-header-container {
-  max-width: 80%;
-  &.dark {
-    color: $text-dark;
-  }
-}
-::ng-deep mat-step-header {
-  min-width: 180px;
-}
-mat-horizontal-stepper {
-  height: 100vh;
-  background-color: $color-light-1;
-}
-mat-form-field {
-  width: 100%;
-  &.dark {
-    ::ng-deep .mat-form-field-underline {
-      background-color: $text-dark;
-    }
-  }
-}
+
 .library-wrapper {
   position: fixed;
-  top: 0;
-  right: 0;
-  width: 100vw;
-  max-width: 500px;
-  transform: translateX(105%);
+  top: 10vh;
+  right: -$width;
+  height: calc(90vh - 30px);
+  width: $width;
+  background-color: $color-light-1;
+  border-radius: 3px;
+  overflow-x: hidden;
   transition-duration: .3s;
-}
-.entry-wrapper {
-  position: relative;
-  max-height: calc(100vh - 250px);
-  overflow: auto;
-  padding: 20px 0;
-}
-.detail-wrapper {
-  overflow: auto;
-  max-height: calc(100vh - 210px);
-  padding: 20px 0;
-  margin: 20px 0;
-}
-.entry {
-  cursor: pointer;
-  h4 {
-    color: $color-accent;
-  }
-  .entry-description {
-    font-size: 14px;
-  }
-  &.dark {
-    h4 {
-      color: $color-accent-dark;
+  .page-wrapper {
+    display: flex;
+    width: $width * 2;
+    height: 100%;
+    .page {
+      display: flex;
+      flex-flow: column;
+      height: 100%;
+      width: $width;
+      padding: 20px;
+      background-color: $color-light-1;
+      overflow: hidden;
+      transition-duration: .3s;
+      mat-form-field {
+        width: 100%;
+      }
+      .entry-wrapper {
+        flex-grow: 1;
+        overflow: auto;
+        margin: 20px 0;
+        .entry {
+          cursor: pointer;
+        }
+      }
+      mat-card {
+        margin-top: 10px;
+        padding: 0 10px;
+      }
+      .header-wrapper {
+        display: flex;
+        flex-flow: row;
+        h3 {
+          flex-grow: 1;
+        }
+        .back-button {
+          margin: 0 0 0 10px;
+          height: fit-content;
+          padding: 0;
+          min-width: 36px;
+        }
+        .close-button {
+          margin: 0 0 0 10px;
+          height: fit-content;
+          padding: 0;
+          min-width: 36px;
+        }
+      }
+      .syntax {
+        font-size: 12px;
+        padding: 3px 5px;
+        background-color: rgba(0,0,0,0.1);
+        width: fit-content;
+        border-radius: 3px;
+      }
     }
   }
 }
-.code-block {
-  overflow-x: auto;
-  margin: 10px 0;
-  &:after {
-    display: none;
-  }
-  &.dark {
-    background-color: $color-dark-2;
+
+@media screen and (max-width: 992px){
+  $width: 50vw;
+  .library-wrapper {
+    position: fixed;
+    top: 10vh;
+    right: -$width;
+    height: calc(90vh - 30px);
+    width: $width;
+    background-color: $color-light-1;
+    border-radius: 3px;
+    overflow-x: hidden;
+    transition-duration: .3s;
+    .page-wrapper {
+      display: flex;
+      width: $width * 2;
+      height: 100%;
+      .page {
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+        width: $width;
+        padding: 20px;
+        background-color: $color-light-1;
+        overflow: hidden;
+        transition-duration: .3s;
+        mat-form-field {
+          width: 100%;
+        }
+        .entry-wrapper {
+          flex-grow: 1;
+          overflow: auto;
+          margin: 20px 0;
+          .entry {
+            cursor: pointer;
+          }
+        }
+        mat-card {
+          margin-top: 10px;
+          padding: 0 10px;
+        }
+        .header-wrapper {
+          display: flex;
+          flex-flow: row;
+          h3 {
+            flex-grow: 1;
+          }
+          .back-button {
+            margin: 0 0 0 10px;
+            height: fit-content;
+            padding: 0;
+            min-width: 36px;
+          }
+          .close-button {
+            margin: 0 0 0 10px;
+            height: fit-content;
+            padding: 0;
+            min-width: 36px;
+          }
+        }
+        .syntax {
+          font-size: 12px;
+          padding: 3px 5px;
+          background-color: rgba(0,0,0,0.1);
+          width: fit-content;
+          border-radius: 3px;
+        }
+      }
+    }
   }
 }
-.syntax {
-  overflow: auto;
-  margin: 10px 0;
-  padding: 5px 8px;
-  width: fit-content;
-  font-size: 12px;
-  color: rgba(0,0,0,0.7);
-  background-color: rgba(0,0,0,0.1);
-  border-radius: 3px;
-  &.dark {
-    color: $text-dark;
-    background-color: $color-dark-2;
-  }
-}
-.close-button{
-  position: absolute;
-  width: calc(100% - 48px);
-  bottom: 20px;
-  background-color: $color-accent;
-  color: $color-light-3;
-  &.dark {
-    background-color: $color-accent-dark;
-    color: $color-dark;
-  }
-}
-.close-button-second{
-  position: absolute;
-  right: 24px;
-  color: $color-light-1;
-  background-color: $color-accent;
-  &.dark {
-    background-color: $color-accent-dark;
-    color: $color-dark;
+
+@media screen and (max-width: 636px){
+  $width: 85vw;
+  .library-wrapper {
+    position: fixed;
+    top: 10vh;
+    right: -$width;
+    height: calc(90vh - 30px);
+    width: $width;
+    background-color: $color-light-1;
+    border-radius: 3px;
+    overflow-x: hidden;
+    transition-duration: .3s;
+    .page-wrapper {
+      display: flex;
+      width: $width * 2;
+      height: 100%;
+      .page {
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+        width: $width;
+        padding: 20px;
+        background-color: $color-light-1;
+        overflow: hidden;
+        transition-duration: .3s;
+        mat-form-field {
+          width: 100%;
+        }
+        .entry-wrapper {
+          flex-grow: 1;
+          overflow: auto;
+          margin: 20px 0;
+          .entry {
+            cursor: pointer;
+          }
+        }
+        mat-card {
+          margin-top: 10px;
+          padding: 0 10px;
+        }
+        .header-wrapper {
+          display: flex;
+          flex-flow: row;
+          h3 {
+            flex-grow: 1;
+          }
+          .back-button {
+            margin: 0 0 0 10px;
+            height: fit-content;
+            padding: 0;
+            min-width: 36px;
+          }
+          .close-button {
+            margin: 0 0 0 10px;
+            height: fit-content;
+            padding: 0;
+            min-width: 36px;
+          }
+        }
+        .syntax {
+          font-size: 12px;
+          padding: 3px 5px;
+          background-color: rgba(0,0,0,0.1);
+          width: fit-content;
+          border-radius: 3px;
+        }
+      }
+    }
   }
 }
 
 .hidden {
-  transform: translateX(0);
-}
-.example {
-  padding-bottom: 20px;
-  h5 {
-    margin-top: 18px;
-    color: $color-accent;
-  }
-  &.dark {
-    h5 {
-      color: $color-accent-dark;
-    }
-  }
+  right: 30px;
 }
