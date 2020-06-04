@@ -26,4 +26,11 @@
     </div>
     <div class="col-12 col-md-5"></div>
   </div>
+  <div class="row">
+    <div class="col-12">
+      <button mat-raised-button class="learn"
+              [routerLink]="'/' + sectionData.items[0].collapsible_button_link.uid"
+              [class.dark]="darkmode">Start learning!</button>
+    </div>
+  </div>
 </div>

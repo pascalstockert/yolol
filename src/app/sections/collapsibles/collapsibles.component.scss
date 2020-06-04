@@ -24,6 +24,10 @@ mat-panel-title {
   }
 }
 button {
+  &.learn {
+    background-color: $color-accent;
+    color: $color-light;
+  }
   &.dark {
     border-color: $text-dark;
     color: $text-dark !important;
