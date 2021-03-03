@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Router, NavigationEnd} from '@angular/router';
+
+declare let gtag: Function;
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'yolol-v2';
+  constructor(router: Router) {
+    router.events.subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          gtag('config', 'UA-151346620-1', {
+              'page_path': event.urlAfterRedirects
+            }
+          );
+        }
+      }
+    );
+  }
 }

@@ -1,0 +1,26 @@
+@import "../imports";
+#page-buttons {
+  padding: 20px 0;
+}
+.prev, .next {
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+button:nth-child(2) {
+  margin-left: 15px;
+}
+.highlighted {
+  background-color: $color-accent;
+  color: $color-light
+}
+button {
+  &.dark {
+    background-color: $color-dark-1;
+    color: $text-dark;
+    &.highlighted {
+      color: $color-accent-dark;
+    }
+  }
+}

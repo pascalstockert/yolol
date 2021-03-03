@@ -1,0 +1,26 @@
+@import "../../sections/imports";
+
+.footer {
+  width: 100%;
+  margin-top: 100px;
+  padding: 50px 0;
+  background-color: $color-light-1;
+  color: $color-dark;
+  transition-duration: .3s;
+  &.dark {
+    background-color: $color-dark-1;
+    color: $color-light;
+  }
+  @media screen and (max-width: 767px){
+    text-align: center;
+    .col-12 {
+      margin: 20px 0
+    }
+  }
+  fa-icon {
+    font-size: 20px;
+  }
+  p {
+    font-size: 15px;
+  }
+}

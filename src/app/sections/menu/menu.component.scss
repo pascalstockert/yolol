@@ -1,0 +1,50 @@
+@import "../imports";
+.menu {
+  transform: translateY(-100%);
+  transition-duration: .3s;
+  width: 100vw;
+  padding: 30px 10px 10px 10px;
+}
+.mat-menu-content {
+  &.dark {
+    background-color: $color-dark-1;
+  }
+}
+::ng-deep .mat-menu-panel{
+  background-color: $color-light-2;
+}
+.mat-menu-item {
+  font-family: 'Open Sans', sans-serif;
+  color: $color-accent;
+  transition-duration: .3s;
+  &.dark {
+    color: $color-accent-dark;
+    background-color: $color-dark-1;
+    &:hover {
+      background-color: $color-dark-2;
+    }
+  }
+}
+button.menu-button {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  overflow: hidden;
+  margin-left: 20px;
+  font-size: 18px;
+  color: $color-accent;
+  background-color: $color-light-1;
+  &.dark {
+    color: $color-accent-dark;
+    background-color: $color-dark-1;
+  }
+}
+fa-icon {
+  color: $color-accent;
+  font-size: 25px;
+  &.dark {
+    color: $color-accent-dark;
+  }
+}
+.toggled {
+  transform: translateY(0);
+}

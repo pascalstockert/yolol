@@ -1,0 +1,20 @@
+@import "../imports";
+img {
+  max-width: 100%;
+}
+
+.col-12 {
+  width: fit-content;
+  padding-right: 0;
+  padding-left: 10px;
+  background-color: rgba(0,0,0,0.05);
+  border-radius: 3px;
+  box-sizing: border-box;
+  border-left: 3px solid $color-dark;
+  &.dark {
+    border-left: 3px solid $color-light-3;
+  }
+}
+img {
+  border-radius: 3px;
+}

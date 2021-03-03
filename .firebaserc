@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "yolol-tutorial": {
+      "hosting": {
+        "yolol-v2": [
+          "yolol-tutorial"
+        ]
+      }
+    }
+  }
+}
