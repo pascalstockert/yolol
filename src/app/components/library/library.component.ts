@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 // @ts-ignore
 import libraryEntries from './library.json';
-import {DarkmodeService} from '../../darkmode.service';
+import {DarkmodeService} from '../../services/darkmode.service';
 import {ActivatedRoute} from '@angular/router';
 import {faChevronCircleLeft} from '@fortawesome/free-solid-svg-icons/faChevronCircleLeft';
 import { faBookOpen } from '@fortawesome/free-solid-svg-icons';

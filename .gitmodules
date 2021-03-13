@@ -1,0 +1,3 @@
+[submodule "src/submodules/Yazur"]
+	path = src/submodules/Yazur
+	url = git@github.com:Azurethi/Yazur.git

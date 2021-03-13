@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DarkmodeService} from '../../darkmode.service';
+import {DarkmodeService} from '../../services/darkmode.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({

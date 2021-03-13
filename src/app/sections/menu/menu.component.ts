@@ -1,11 +1,11 @@
 import {Component, Inject, OnInit, ViewEncapsulation, AfterViewInit, AfterViewChecked} from '@angular/core';
-import {WindowScrollService} from '../../window-scroll.service';
+import {WindowScrollService} from '../../services/window-scroll.service';
 import { DOCUMENT } from '@angular/common';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
-import {CmsService} from '../../cms.service';
+import {CmsService} from '../../services/cms.service';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
-import {DarkmodeService} from '../../darkmode.service';
+import {DarkmodeService} from '../../services/darkmode.service';
 
 
 

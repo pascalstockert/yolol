@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { faHeart, faUser, faCopyright } from '@fortawesome/free-solid-svg-icons';
-import {DarkmodeService} from '../../darkmode.service';
+import {DarkmodeService} from '../../services/darkmode.service';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({

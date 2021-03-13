@@ -1,9 +1,9 @@
 import {Component, OnInit, AfterViewChecked} from '@angular/core';
-import { CmsService } from '../../cms.service';
+import { CmsService } from '../../services/cms.service';
 import {ActivatedRoute, NavigationEnd, ParamMap, Router} from '@angular/router';
 import {catchError, map, switchMap, tap} from 'rxjs/operators';
 import {Observable, of, combineLatest} from 'rxjs';
-import {DarkmodeService} from '../../darkmode.service';
+import {DarkmodeService} from '../../services/darkmode.service';
 
 @Component({
   selector: 'app-page',

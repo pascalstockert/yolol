@@ -1,0 +1,82 @@
+@import "../../../assets/scss/shared.scss";
+
+.snippet-wrapper {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  background-color: #f3f3f3;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -3px;
+    height: 100%;
+    width: 3px;
+    background: linear-gradient(180deg, #F2B9C4 0%, #B14E7F 50%, #823575 100%);
+  }
+  .line-wrapper {
+    display: flex;
+    position: relative;
+    .lines {
+      margin: 0 12px;
+      color: #c4c4c4;
+
+      font-family: 'JetBrains Mono', sans-serif;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      white-space: pre;
+      text-align: right;
+
+      div {
+        &:hover {
+          text-decoration: underline;
+          cursor: default;
+        }
+        &.active:before {
+          content: '';
+          position: absolute;
+          display: block;
+          left: 0;
+          height: 24px;
+          width: 100%;
+          background-color: rgba(0, 0, 0, 0.05);
+        }
+      }
+    }
+  }
+}
+
+.editor-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.editor-overlay {
+  width: 100%;
+  background-color: transparent;
+  color: black;
+
+  font-family: 'JetBrains Mono', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  white-space: pre;
+}
+
+.editor {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  color: transparent;
+  caret-color: black;
+  background: transparent;
+
+  font-family: 'JetBrains Mono', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  white-space: pre;
+
+  &:focus {
+    outline: none;
+  }
+}
+

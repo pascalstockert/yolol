@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {faArrowUp} from '@fortawesome/free-solid-svg-icons/faArrowUp';
-import {WindowScrollService} from '../../window-scroll.service';
+import {WindowScrollService} from '../../services/window-scroll.service';
 import {filter, timeout} from 'rxjs/operators';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
-import {DarkmodeService} from '../../darkmode.service';
+import {DarkmodeService} from '../../services/darkmode.service';
 
 @Component({
   selector: 'app-scroll-top-button',

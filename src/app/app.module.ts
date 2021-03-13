@@ -46,7 +46,7 @@ import { HeaderSliceComponent } from './sections/header-slice/header-slice.compo
 import { HeaderCardComponent } from './sections/header-card/header-card.component';
 import { CollapsiblesComponent } from './sections/collapsibles/collapsibles.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { WindowScrollService } from './window-scroll.service';
+import { WindowScrollService } from './services/window-scroll.service';
 import { QuoteComponent } from './sections/quote/quote.component';
 import { TextComponent } from './sections/text/text.component';
 import { PageButtonsComponent } from './sections/page-buttons/page-buttons.component';
@@ -57,6 +57,7 @@ import { LibraryComponent } from './components/library/library.component';
 import { CodePipe } from './components/pipes/code-pipe/code.pipe';
 import { CookieNoticeComponent } from './components/cookie-notice/cookie-notice.component';
 import { PrismicDOMtextPipe } from './components/pipes/prismic-pipe/prismic-domtext.pipe';
+import { EditorComponent } from './components/editor/editor.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { PrismicDOMtextPipe } from './components/pipes/prismic-pipe/prismic-domt
     LibraryComponent,
     CodePipe,
     CookieNoticeComponent,
-    PrismicDOMtextPipe
+    PrismicDOMtextPipe,
+    EditorComponent
   ],
   imports: [
     BrowserModule,

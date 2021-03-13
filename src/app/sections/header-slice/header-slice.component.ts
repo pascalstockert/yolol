@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { WindowScrollService } from '../../window-scroll.service';
+import { WindowScrollService } from '../../services/window-scroll.service';
 
 @Component({
   selector: 'app-header-slice',

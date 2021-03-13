@@ -67,14 +67,6 @@ h1,h2,h3,h4,h5,h6 {
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Quicksand', sans-serif;
 }
-p, div {
-  font-family: 'Open Sans', sans-serif;
-}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-// NG Material Overwrites
-.mat-expansion-panel-header-title h3 {
-  font-size: 1.3rem;
-}
