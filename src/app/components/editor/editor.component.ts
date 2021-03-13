@@ -96,16 +96,11 @@ export class EditorComponent implements AfterViewInit {
   }
 
   interpretLine(): void {
-    console.log( this.getWrittenCode()[ this.currentLine - 1 ] );
-    this.chip.parsed.push(
-      this.chip.parse(
-        this.chip.lex(
-          this.getWrittenCode()[ this.currentLine - 1 ],
-          this.currentLine
-        )
-      )
-    );
-    console.log(this.chip.parsed)
+    const lines = [];
+    this.getWrittenCode().forEach(  ( line, i ) => {
+      lines.push( this.chip.parse( this.chip.lex( line, i ) ) );
+    } );
+    this.chip.setParsed( lines );
     this.chip.interpret();
     console.log(this.chip);
   }
