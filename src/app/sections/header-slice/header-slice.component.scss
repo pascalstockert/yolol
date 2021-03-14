@@ -1,7 +1,7 @@
 @import "../imports";
 
-.full-width {
-  width: 100vw;
+#header-slice {
+  position: relative;
 }
 .background-img {
   position: absolute;
@@ -29,6 +29,6 @@ img {
 h1 {
   z-index: 1;
 }
-.height-500 {
-  height: 500px;
+.img-large {
+  height: calc( 100vh - 70px );
 }

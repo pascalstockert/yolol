@@ -12,7 +12,7 @@
     left: -3px;
     height: 100%;
     width: 3px;
-    background: linear-gradient(180deg, #F2B9C4 0%, #B14E7F 50%, #823575 100%);
+    background: $gradient-linear;
   }
   .line-wrapper {
     display: flex;

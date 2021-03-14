@@ -1,50 +1,65 @@
 @import "../imports";
 .menu {
-  transform: translateY(-100%);
-  transition-duration: .3s;
-  width: 100vw;
-  padding: 30px 10px 10px 10px;
+  z-index: 100;
+  position: sticky;
+  top: 0;
+  background: white;
+  border-bottom: 1px solid black;
 }
 .mat-menu-content {
   &.dark {
     background-color: $color-dark-1;
   }
 }
-::ng-deep .mat-menu-panel{
-  background-color: $color-light-2;
-}
 .mat-menu-item {
   font-family: 'Open Sans', sans-serif;
-  color: $color-accent;
+  color: black;
   transition-duration: .3s;
   &.dark {
-    color: $color-accent-dark;
+    color: white;
     background-color: $color-dark-1;
-    &:hover {
-      background-color: $color-dark-2;
+  }
+}
+
+.chapter-count {
+  background: $gradient-radial;
+  margin-left: -28px;
+  margin-right: 20px;
+  padding: 2px 6px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 3px;
+  color: white;
+}
+
+.menu-button-wrapper {
+  height: 70px;
+  .menu-button {
+    position: relative;
+    padding: 8px 16px;
+    margin-right: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    color: black;
+    cursor: pointer;
+    background: $gradient-radial;
+    -webkit-text-fill-color: black;
+    -webkit-background-clip: text;
+    transition-duration: .3s;
+    &.dark {
+      color: $color-accent-dark;
+      background-color: $color-dark-1;
+    }
+    &:hover, &.active {
+      -webkit-text-fill-color: transparent;
     }
   }
 }
-button.menu-button {
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 700;
-  overflow: hidden;
-  margin-left: 20px;
-  font-size: 18px;
-  color: $color-accent;
-  background-color: $color-light-1;
-  &.dark {
-    color: $color-accent-dark;
-    background-color: $color-dark-1;
-  }
-}
+
 fa-icon {
-  color: $color-accent;
+  color: black;
   font-size: 25px;
   &.dark {
-    color: $color-accent-dark;
+    color: white;
   }
-}
-.toggled {
-  transform: translateY(0);
 }

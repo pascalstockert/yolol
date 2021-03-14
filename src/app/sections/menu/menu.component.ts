@@ -1,23 +1,20 @@
-import {Component, Inject, OnInit, ViewEncapsulation, AfterViewInit, AfterViewChecked} from '@angular/core';
-import {WindowScrollService} from '../../services/window-scroll.service';
+import { Component, Inject, ViewEncapsulation } from '@angular/core';
+import { WindowScrollService } from '../../services/window-scroll.service';
 import { DOCUMENT } from '@angular/common';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
-import {CmsService} from '../../services/cms.service';
-import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
-import {DarkmodeService} from '../../services/darkmode.service';
-
-
-
+import { CmsService } from '../../services/cms.service';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { DarkmodeService } from '../../services/darkmode.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss'],
-  providers: [CmsService],
+  styleUrls: [ './menu.component.scss' ],
+  providers: [ CmsService ],
   encapsulation: ViewEncapsulation.None
 })
-export class MenuComponent implements OnInit, AfterViewChecked {
+export class MenuComponent {
 
   faHome = faHome;
 
@@ -26,14 +23,14 @@ export class MenuComponent implements OnInit, AfterViewChecked {
   darkMode = false;
   pageCount: number;
 
-  constructor(@Inject(DOCUMENT) private document: any,
-              private cmsService: CmsService,
-              private scrollService: WindowScrollService,
-              private router: Router,
-              private route: ActivatedRoute,
-              private darkModeService: DarkmodeService) {
-    const sortByProperty = function (property) {
-      return function (x, y) {
+  constructor( @Inject( DOCUMENT ) private document: any,
+               private cmsService: CmsService,
+               private scrollService: WindowScrollService,
+               public router: Router,
+               private route: ActivatedRoute,
+               private darkModeService: DarkmodeService) {
+    const sortByProperty = (property) => {
+      return (x, y) => {
         return ((x[property] === y[property]) ? 0 : ((x[property] > y[property]) ? 1 : -1));
       };
     };
@@ -46,26 +43,6 @@ export class MenuComponent implements OnInit, AfterViewChecked {
       // @ts-ignore
       this.darkMode = val instanceof NavigationEnd && route.queryParams.value.mode !== undefined;
     });
-  }
-
-  ngOnInit() {
-    this.windowPos = 0;
-    const elem = document.querySelector('.menu');
-    this.scrollService.scroll$.subscribe(pos => {
-      this.windowPos = pos;
-    });
-    let tmpScroll = 0;
-
-    window.addEventListener('scroll', function f() {
-      const windowPos = window.scrollY;
-      windowPos < tmpScroll ?
-        elem.classList.add('toggled') :
-        elem.classList.remove('toggled');
-      tmpScroll = windowPos;
-    });
-  }
-
-  ngAfterViewChecked() {
   }
 
 }

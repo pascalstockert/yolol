@@ -12,7 +12,7 @@
 
         <mat-expansion-panel *ngFor="let collapsible of sectionData.items" [class.dark]="darkmode">
           <mat-expansion-panel-header>
-            <mat-panel-title [innerHTML]="collapsible.collapsible_header | prismicDOMtext | code"
+            <mat-panel-title [innerHTML]="collapsible.collapsible_header | prismicDOMtext"
                              [class.dark]="darkmode"></mat-panel-title>
             <mat-panel-description [innerHTML]="collapsible.collapsible_subheader | prismicDOMtext | code"></mat-panel-description>
           </mat-expansion-panel-header>
