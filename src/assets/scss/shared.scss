@@ -1,19 +1,6 @@
-$color-dark-3: #676767;
-$color-dark-2: #545454;
-$color-dark-1: #363636;
-$color-dark: #161616;
-$text-dark: rgba(255,255,255,0.7);
-
-$color-light: #F8F8F8;
-$color-light-1: #F0F0F0;
-$color-light-2: #E5E5E5;
-$color-light-3: #D4D4D4;
-
-$color-accent-dark: #B986B4;
-$color-accent: #8f3288;
-
-$gradient-radial: radial-gradient(100% 813.49% at 100% 0%, #F2B9C4 0%, rgba(177, 78, 127, 0.984994) 48.96%, #823575 100%);
-$gradient-linear: linear-gradient(180deg, #F2B9C4 0%, #B14E7F 50%, #823575 100%);
+@import "typography";
+@import "buttons";
+@import "colors";
 
 $size-md: 768px;
 

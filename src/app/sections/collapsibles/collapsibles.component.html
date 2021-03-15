@@ -18,8 +18,8 @@
           </mat-expansion-panel-header>
 
           <div [innerHTML]="collapsible.collapsible_description | prismicDOM"></div>
-          <button class="clickable" mat-flat-button *ngIf="collapsible.collapsible_button_text[0] != undefined && collapsible.collapsible_button_link.uid != undefined" routerLink="/{{collapsible.collapsible_button_link.uid}}" [queryParams]="darkmode ? { mode: 'dark' } : {}" [innerHTML]="collapsible.collapsible_button_text[0].text" [class.dark] = darkmode></button>
-          <button mat-stroked-button disabled *ngIf="collapsible.collapsible_button_link.uid == undefined" [class.dark]="darkmode">Coming soon!</button>
+          <button class="clickable" *ngIf="collapsible.collapsible_button_text[0] != undefined && collapsible.collapsible_button_link.uid != undefined" routerLink="/{{collapsible.collapsible_button_link.uid}}" [queryParams]="darkmode ? { mode: 'dark' } : {}" [innerHTML]="collapsible.collapsible_button_text[0].text" [class.dark] = darkmode></button>
+          <button disabled *ngIf="collapsible.collapsible_button_link.uid == undefined" [class.dark]="darkmode">Coming soon!</button>
         </mat-expansion-panel>
 
       </mat-accordion>
@@ -28,7 +28,7 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <button mat-raised-button class="learn"
+      <button class="button incentivize"
               [routerLink]="'/' + sectionData.items[0].collapsible_button_link.uid"
               [class.dark]="darkmode">Start learning!</button>
     </div>

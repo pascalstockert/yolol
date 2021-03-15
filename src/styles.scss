@@ -56,6 +56,7 @@ $yolol-theme: mat-light-theme($yolol-primary, $yolol-accent, $yolol-warn);
 /* You can add global styles to this file, and also import other style files */
 
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "assets/scss/shared";
 
 html, body {
   height: 100%;
@@ -64,56 +65,23 @@ body {
   margin: 0; font-family: 'PT Sans', 'Helvetica Neue', sans-serif;
 }
 
-// Typography overrides
-h1, .mat-typography h1 {
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  font-size: 48px;
-  margin: 0 0 8px;
-  padding: 0;
-  line-height: initial;
-}
-h2, .mat-typography h2 {
-  font-family: 'Lato', sans-serif;
-  font-size: 36px;
-  margin: 0 0 8px;
-  padding: 0;
-  line-height: initial;
-}
-h3, .mat-typography h3 {
-  font-family: 'Lato', sans-serif;
-  font-size: 24px;
-  margin: 0 0 8px;
-  padding: 0;
-  line-height: initial;
-}
-h4, .mat-typography h4 {
-  font-family: 'PT Sans', sans-serif;
-  font-size: 20px;
-  margin: 0;
-  padding: 0;
-  line-height: initial;
-}
-h5, .mat-typography h5 {
-  font-family: 'PT Sans', sans-serif;
-  font-size: 18px;
-  margin: 0;
-  padding: 0;
-  line-height: initial;
-}
-h6, .mat-typography h6 {
-  font-family: 'PT Sans', sans-serif;
-  font-size: 18px;
-  margin: 0;
-  padding: 0;
-  line-height: initial;
-}
-p, .mat-typography p {
-  font-family: 'PT Sans', sans-serif;
-  font-size: 16px;
-  margin: 0;
-  padding: 0;
-  line-height: initial;
+.mat-card {
+  position: relative;
+  border: 1px solid black;
+  border-bottom: 0;
+  border-left: 0;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  &:before {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -10px;
+    height: 100%;
+    width: 100%;
+    background: $gradient-radial;
+  }
 }
 .mat-card-header {
   font-family: 'PT Sans', sans-serif;

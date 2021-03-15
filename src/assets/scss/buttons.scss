@@ -1,0 +1,15 @@
+@import "colors";
+
+button:not( .mat-button ) {
+  margin-top: 24px;
+  padding: 8px 12px;
+  border: 1px solid black;
+  text-transform: uppercase;
+  cursor: pointer;
+  &.incentivize {
+    color: white;
+    border-bottom: 0;
+    border-left: 0;
+    background: $gradient-radial;
+  }
+}
