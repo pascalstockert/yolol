@@ -15,23 +15,22 @@ export class CookieNoticeComponent implements OnInit, AfterViewInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.cookieNotice = document.getElementById('cookie-notice');
     this.enter();
   }
 
-  enter() {
+  enter(): void {
     setTimeout(() => {
       this.cookieNotice.style.opacity = '1';
       this.cookieNotice.style.transform = 'translateX(-50%) scale(1, 1)';
-      this.cookieNotice.style.bottom = '30px';
     }, 500);
   }
 
-  click() {
+  click(): void {
     this.cookieNotice.style.display = 'none';
   }
 
