@@ -17,7 +17,7 @@ export class CookieNoticeComponent implements OnInit, AfterViewInit {
   constructor( private indexedDbService: IndexedDbService ) { }
 
   async ngOnInit(): Promise<void> {
-    if ( await this.indexedDbService.get('dismissedCookieNotice') ) {
+    if ( await this.indexedDbService.get( 'dismissedCookieNotice' ) ) {
       this.cookieNotice.style.display = 'none';
     }
   }
