@@ -12,4 +12,7 @@ button:not( .mat-button ) {
     border-left: 0;
     background: $gradient-radial;
   }
+  &:disabled {
+    border: none;
+  }
 }

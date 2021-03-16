@@ -53,7 +53,6 @@ import { PageButtonsComponent } from './sections/page-buttons/page-buttons.compo
 import { PictureComponent } from './sections/picture/picture.component';
 import { ScrollTopButtonComponent } from './components/scroll-top-button/scroll-top-button.component';
 import { MenuComponent } from './sections/menu/menu.component';
-import { LibraryComponent } from './components/library/library.component';
 import { CodePipe } from './components/pipes/code-pipe/code.pipe';
 import { CookieNoticeComponent } from './components/cookie-notice/cookie-notice.component';
 import { PrismicDOMtextPipe } from './components/pipes/prismic-pipe/prismic-domtext.pipe';
@@ -74,7 +73,6 @@ import { EditorComponent } from './components/editor/editor.component';
     PictureComponent,
     ScrollTopButtonComponent,
     MenuComponent,
-    LibraryComponent,
     CodePipe,
     CookieNoticeComponent,
     PrismicDOMtextPipe,
