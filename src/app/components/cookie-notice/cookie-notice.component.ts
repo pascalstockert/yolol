@@ -1,5 +1,6 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { faCookieBite, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { IndexedDbService } from '../../services/indexed-db.service';
 
 @Component({
   selector: 'app-cookie-notice',
@@ -13,9 +14,12 @@ export class CookieNoticeComponent implements OnInit, AfterViewInit {
   times = faTimes;
   cookieNotice: HTMLElement;
 
-  constructor() { }
+  constructor( private indexedDbService: IndexedDbService ) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    if ( await this.indexedDbService.get('dismissedCookieNotice') ) {
+      this.cookieNotice.style.display = 'none';
+    }
   }
 
   ngAfterViewInit(): void {
@@ -30,7 +34,8 @@ export class CookieNoticeComponent implements OnInit, AfterViewInit {
     }, 500);
   }
 
-  click(): void {
+  async click(): Promise<void> {
+    await this.indexedDbService.set('dismissedCookieNotice', true);
     this.cookieNotice.style.display = 'none';
   }
 

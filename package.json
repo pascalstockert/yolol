@@ -29,6 +29,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "bootstrap": "^4.6.0",
     "firebase": "^7.0 || ^8.0",
+    "idb": "^6.0.0",
     "prismic-dom": "^2.2.5",
     "prismic-javascript": "^3.0.2",
     "rxjs": "~6.6.0",
