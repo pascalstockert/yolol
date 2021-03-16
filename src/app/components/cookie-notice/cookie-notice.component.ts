@@ -35,7 +35,7 @@ export class CookieNoticeComponent implements OnInit, AfterViewInit {
   }
 
   async click(): Promise<void> {
-    await this.indexedDbService.set('dismissedCookieNotice', true);
+    await this.indexedDbService.set( 'dismissedCookieNotice', true );
     this.cookieNotice.style.display = 'none';
   }
 
