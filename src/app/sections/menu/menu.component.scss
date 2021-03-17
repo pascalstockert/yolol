@@ -5,20 +5,12 @@
   top: 0;
   background: white;
   border-bottom: 1px solid black;
-}
-.mat-menu-content {
-  &.dark {
-    background-color: $color-dark-1;
-  }
+  transition-duration: .3s;
 }
 .mat-menu-item {
   font-family: 'Open Sans', sans-serif;
   color: black;
   transition-duration: .3s;
-  &.dark {
-    color: white;
-    background-color: $color-dark-1;
-  }
 }
 
 .chapter-count {
@@ -40,26 +32,15 @@
     margin-right: 20px;
     font-size: 18px;
     font-weight: 400;
-    color: black;
+    color: $color-accent;
     cursor: pointer;
-    background: $gradient-radial;
-    -webkit-text-fill-color: black;
-    -webkit-background-clip: text;
     transition-duration: .3s;
-    &.dark {
-      color: $color-accent-dark;
-      background-color: $color-dark-1;
-    }
-    &:hover, &.active {
-      -webkit-text-fill-color: transparent;
-    }
   }
 }
 
-fa-icon {
-  color: black;
-  font-size: 25px;
-  &.dark {
+.menu.dark {
+  background-color: $color-dark-1;
+  .menu-button-wrapper .menu-button {
     color: white;
   }
 }

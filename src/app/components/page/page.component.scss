@@ -1,1 +1,9 @@
 @import "../../sections/imports";
+@import "../../../assets/scss/colors";
+
+#page {
+  transition-duration: .3s;
+  &.dark {
+    background: $color-dark;
+  }
+}

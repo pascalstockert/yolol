@@ -1,9 +1,9 @@
-import {Component, OnInit, AfterViewChecked} from '@angular/core';
+import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { CmsService } from '../../services/cms.service';
-import {ActivatedRoute, NavigationEnd, ParamMap, Router} from '@angular/router';
-import {catchError, map, switchMap, tap} from 'rxjs/operators';
-import {Observable, of, combineLatest} from 'rxjs';
-import {DarkmodeService} from '../../services/darkmode.service';
+import { ActivatedRoute, NavigationEnd, ParamMap, Router } from '@angular/router';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
+import { of, combineLatest } from 'rxjs';
+import { DarkmodeService } from '../../services/darkmode.service';
 
 @Component({
   selector: 'app-page',
@@ -18,11 +18,10 @@ export class PageComponent implements OnInit, AfterViewChecked {
   public test: string;
   docHeight: number;
 
-  constructor(private cmsService: CmsService,
-              private route: ActivatedRoute,
-              private router: Router,
-              private darkModeService: DarkmodeService
-  ) {
+  constructor( private cmsService: CmsService,
+               private route: ActivatedRoute,
+               private router: Router,
+               private darkModeService: DarkmodeService ) {
     const pages = this.route.paramMap.pipe(
       map((params: ParamMap) => params.get('slug')),
       switchMap(slug => this.cmsService.getPage(slug)),
@@ -51,7 +50,7 @@ export class PageComponent implements OnInit, AfterViewChecked {
     const combinedThings = combineLatest(pages, routing);
     combinedThings.subscribe(x => {
       setTimeout(f => {
-        let pTags = Array.from(document.querySelectorAll('p, li, h1, h2, h3, h4, h5, h6'));
+        const pTags = Array.from(document.querySelectorAll('p, li, h1, h2, h3, h4, h5, h6'));
         for (const pTag of pTags) {
           if (pTag.innerHTML.includes('')) {
             pTag.innerHTML = pTag.innerHTML.replace(/`{3}([^`]+)`{3}/g, '<div class=\'code-block\'>$1</div>');
@@ -67,15 +66,12 @@ export class PageComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit(): void {
-    this.darkModeService.darkMode$.subscribe(mode => {
+    this.darkModeService.darkMode.subscribe( mode => {
       this.darkMode = mode;
-    });
-
-    this.router.events.subscribe( val => {
-    });
+    } );
   }
 
-  ngAfterViewChecked() {
+  ngAfterViewChecked(): void {
     const aElems = document.getElementsByTagName('a');
     const codeElems = document.getElementsByClassName('code-inline');
     const codeBlockElems = document.getElementsByClassName('code-block');

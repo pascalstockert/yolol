@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {faArrowUp} from '@fortawesome/free-solid-svg-icons/faArrowUp';
-import {WindowScrollService} from '../../services/window-scroll.service';
-import {filter, timeout} from 'rxjs/operators';
-import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
-import {DarkmodeService} from '../../services/darkmode.service';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons/faArrowUp';
+import { WindowScrollService } from '../../services/window-scroll.service';
+import { filter } from 'rxjs/operators';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { DarkmodeService } from '../../services/darkmode.service';
 
 @Component({
   selector: 'app-scroll-top-button',
@@ -18,10 +18,10 @@ export class ScrollTopButtonComponent implements OnInit {
   clientHeight: number;
   darkmode: boolean;
 
-  constructor(private scrollService: WindowScrollService,
-              private router: Router,
-              private route: ActivatedRoute,
-              private darkmodeService: DarkmodeService) {
+  constructor( private scrollService: WindowScrollService,
+               private router: Router,
+               private route: ActivatedRoute,
+               private darkmodeService: DarkmodeService ) {
     router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe((e) => {
       if (e instanceof NavigationEnd) {
         this.resolution();
@@ -43,16 +43,16 @@ export class ScrollTopButtonComponent implements OnInit {
         temp = pos;
       }
     });
-    this.darkmodeService.darkMode$.subscribe( val => {
+    this.darkmodeService.darkMode.subscribe( val => {
       this.darkmode = val;
     });
   }
 
-  public scrollTop() {
+  public scrollTop(): void {
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
   }
 
-  resolution() {
+  resolution(): void {
     setTimeout( f => {
       const docHeight = document.body.scrollHeight;
       this.docHeight = docHeight;

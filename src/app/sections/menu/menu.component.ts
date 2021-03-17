@@ -1,4 +1,4 @@
-import { Component, Inject, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { WindowScrollService } from '../../services/window-scroll.service';
 import { DOCUMENT } from '@angular/common';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
@@ -14,7 +14,7 @@ import { DarkmodeService } from '../../services/darkmode.service';
   providers: [ CmsService ],
   encapsulation: ViewEncapsulation.None
 })
-export class MenuComponent {
+export class MenuComponent implements OnInit {
 
   faHome = faHome;
 
@@ -29,20 +29,28 @@ export class MenuComponent {
                public router: Router,
                private route: ActivatedRoute,
                private darkModeService: DarkmodeService) {
+
     const sortByProperty = (property) => {
       return (x, y) => {
         return ((x[property] === y[property]) ? 0 : ((x[property] > y[property]) ? 1 : -1));
       };
     };
+
     cmsService.getPages().then(res => {
       // @ts-ignore
       this.pages = res.results.sort(sortByProperty('uid'));
       this.pageCount = this.pages.length - 1;
     });
-    router.events.subscribe(val => {
-      // @ts-ignore
-      this.darkMode = val instanceof NavigationEnd && route.queryParams.value.mode !== undefined;
-    });
+  }
+
+  ngOnInit(): void {
+    this.darkModeService.darkMode.subscribe( ( darkMode ) => {
+      this.darkMode = darkMode;
+    } );
+  }
+
+  switchMode(): void {
+    this.darkModeService.switchMode();
   }
 
 }
