@@ -16,7 +16,7 @@ export class EditorComponent implements AfterViewInit {
   lineLabels = [1];
   currentLine = 1;
   hasFocus = false;
-  editorContent = '// This is a test!\nAloha!';
+  editorContent = '';
 
   stepIcon = faStepForward;
   playIcon = faPlay;
@@ -25,7 +25,6 @@ export class EditorComponent implements AfterViewInit {
 
   constructor() {
     this.chip.lineChange.subscribe( lineChange => {
-      console.warn( lineChange );
       this.currentLine = lineChange.nextLine;
     } );
   }
@@ -107,6 +106,15 @@ export class EditorComponent implements AfterViewInit {
 
   setCurrentLine( nextLine: number ): void {
     this.chip.setCurrentLine( nextLine );
+  }
+
+  getChipVars(): any {
+    return Object.keys( this.chip.localEnv.vars );
+  }
+
+  scrolled( event ): void {
+    console.log(event.srcElement.scrollLeft);
+    this.editorOverlayRef.nativeElement.scrollLeft = event.srcElement.scrollLeft;
   }
 
 }

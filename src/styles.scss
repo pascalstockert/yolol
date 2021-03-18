@@ -65,6 +65,17 @@ body {
   margin: 0; font-family: 'PT Sans', 'Helvetica Neue', sans-serif;
 }
 
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  > .col,
+  > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
 .mat-card {
   position: relative;
   border: 1px solid black;

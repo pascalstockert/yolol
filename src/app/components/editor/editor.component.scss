@@ -18,6 +18,7 @@
     display: flex;
     position: relative;
     .lines {
+      min-width: 20px;
       margin: 0 12px;
       color: #c4c4c4;
 
@@ -52,9 +53,10 @@
 }
 
 .editor-overlay {
-  width: 100%;
+  width: calc( 100% - 48px );
   background-color: transparent;
   color: black;
+  overflow: auto;
 
   font-family: 'JetBrains Mono', sans-serif;
   font-size: 1rem;
@@ -65,10 +67,11 @@
 .editor {
   position: absolute;
   top: 0;
-  width: 100%;
+  width: calc( 100% - 48px );
   color: transparent;
   caret-color: black;
   background: transparent;
+  overflow: auto;
 
   font-family: 'JetBrains Mono', sans-serif;
   font-size: 1rem;
@@ -77,6 +80,23 @@
 
   &:focus {
     outline: none;
+  }
+}
+
+.editor-output {
+  background-color: $color-light-2;
+  box-shadow: inset 58px 0 24px -50px rgba( 0, 0, 0, 0.1 );
+  .title {
+    line-height: 40px;
+    text-align: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba( 0, 0, 0, 0.3 );
+  }
+  .content {
+    padding: 16px;
+    .code:not( :last-child ) {
+      margin-bottom: 8px;
+    }
   }
 }
 
