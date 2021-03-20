@@ -46,21 +46,13 @@ export class EditorComponent implements AfterViewInit {
           keyEvent.preventDefault();
           return;
       }
-    }
-  }
 
-  @HostListener('document:keyup', ['$event'])
-  handleKeyboardUp( keyEvent: KeyboardEvent ): void {
-    if ( this.hasFocus ) {
-      // Optional key behavior specification
-      switch ( keyEvent.key ) {
-      }
-
-      this.checkHeight();
-
-      this.editorContent = this.checkSyntax();
-
-      this.setContent();
+      // Remove rendering of text from regular event-loop
+      setTimeout( () => {
+        this.checkHeight();
+        this.editorContent = this.checkSyntax();
+        this.setContent();
+      } );
     }
   }
 
