@@ -30,7 +30,7 @@ export class EditorComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.editorContent = this.checkSyntax();
+    this.editorContent = this.editorRef.nativeElement.innerHTML;
     this.editorRef.nativeElement.innerHTML = this.editorContent;
     this.checkHeight();
     this.setContent();
@@ -50,7 +50,7 @@ export class EditorComponent implements AfterViewInit {
       // Remove rendering of text from regular event-loop
       setTimeout( () => {
         this.checkHeight();
-        this.editorContent = this.checkSyntax();
+        this.editorContent = this.editorRef.nativeElement.innerHTML;
         this.setContent();
       } );
     }
@@ -63,10 +63,6 @@ export class EditorComponent implements AfterViewInit {
       newLineLabels.push( i );
     }
     this.lineLabels = newLineLabels;
-  }
-
-  checkSyntax(): string {
-    return this.editorRef.nativeElement.innerHTML.replace(/\/\/(.*)/g, '<span class="color-comment">//$1</span>');
   }
 
   setContent(): void {
