@@ -9,7 +9,7 @@ import { Chip, YazurService } from '../../services/yazur.service';
 })
 export class EditorComponent implements AfterViewInit {
 
-  @Input() initialContent = 'a=1\nb=2\nc=a+b\n';
+  @Input() initialContent;
 
   @ViewChild( 'editor' ) editorRef: ElementRef<HTMLDivElement>;
   @ViewChild( 'editorOverlay' ) editorOverlayRef: ElementRef<HTMLDivElement>;
@@ -35,6 +35,8 @@ export class EditorComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    console.log(this.initialContent);
+
     if ( !!this.initialContent ) {
       this.setInitialContent();
     }
@@ -45,7 +47,11 @@ export class EditorComponent implements AfterViewInit {
   }
 
   setInitialContent(): void {
-    const lines = this.initialContent
+    let initialContentString = '';
+    for ( const line of this.initialContent ) {
+      initialContentString += `${ line.text }\n`;
+    }
+    const lines = initialContentString
       .split('\n')
       .map( line => {
         if ( line !== '' ) {

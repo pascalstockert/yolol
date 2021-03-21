@@ -1,72 +1,73 @@
-<div class="row no-gutters">
-  <div class="col-8">
-    <div class="snippet-wrapper">
-      <div class="interactions d-flex">
-        <button mat-icon-button
-                class="mat-button"
-                (click)="interpretLine()">
-          <fa-icon [icon]="stepIcon"
-                   class="small-icon"></fa-icon>
-        </button>
-        <button mat-icon-button
-                class="mat-button"
-                (click)="chipIntervalAction()">
-          <fa-icon [icon]="chipIntervalActionIcon"
-                   class="small-icon"></fa-icon>
-        </button>
-      </div>
-      <div class="line-wrapper">
-        <div class="current-line"></div>
-        <div class="lines">
-          <div *ngFor="let lineLabel of lineLabels"
-               (click)="setCurrentLine( lineLabel )"
-               [class.active]="lineLabel === currentLine">{{ lineLabel }}</div>
+<div class="container">
+  <div class="row no-gutters shadow">
+    <div class="col-8">
+      <div class="snippet-wrapper">
+        <div class="interactions d-flex">
+          <button mat-icon-button
+                  class="mat-button"
+                  (click)="interpretLine()">
+            <fa-icon [icon]="stepIcon"
+                     class="small-icon"></fa-icon>
+          </button>
+          <button mat-icon-button
+                  class="mat-button"
+                  (click)="chipIntervalAction()">
+            <fa-icon [icon]="chipIntervalActionIcon"
+                     class="small-icon"></fa-icon>
+          </button>
         </div>
-
-        <div class="editor-wrapper">
-          <div class="editor-overlay"
-               #editorOverlay>
+        <div class="line-wrapper">
+          <div class="current-line"></div>
+          <div class="lines">
+            <div *ngFor="let lineLabel of lineLabels"
+                 (click)="setCurrentLine( lineLabel )"
+                 [class.active]="lineLabel === currentLine">{{ lineLabel }}</div>
           </div>
 
-          <div class="editor"
-               contenteditable="true"
-               (scroll)="scrolled($event)"
-               (focus)="setFocus( true )"
-               (blur)="setFocus( false )"
-               #editor>
+          <div class="editor-wrapper">
+            <div class="editor-overlay"
+                 #editorOverlay>
+            </div>
+
+            <div class="editor"
+                 contenteditable="true"
+                 (scroll)="scrolled($event)"
+                 (focus)="setFocus( true )"
+                 (blur)="setFocus( false )"
+                 #editor>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-4 editor-output">
-    <h4 class="title">OUTPUT FIELDS</h4>
-    <h5 class="subtitle">GLOBALS</h5>
-    <div class="content">
-      <div class="key-names">
-        <div class="code" *ngFor="let global of getChipGlobals()">
-          {{ global }} =>
+    <div class="col-4 editor-output">
+      <h4 class="title">OUTPUT FIELDS</h4>
+      <h5 class="subtitle">GLOBALS</h5>
+      <div class="content">
+        <div class="key-names">
+          <div class="code" *ngFor="let global of getChipGlobals()">
+            {{ global }} =>
+          </div>
+        </div>
+        <div class="values">
+          <div class="code" *ngFor="let global of getChipGlobals()">
+            {{ chip.localEnv.global[ global ].value }}
+          </div>
         </div>
       </div>
-      <div class="values">
-        <div class="code" *ngFor="let global of getChipGlobals()">
-          {{ chip.localEnv.global[ global ].value }}
+      <h5 class="subtitle">LOCALS</h5>
+      <div class="content">
+        <div class="key-names">
+          <div class="code" *ngFor="let field of getChipVars()">
+            {{ field }} =>
+          </div>
         </div>
-      </div>
-    </div>
-    <h5 class="subtitle">LOCALS</h5>
-    <div class="content">
-      <div class="key-names">
-        <div class="code" *ngFor="let field of getChipVars()">
-          {{ field }} =>
-        </div>
-      </div>
-      <div class="values">
-        <div class="code" *ngFor="let field of getChipVars()">
-          {{ chip.localEnv.vars[ field ].value }}
+        <div class="values">
+          <div class="code" *ngFor="let field of getChipVars()">
+            {{ chip.localEnv.vars[ field ].value }}
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-

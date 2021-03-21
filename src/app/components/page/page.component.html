@@ -19,6 +19,7 @@
 
         <div *ngFor="let section of page?.data?.body">
           <div [ngSwitch]="section.slice_type">
+            <app-editor *ngSwitchCase="'editor'" [initialContent]="section.primary.initial_content"></app-editor>
             <app-header-card *ngSwitchCase="'header-card'" [sectionData]="section"></app-header-card>
             <app-collapsibles *ngSwitchCase="'collapsibles'" [sectionData]="section"></app-collapsibles>
             <typo-quote *ngSwitchCase="'quote'" [sectionData]="section"></typo-quote>
