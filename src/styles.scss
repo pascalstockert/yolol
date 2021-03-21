@@ -57,6 +57,7 @@ $yolol-theme: mat-light-theme($yolol-primary, $yolol-accent, $yolol-warn);
 
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "assets/scss/shared";
+@import "assets/scss/mixins";
 
 html, body {
   height: 100%;

@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { faPlay, faStepForward } from '@fortawesome/free-solid-svg-icons';
-import { Chip } from '../../services/yazur.service';
+import { AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
+import { faPlay, faPause, faStepForward } from '@fortawesome/free-solid-svg-icons';
+import { Chip, YazurService } from '../../services/yazur.service';
 
 @Component({
   selector: 'app-editor',
@@ -8,6 +8,8 @@ import { Chip } from '../../services/yazur.service';
   styleUrls: ['./editor.component.scss']
 })
 export class EditorComponent implements AfterViewInit {
+
+  @Input() initialContent = 'a=1\nb=2\nc=a+b\n';
 
   @ViewChild( 'editor' ) editorRef: ElementRef<HTMLDivElement>;
   @ViewChild( 'editorOverlay' ) editorOverlayRef: ElementRef<HTMLDivElement>;
@@ -19,21 +21,40 @@ export class EditorComponent implements AfterViewInit {
   editorContent = '';
 
   stepIcon = faStepForward;
-  playIcon = faPlay;
 
   chip: Chip = new Chip();
 
-  constructor() {
+  chipIntervalAction: () => void = this.startInterval;
+  chipIntervalActionIcon = faPlay;
+  chipIntervalSubscription;
+
+  constructor( private yazurService: YazurService ) {
     this.chip.lineChange.subscribe( lineChange => {
       this.currentLine = lineChange.nextLine;
     } );
   }
 
   ngAfterViewInit(): void {
+    if ( !!this.initialContent ) {
+      this.setInitialContent();
+    }
     this.editorContent = this.editorRef.nativeElement.innerHTML;
     this.editorRef.nativeElement.innerHTML = this.editorContent;
     this.checkHeight();
     this.setContent();
+  }
+
+  setInitialContent(): void {
+    const lines = this.initialContent
+      .split('\n')
+      .map( line => {
+        if ( line !== '' ) {
+          return '<div>' + line + '</div>';
+        }
+        return line;
+      } );
+    this.editorRef.nativeElement.innerHTML = lines.join('');
+    console.log(lines.join(''));
   }
 
   // TODO optimize visual input lag as chars are only rendered at keyUp
@@ -41,10 +62,15 @@ export class EditorComponent implements AfterViewInit {
   handleKeyboardDown( keyEvent: KeyboardEvent ): void {
     if ( this.hasFocus ) {
       // Optional key behavior specification
+      console.log(keyEvent.key)
       switch ( keyEvent.key ) {
         case 'Tab':
           keyEvent.preventDefault();
-          return;
+          break;
+        case 'Enter':
+          if ( this.lineCount === 20 ) {
+            keyEvent.preventDefault();
+          }
       }
 
       // Remove rendering of text from regular event-loop
@@ -89,11 +115,18 @@ export class EditorComponent implements AfterViewInit {
     } );
     this.chip.setParsed( lines );
     this.chip.interpret();
+    if ( this.chip.localEnv.nextLine > this.lineCount ) {
+      this.chip.setCurrentLine( 1 );
+    }
     console.log(this.chip);
   }
 
   setCurrentLine( nextLine: number ): void {
     this.chip.setCurrentLine( nextLine );
+  }
+
+  getChipGlobals(): any {
+    return Object.keys( this.chip.localEnv.global );
   }
 
   getChipVars(): any {
@@ -103,6 +136,20 @@ export class EditorComponent implements AfterViewInit {
   scrolled( event ): void {
     console.log(event.srcElement.scrollLeft);
     this.editorOverlayRef.nativeElement.scrollLeft = event.srcElement.scrollLeft;
+  }
+
+  startInterval(): void {
+    this.chipIntervalAction = this.stopInterval;
+    this.chipIntervalActionIcon = faPause;
+    this.chipIntervalSubscription = this.yazurService.chipTimer.subscribe( () => {
+      this.interpretLine();
+    } );
+  }
+
+  stopInterval(): void {
+    this.chipIntervalAction = this.startInterval;
+    this.chipIntervalActionIcon = faPlay;
+    this.chipIntervalSubscription.unsubscribe();
   }
 
 }

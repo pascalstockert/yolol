@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { lex as yazurLex } from '../../submodules/Yazur/es-modules/yolol/lex.js';
 import { claim as yazurClaim } from '../../submodules/Yazur/es-modules/yolol/parse.js';
 import { interpret as yazurInterpret } from '../../submodules/Yazur/es-modules/yolol/interpret.js';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, interval } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class YazurService {
+
+  chipTimer = interval( 200 );
+
   constructor() { }
 }
 
@@ -46,6 +49,7 @@ export class Chip {
   }
 
   lex( line: string, lineNumber = 1 ): any {
+    console.log(line)
     return yazurLex( line, lineNumber );
   }
 

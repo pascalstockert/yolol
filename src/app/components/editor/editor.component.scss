@@ -1,9 +1,10 @@
 @import "../../../assets/scss/shared.scss";
-
+@import "../../../assets/scss/mixins.scss";
 .snippet-wrapper {
   position: relative;
   display: flex;
   flex-flow: column;
+  height: 100%;
   background-color: #f3f3f3;
   &:before {
     content: '';
@@ -13,6 +14,9 @@
     height: 100%;
     width: 3px;
     background: $gradient-linear;
+  }
+  .interactions {
+    border-bottom: 1px solid $color-light-3;
   }
   .line-wrapper {
     display: flex;
@@ -56,7 +60,7 @@
   width: calc( 100% - 48px );
   background-color: transparent;
   color: black;
-  overflow: auto;
+  overflow: hidden;
 
   font-family: 'JetBrains Mono', sans-serif;
   font-size: 1rem;
@@ -72,6 +76,7 @@
   caret-color: black;
   background: transparent;
   overflow: auto;
+  @include scrollbar();
 
   font-family: 'JetBrains Mono', sans-serif;
   font-size: 1rem;
@@ -91,9 +96,28 @@
     text-align: center;
     box-sizing: border-box;
     border-bottom: 1px solid rgba( 0, 0, 0, 0.3 );
+    background: $gradient-radial;
+  }
+  .subtitle {
+    line-height: 40px;
+    text-align: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba( 0, 0, 0, 0.3 );
+    background: $color-light-3;
   }
   .content {
+    display: flex;
+    flex-flow: row;
     padding: 16px;
+    .key-names, .values {
+      margin-right: 8px;
+      white-space: nowrap;
+    }
+    .values {
+      flex-grow: 1;
+      overflow-x: auto;
+      @include scrollbar();
+    }
     .code:not( :last-child ) {
       margin-bottom: 8px;
     }

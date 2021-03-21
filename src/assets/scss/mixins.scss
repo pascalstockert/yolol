@@ -1,0 +1,28 @@
+@import "colors";
+
+@mixin scrollbar {
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  &::-webkit-scrollbar-button {
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color-dark-3;
+    border-radius: 50px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: $color-dark-2;
+    cursor: default;
+  }
+  &::-webkit-scrollbar-thumb:active {
+    background: $color-dark-3;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba( 0, 0, 0, 0.1 );
+    border-radius: 50px;
+  }
+  &::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
