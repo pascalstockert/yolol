@@ -54,7 +54,6 @@ export class EditorComponent implements AfterViewInit {
         return line;
       } );
     this.editorRef.nativeElement.innerHTML = lines.join('');
-    console.log(lines.join(''));
   }
 
   // TODO optimize visual input lag as chars are only rendered at keyUp
@@ -62,7 +61,6 @@ export class EditorComponent implements AfterViewInit {
   handleKeyboardDown( keyEvent: KeyboardEvent ): void {
     if ( this.hasFocus ) {
       // Optional key behavior specification
-      console.log(keyEvent.key)
       switch ( keyEvent.key ) {
         case 'Tab':
           keyEvent.preventDefault();
@@ -118,7 +116,6 @@ export class EditorComponent implements AfterViewInit {
     if ( this.chip.localEnv.nextLine > this.lineCount ) {
       this.chip.setCurrentLine( 1 );
     }
-    console.log(this.chip);
   }
 
   setCurrentLine( nextLine: number ): void {
@@ -134,7 +131,6 @@ export class EditorComponent implements AfterViewInit {
   }
 
   scrolled( event ): void {
-    console.log(event.srcElement.scrollLeft);
     this.editorOverlayRef.nativeElement.scrollLeft = event.srcElement.scrollLeft;
   }
 
