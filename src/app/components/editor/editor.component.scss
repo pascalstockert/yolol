@@ -6,6 +6,7 @@
   flex-flow: column;
   height: 100%;
   background-color: #f3f3f3;
+  transition-duration: .3s;
   &:before {
     content: '';
     position: absolute;
@@ -48,49 +49,63 @@
         }
       }
     }
+    .editor-wrapper {
+      position: relative;
+      width: 100%;
+      .editor-overlay {
+        width: calc( 100% - 48px );
+        background-color: transparent;
+        color: black;
+        overflow: hidden;
+
+        font-family: 'JetBrains Mono', sans-serif;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        white-space: pre;
+      }
+      .editor {
+        position: absolute;
+        top: 0;
+        width: calc( 100% - 48px );
+        color: transparent;
+        caret-color: black;
+        background: transparent;
+        overflow: auto;
+        @include scrollbar();
+
+        font-family: 'JetBrains Mono', sans-serif;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        white-space: pre;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
   }
-}
-
-.editor-wrapper {
-  position: relative;
-  width: 100%;
-}
-
-.editor-overlay {
-  width: calc( 100% - 48px );
-  background-color: transparent;
-  color: black;
-  overflow: hidden;
-
-  font-family: 'JetBrains Mono', sans-serif;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  white-space: pre;
-}
-
-.editor {
-  position: absolute;
-  top: 0;
-  width: calc( 100% - 48px );
-  color: transparent;
-  caret-color: black;
-  background: transparent;
-  overflow: auto;
-  @include scrollbar();
-
-  font-family: 'JetBrains Mono', sans-serif;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  white-space: pre;
-
-  &:focus {
-    outline: none;
+  &.dark {
+    background-color: $color-dark-1;
+    color: $text-dark;
+    .interactions {
+      border-bottom: 1px solid $color-dark-2;
+    }
+    .lines {
+      color: $color-dark-3 !important;
+    }
+    .editor-overlay {
+      color: $text-dark !important;
+    }
+    .current-line {
+      background-color: rgba( 0, 0, 0, 0.5 );
+    }
   }
 }
 
 .editor-output {
   background-color: $color-light-2;
   box-shadow: inset 58px 0 24px -50px rgba( 0, 0, 0, 0.1 );
+  transition-duration: .3s;
   .title {
     line-height: 40px;
     text-align: center;
@@ -122,5 +137,16 @@
       margin-bottom: 8px;
     }
   }
+  &.dark {
+    border-left: 1px solid $color-dark-3;
+    .subtitle {
+      background: $color-dark-2;
+      color: $text-dark;
+      border-bottom: 1px solid $color-dark-3;
+    }
+    .content {
+      background: $color-dark-1;
+      color: $text-dark;
+    }
+  }
 }
-

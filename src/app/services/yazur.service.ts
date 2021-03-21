@@ -49,7 +49,6 @@ export class Chip {
   }
 
   lex( line: string, lineNumber = 1 ): any {
-    console.log(line)
     return yazurLex( line, lineNumber );
   }
 

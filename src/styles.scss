@@ -84,7 +84,7 @@ body {
   border-left: 0;
   border-radius: 0 !important;
   box-shadow: none !important;
-  &:before {
+  &:after {
     z-index: -1;
     content: '';
     position: absolute;

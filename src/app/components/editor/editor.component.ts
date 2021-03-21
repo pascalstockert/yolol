@@ -1,13 +1,14 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { faPlay, faPause, faStepForward } from '@fortawesome/free-solid-svg-icons';
 import { Chip, YazurService } from '../../services/yazur.service';
+import { DarkmodeService } from '../../services/darkmode.service';
 
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.scss']
 })
-export class EditorComponent implements AfterViewInit {
+export class EditorComponent implements OnInit, AfterViewInit {
 
   @Input() initialContent;
 
@@ -28,9 +29,18 @@ export class EditorComponent implements AfterViewInit {
   chipIntervalActionIcon = faPlay;
   chipIntervalSubscription;
 
-  constructor( private yazurService: YazurService ) {
+  darkMode = false;
+
+  constructor( private yazurService: YazurService,
+               private darkmodeService: DarkmodeService ) {
     this.chip.lineChange.subscribe( lineChange => {
       this.currentLine = lineChange.nextLine;
+    } );
+  }
+
+  ngOnInit(): void {
+    this.darkmodeService.darkMode.subscribe( darkMode => {
+      this.darkMode = darkMode;
     } );
   }
 

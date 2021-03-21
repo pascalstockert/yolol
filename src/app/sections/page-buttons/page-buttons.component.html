@@ -3,14 +3,12 @@
     <button class="prev" *ngIf="sectionData.primary.prev_button_link.uid != undefined"
             [innerHTML]="sectionData.primary.prev_button_text | prismicDOM"
             [class.dark]="darkmode"
-            routerLink="/{{sectionData.primary.prev_button_link.uid}}"
-            [queryParams]="darkmode ? { mode: 'dark' } : {}">
+            routerLink="/{{sectionData.primary.prev_button_link.uid}}">
     </button>
     <button class="next incentivize" *ngIf="sectionData.primary.next_button_link.uid != undefined"
             [innerHTML]="sectionData.primary.next_button_text | prismicDOM"
             [class.dark]="darkmode"
-            routerLink="/{{sectionData.primary.next_button_link.uid}}"
-            [queryParams]="darkmode ? { mode: 'dark' } : {}">
+            routerLink="/{{sectionData.primary.next_button_link.uid}}">
     </button>
   </div>
 </div>

@@ -19,11 +19,10 @@ export class HeaderCardComponent implements OnInit {
     this.darkMode = this.route.queryParams.value.mode === 'dark'
   }
 
-  ngOnInit() {
-    this.router.events.subscribe(val => {
-      // @ts-ignore
-      this.darkMode = this.route.queryParams.value.mode === 'dark';
-    });
+  ngOnInit(): void {
+    this.darkModeService.darkMode.subscribe( darkMode => {
+      this.darkMode = darkMode;
+    } );
   }
 
 }

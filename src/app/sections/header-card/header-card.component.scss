@@ -6,17 +6,18 @@
   &.dark {
     color: $text-dark;
   }
-}
-mat-card {
-  transition-duration: .3s !important;
-  @media only screen and (max-width: $size-md) {
-    margin-top: 50px;
+  mat-card {
+    transition-duration: .3s !important;
+    @media only screen and (max-width: $size-md) {
+      margin-top: 50px;
+    }
+    &.dark {
+      background-color: $color-dark-1;
+      color: $text-dark;
+    }
   }
-  &.dark {
-    background-color: $color-dark-1;
-    color: $text-dark;
-  }
 }
+
 .logo-bg {
   margin-right: 15px;
   height: 45px;
