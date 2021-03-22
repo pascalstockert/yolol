@@ -101,3 +101,12 @@ body {
   margin: 0 0 8px;
   line-height: initial;
 }
+.mat-menu-panel {
+  transition-duration: .3s;
+  &.dark {
+    background-color: $color-dark-1;
+    .mat-menu-item {
+      color: $text-dark;
+    }
+  }
+}

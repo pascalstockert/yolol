@@ -17,7 +17,7 @@
           <span class="chapter-count">{{ router.url.split('chapter')[1] }}</span>
         </ng-container>
 
-        <mat-menu #chapters='matMenu'>
+        <mat-menu #chapters='matMenu' [class]="darkMode ? 'dark' : ''">
           <div *ngFor="let page of pages; index as i">
             <div *ngIf="page?.uid?.includes('chapter')"
                  mat-menu-item
