@@ -16,11 +16,14 @@ export class DarkmodeService {
   init(): void {
     this.indexedDbService.get( 'darkMode' ).then( ( darkMode ) => {
       if ( !darkMode ) {
-        this.darkMode.next( false );
-        console.warn( 'No entry for darkMode found in indexedDB or is falsy' );
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          this.darkMode.next( true );
+        } else {
+          console.warn( 'No entry for darkMode found in indexedDB or is falsy' );
+          this.darkMode.next( false );
+        }
         return;
       }
-      this.darkMode.next( true );
     } );
   }
 
