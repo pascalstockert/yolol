@@ -1,11 +1,14 @@
 <div class="slice" [class.img-large]="sectionData.primary.is_large == 'true'" id="header-slice">
-  <div class="background-img" [style.backgroundImage]="'url('+background_img+')'">
+  <div class="background-img" [style.backgroundImage]="'url(' + backgroundImg + ')'">
     <div class="shader" [class.img-large]="sectionData.primary.is_large == 'true'"></div>
   </div>
-  <div class="abs-center">
+  <div class="abs-center d-flex flow-column justify-content-center">
     <h1 [innerHTML]="sectionData.primary.header[0].text.toUpperCase()" class="white-text shadow-text text-center"></h1>
     <p *ngIf="sectionData.primary.description != undefined"
        [innerHTML]="sectionData.primary.description | prismicDOM"
        class="white-text shadow-text text-center"></p>
+    <button *ngIf="router.url === '/landing'"
+            routerLink="/chapter1"
+            class="outline">START LEARNING NOW</button>
   </div>
 </div>

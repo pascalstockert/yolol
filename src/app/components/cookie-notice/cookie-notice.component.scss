@@ -16,20 +16,24 @@
   @media screen and (max-width: 992px) {
     width: 90vw;
   }
-}
-p {
-  padding: 0 20px !important;
-}
-button {
-  top: 50%;
-  transform: translateY(-50%);
+  p {
+    padding: 0 20px !important;
+  }
+  button {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  fa-icon {
+    &.large {
+      font-size: 3rem;
+    }
+    &::ng-deep svg {
+      height: 100%;
+    }
+  }
+  &.dark {
+    background-color: $color-dark-1;
+    color: $text-dark;
+  }
 }
 
-fa-icon {
-  &.large {
-    font-size: 3rem;
-  }
-  &::ng-deep svg {
-    height: 100%;
-  }
-}

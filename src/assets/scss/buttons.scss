@@ -6,6 +6,16 @@ button:not( .mat-button ) {
   border: 1px solid black;
   text-transform: uppercase;
   cursor: pointer;
+  &.outline {
+    transition-duration: .3s;
+    border: 2px solid white;
+    color: white;
+    background: transparent;
+    &:hover {
+      background: white;
+      color: black;
+    }
+  }
   &.incentivize {
     color: white;
     border-bottom: 0;

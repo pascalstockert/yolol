@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { WindowScrollService } from '../../services/window-scroll.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-slice',
@@ -11,14 +11,14 @@ export class HeaderSliceComponent implements OnInit {
 
   @Input() sectionData;
 
-  public background_img: any;
+  public backgroundImg: any;
 
-  constructor(private scrollService: WindowScrollService) {}
+  constructor( public router: Router ) {}
 
-  ngOnInit() {
-    this.background_img = this.sectionData.primary.background_image.url;
-    if (this.background_img === undefined) {
-      this.background_img = 'https://cobaltcrowproductions.xyz/image/53289-full_backgrounds-1920x1080-wallpaper-cave.jpg';
+  ngOnInit(): void {
+    this.backgroundImg = this.sectionData.primary.background_image.url;
+    if (this.backgroundImg === undefined) {
+      this.backgroundImg = 'https://cobaltcrowproductions.xyz/image/53289-full_backgrounds-1920x1080-wallpaper-cave.jpg';
     }
   }
 

@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { faCookieBite, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { IndexedDbService } from '../../services/indexed-db.service';
+import { DarkmodeService } from '../../services/darkmode.service';
 
 @Component({
   selector: 'app-cookie-notice',
@@ -13,10 +14,15 @@ export class CookieNoticeComponent implements OnInit, AfterViewInit {
   cookie = faCookieBite;
   times = faTimes;
   cookieNotice: HTMLElement;
+  darkMode = false;
 
-  constructor( private indexedDbService: IndexedDbService ) { }
+  constructor( private indexedDbService: IndexedDbService,
+               private darkmodeService: DarkmodeService ) { }
 
   async ngOnInit(): Promise<void> {
+    this.darkmodeService.darkMode.subscribe( darkMode => {
+      this.darkMode = darkMode;
+    } );
     if ( await this.indexedDbService.get( 'dismissedCookieNotice' ) ) {
       this.cookieNotice.style.display = 'none';
     }
