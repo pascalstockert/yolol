@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { lex as yazurLex } from '../../submodules/Yazur/es-modules/yolol/lex.js';
-import { claim as yazurClaim } from '../../submodules/Yazur/es-modules/yolol/parse.js';
-import { interpret as yazurInterpret } from '../../submodules/Yazur/es-modules/yolol/interpret.js';
+import { lex as yazurLex } from '../../assets/yazur/yolol/lex.js';
+import { claim as yazurClaim } from '../../assets/yazur/yolol/parse.js';
+import { interpret as yazurInterpret } from '../../assets/yazur/yolol/interpret.js';
 import { BehaviorSubject, interval } from 'rxjs';
 
 @Injectable({
