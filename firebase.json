@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "dist/yolol-v2",
     "ignore": [
       "firebase.json",
       "**/.*",
