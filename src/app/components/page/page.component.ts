@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CmsService } from '../../services/cms.service';
 import { ActivatedRoute, NavigationEnd, ParamMap, Router } from '@angular/router';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
@@ -11,7 +11,7 @@ import { DarkmodeService } from '../../services/darkmode.service';
   styleUrls: ['./page.component.scss'],
   providers: [CmsService]
 })
-export class PageComponent implements OnInit, AfterViewChecked {
+export class PageComponent implements OnInit {
 
   darkMode: boolean;
   page: any;
@@ -69,35 +69,5 @@ export class PageComponent implements OnInit, AfterViewChecked {
     this.darkModeService.darkMode.subscribe( mode => {
       this.darkMode = mode;
     } );
-  }
-
-  ngAfterViewChecked(): void {
-    const aElems = document.getElementsByTagName('a');
-    const codeElems = document.getElementsByClassName('code-inline');
-    const codeBlockElems = document.getElementsByClassName('code-block');
-    window.setTimeout( () => {
-      if (!this.darkMode) {
-        for (let i = 0; i < aElems.length; i++) {
-          aElems[i].classList.remove('dark');
-        }
-        for (let i = 0; i < codeElems.length; i++) {
-          codeElems[i].classList.remove('dark');
-        }
-        for (let i = 0; i < codeBlockElems.length; i++) {
-          codeBlockElems[i].classList.remove('dark');
-        }
-      }
-      if (this.darkMode) {
-        for (let i = 0; i < aElems.length; i++) {
-          aElems[i].classList.add('dark');
-        }
-        for (let i = 0; i < codeElems.length; i++) {
-          codeElems[i].classList.add('dark');
-        }
-        for (let i = 0; i < codeBlockElems.length; i++) {
-          codeBlockElems[i].classList.add('dark');
-        }
-      }
-    }, 0);
   }
 }
