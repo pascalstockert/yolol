@@ -10,7 +10,7 @@ import { DarkmodeService } from '../../services/darkmode.service';
 })
 export class EditorComponent implements OnInit, AfterViewInit {
 
-  @Input() initialContent;
+  @Input() sectionData;
 
   @ViewChild( 'editor' ) editorRef: ElementRef<HTMLDivElement>;
   @ViewChild( 'editorOverlay' ) editorOverlayRef: ElementRef<HTMLDivElement>;
@@ -20,6 +20,7 @@ export class EditorComponent implements OnInit, AfterViewInit {
   currentLine = 1;
   hasFocus = false;
   editorContent = '';
+  initialContent = [];
 
   stepIcon = faStepForward;
 
@@ -45,10 +46,12 @@ export class EditorComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log(this.initialContent);
-
-    if ( !!this.initialContent ) {
+    if ( 'initial_content' in this.sectionData.primary ) {
+      this.initialContent = this.sectionData.primary.initial_content;
       this.setInitialContent();
+    }
+    if ( 'globals' in this.sectionData.primary ) {
+      this.setGlobals( this.sectionData.primary.globals );
     }
     this.editorContent = this.editorRef.nativeElement.innerHTML;
     this.editorRef.nativeElement.innerHTML = this.editorContent;
@@ -59,7 +62,9 @@ export class EditorComponent implements OnInit, AfterViewInit {
   setInitialContent(): void {
     let initialContentString = '';
     for ( const line of this.initialContent ) {
-      initialContentString += `${ line.text }\n`;
+      if ( !!line ) {
+        initialContentString += `${ line.text }\n`;
+      }
     }
     const lines = initialContentString
       .split('\n')
@@ -70,6 +75,18 @@ export class EditorComponent implements OnInit, AfterViewInit {
         return line;
       } );
     this.editorRef.nativeElement.innerHTML = lines.join('');
+  }
+
+  setGlobals( globals: any[] ): void {
+    console.log(this.chip);
+    globals.forEach( globalObject => {
+      console.log(globalObject.text.replace(/(\r\n|\n|\r|\s)/gm, ''));
+      const globals = JSON.parse( globalObject.text.replace(/(\r\n|\n|\r|\s)/gm, '') + '' );
+      Object.keys( globals ).forEach( ( global ) => {
+        // TODO change type and subtype according to data type
+        this.chip.localEnv.global[ ':' + global ] =  {type: 3, subtype: 1, value: globals[ global ]};
+      } );
+    } );
   }
 
   // TODO optimize visual input lag as chars are only rendered at keyUp

@@ -29,6 +29,7 @@ drop by in the [CYLON Discord Server](https://discord.gg/jkXcT74) or simply ask 
   >**Learnings in this chapter:**
   >+ Introduction to interactive code snippets
   >+ How YOLOL is being executed
+  >+ YOLOL limitations
   >
   >|[Read more](tutorial_md/c2.md)|
   >|:--:|
