@@ -81,10 +81,10 @@ export class EditorComponent implements OnInit, AfterViewInit {
     console.log(this.chip);
     globals.forEach( globalObject => {
       console.log(globalObject.text.replace(/(\r\n|\n|\r|\s)/gm, ''));
-      const globals = JSON.parse( globalObject.text.replace(/(\r\n|\n|\r|\s)/gm, '') + '' );
+      const globalFields = JSON.parse( globalObject.text.replace(/(\r\n|\n|\r|\s)/gm, '') + '' );
       Object.keys( globals ).forEach( ( global ) => {
         // TODO change type and subtype according to data type
-        this.chip.localEnv.global[ ':' + global ] =  {type: 3, subtype: 1, value: globals[ global ]};
+        this.chip.localEnv.global[ ':' + global ] =  {type: 3, subtype: 1, value: globalFields[ global ]};
       } );
     } );
   }
