@@ -59,6 +59,11 @@ $yolol-theme: mat-light-theme($yolol-primary, $yolol-accent, $yolol-warn);
 @import "assets/scss/shared";
 @import "assets/scss/mixins";
 
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url(assets/fonts/JetBrainsMono-Regular.ttf) format('truetype');
+}
+
 html, body {
   height: 100%;
 }
