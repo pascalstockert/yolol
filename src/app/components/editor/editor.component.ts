@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, View
 import { faPlay, faPause, faStepForward } from '@fortawesome/free-solid-svg-icons';
 import { Chip, YazurService } from '../../services/yazur.service';
 import { DarkmodeService } from '../../services/darkmode.service';
+import { split } from 'ts-node';
 
 @Component({
   selector: 'app-editor',
@@ -78,13 +79,12 @@ export class EditorComponent implements OnInit, AfterViewInit {
   }
 
   setGlobals( globals: any[] ): void {
-    console.log(this.chip);
     globals.forEach( globalObject => {
-      console.log(globalObject.text.replace(/(\r\n|\n|\r|\s)/gm, ''));
-      const globalFields = JSON.parse( globalObject.text.replace(/(\r\n|\n|\r|\s)/gm, '') + '' );
-      Object.keys( globals ).forEach( ( global ) => {
-        // TODO change type and subtype according to data type
-        this.chip.localEnv.global[ ':' + global ] =  {type: 3, subtype: 1, value: globalFields[ global ]};
+      const globalFields = globalObject.text.split( ',' );
+      globalFields.forEach( stringTuple => {
+        const splitTuple = stringTuple.split( ':' );
+        // TODO fix hard-coded type/subtype of globals
+        this.chip.localEnv.global[ ':' + splitTuple[0] ] = { type: 3, subtype: 1, value: splitTuple[1] };
       } );
     } );
   }
@@ -140,14 +140,19 @@ export class EditorComponent implements OnInit, AfterViewInit {
   }
 
   interpretLine(): void {
-    const lines = [];
-    this.getWrittenCode().forEach(  ( line, i ) => {
-      lines.push( this.chip.parse( this.chip.lex( line, i ) ) );
-    } );
-    this.chip.setParsed( lines );
-    this.chip.interpret();
-    if ( this.chip.localEnv.nextLine > this.lineCount ) {
-      this.chip.setCurrentLine( 1 );
+    try {
+      const lines = [];
+      this.getWrittenCode().forEach(  ( line, i ) => {
+        lines.push( this.chip.parse( this.chip.lex( line, i ) ) );
+      } );
+      this.chip.setParsed( lines );
+      this.chip.interpret();
+      if ( this.chip.localEnv.nextLine > this.lineCount ) {
+        this.chip.setCurrentLine( 1 );
+      }
+    } catch ( e ) {
+      console.error( e );
+      this.setCurrentLine( this.currentLine + 1 );
     }
   }
 
