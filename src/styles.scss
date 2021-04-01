@@ -70,18 +70,46 @@ html, body {
 body {
   margin: 0; font-family: 'PT Sans', 'Helvetica Neue', sans-serif;
 }
+p a, span a, div a:not(.logo-bg), section a {
+  z-index: 2;
+  position: relative;
+  color: black;
+  text-decoration: none;
+  transition-duration: .3s;
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 2px;
+    width: 100%;
+    background: $gradient-radial;
+    transform: translateX(-50%);
+    transition-duration: .1s;
+    z-index: -1;
+  }
+  &:hover {
+    color: $text-dark;
+    &:before {
+      height: calc( 100% + 6px );
+      width: calc( 100% + 12px );
+      bottom: -4px;
+    }
+  }
+}
+p.dark a, span.dark a, div.dark a:not(.logo-bg), section.dark a {
+  color: $text-dark;
+}
 
 .no-gutters {
   margin-right: 0;
   margin-left: 0;
-
   > .col,
   > [class*="col-"] {
     padding-right: 0;
     padding-left: 0;
   }
 }
-
 .mat-card {
   position: relative;
   border: 1px solid black;

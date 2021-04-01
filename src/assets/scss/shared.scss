@@ -4,26 +4,6 @@
 
 $size-md: 768px;
 
-::ng-deep a:not(.logo-bg) {
-  color: $color-accent !important;
-  padding: initial !important;
-  transition-duration: .1s !important;
-  border-radius: 3px !important;
-  &:hover {
-    color: $color-light !important;
-    padding: 3px 5px !important;
-    background-color: $color-dark !important;
-    text-decoration: none !important;
-  }
-  &.dark {
-    color: $color-accent-dark !important;
-    &:hover {
-      color: $color-dark !important;
-      background-color: $color-light-3 !important;
-    }
-  }
-}
-
 .shadow-text {
   text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
 }
