@@ -1,11 +1,12 @@
-# YOLOL Tutorial
+# YOLOL.info
 
-[Visit this repo's website!](http://yolol.info)
+[Visit this repo's website!](https://yolol.info)
 
 This tutorial covers everything from the basics to optimization in YOLOL!<br>
 I will try to explain the concepts behind YOLOL to the best of my extent, however if any questions should arise while reading through the tutorial feel free to 
-drop by in the [CYLON Discord Server](https://discord.gg/jkXcT74) or simply ask in [#yolol-code](https://discord.gg/jV83sSVanb) through the official Starbase Discord.
+drop by in the [CYLON Discord Server](https://discord.gg/jkXcT74) or simply ask in [#yolol-code](https://discord.gg/jV83sSVanb) of the official Starbase Discord.
 
+A huge shout-out deserves [Azurethi(#0789)](https://github.com/azurethi) for providing Yazur, the open-source clientside YOLOL interpreter which he wrote. His work made V2 of this tutorial even possible, so I can't be thankful enough for his amazing contribution!
 
 ## What you will learn here:
 
