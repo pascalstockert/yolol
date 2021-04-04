@@ -24,7 +24,7 @@ A huge shout-out deserves [Azurethi(#0789)](https://github.com/azurethi) for pro
 </details>
 
 <details>
-  <summary> YOLOL basics </summary>
+  <summary> YOLOL fundamentals </summary>
   
   > A first dive into the language.<br><br>
   >**Learnings in this chapter:**
@@ -51,7 +51,7 @@ A huge shout-out deserves [Azurethi(#0789)](https://github.com/azurethi) for pro
 <details>
   <summary> Hello, world! </summary>
   
-  > Understanding how strings work at the example of "Hello, world!".<br><br>
+  > Understanding how strings work at the example of "Hello world!".<br><br>
   >**Learnings in this chapter:**
   >+ Assigning strings to a field
   >+ Combining strings through concatenation

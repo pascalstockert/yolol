@@ -49,6 +49,10 @@ p, .mat-typography p, button {
   line-height: initial;
 }
 
+p:not(:last-child) {
+  margin-bottom: 12px;
+}
+
 .code {
   font-family: "JetBrains Mono", monospace;
 }
