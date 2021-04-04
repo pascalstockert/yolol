@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, View
 import { faPlay, faPause, faStepForward } from '@fortawesome/free-solid-svg-icons';
 import { Chip, YazurService } from '../../services/yazur.service';
 import { DarkmodeService } from '../../services/darkmode.service';
+import { split } from 'ts-node';
 
 @Component({
   selector: 'app-editor',
@@ -10,7 +11,7 @@ import { DarkmodeService } from '../../services/darkmode.service';
 })
 export class EditorComponent implements OnInit, AfterViewInit {
 
-  @Input() initialContent;
+  @Input() sectionData;
 
   @ViewChild( 'editor' ) editorRef: ElementRef<HTMLDivElement>;
   @ViewChild( 'editorOverlay' ) editorOverlayRef: ElementRef<HTMLDivElement>;
@@ -20,6 +21,7 @@ export class EditorComponent implements OnInit, AfterViewInit {
   currentLine = 1;
   hasFocus = false;
   editorContent = '';
+  initialContent = [];
 
   stepIcon = faStepForward;
 
@@ -45,10 +47,12 @@ export class EditorComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log(this.initialContent);
-
-    if ( !!this.initialContent ) {
+    if ( 'initial_content' in this.sectionData.primary ) {
+      this.initialContent = this.sectionData.primary.initial_content;
       this.setInitialContent();
+    }
+    if ( 'globals' in this.sectionData.primary ) {
+      this.setGlobals( this.sectionData.primary.globals );
     }
     this.editorContent = this.editorRef.nativeElement.innerHTML;
     this.editorRef.nativeElement.innerHTML = this.editorContent;
@@ -59,7 +63,9 @@ export class EditorComponent implements OnInit, AfterViewInit {
   setInitialContent(): void {
     let initialContentString = '';
     for ( const line of this.initialContent ) {
-      initialContentString += `${ line.text }\n`;
+      if ( !!line ) {
+        initialContentString += `${ line.text }\n`;
+      }
     }
     const lines = initialContentString
       .split('\n')
@@ -70,6 +76,17 @@ export class EditorComponent implements OnInit, AfterViewInit {
         return line;
       } );
     this.editorRef.nativeElement.innerHTML = lines.join('');
+  }
+
+  setGlobals( globals: any[] ): void {
+    globals.forEach( globalObject => {
+      const globalFields = globalObject.text.split( ',' );
+      globalFields.forEach( stringTuple => {
+        const splitTuple = stringTuple.split( ':' );
+        // TODO fix hard-coded type/subtype of globals
+        this.chip.localEnv.global[ ':' + splitTuple[0] ] = { type: 3, subtype: 1, value: splitTuple[1] };
+      } );
+    } );
   }
 
   // TODO optimize visual input lag as chars are only rendered at keyUp
@@ -123,14 +140,19 @@ export class EditorComponent implements OnInit, AfterViewInit {
   }
 
   interpretLine(): void {
-    const lines = [];
-    this.getWrittenCode().forEach(  ( line, i ) => {
-      lines.push( this.chip.parse( this.chip.lex( line, i ) ) );
-    } );
-    this.chip.setParsed( lines );
-    this.chip.interpret();
-    if ( this.chip.localEnv.nextLine > this.lineCount ) {
-      this.chip.setCurrentLine( 1 );
+    try {
+      const lines = [];
+      this.getWrittenCode().forEach(  ( line, i ) => {
+        lines.push( this.chip.parse( this.chip.lex( line, i ) ) );
+      } );
+      this.chip.setParsed( lines );
+      this.chip.interpret();
+      if ( this.chip.localEnv.nextLine > this.lineCount ) {
+        this.chip.setCurrentLine( 1 );
+      }
+    } catch ( e ) {
+      console.error( e );
+      this.setCurrentLine( this.currentLine + 1 );
     }
   }
 

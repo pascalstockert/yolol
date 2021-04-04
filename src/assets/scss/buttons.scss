@@ -22,6 +22,10 @@ button:not( .mat-button ) {
     border-left: 0;
     background: $gradient-radial;
   }
+  &:not(.incentivize, .outline, .scroll-top) {
+    border-top: 0;
+    border-right: 0;
+  }
   &:disabled {
     border: none;
   }

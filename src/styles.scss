@@ -59,32 +59,66 @@ $yolol-theme: mat-light-theme($yolol-primary, $yolol-accent, $yolol-warn);
 @import "assets/scss/shared";
 @import "assets/scss/mixins";
 
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url(assets/fonts/JetBrainsMono-Regular.ttf) format('truetype');
+}
+
 html, body {
   height: 100%;
 }
 body {
   margin: 0; font-family: 'PT Sans', 'Helvetica Neue', sans-serif;
 }
+p a, span a, div a:not(.logo-bg), section a {
+  z-index: 2;
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  transition-duration: .3s;
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 2px;
+    width: 100%;
+    background: $gradient-radial;
+    transform: translateX(-50%);
+    transition-duration: .1s;
+    z-index: -1;
+  }
+  &:hover {
+    color: white;
+    &:before {
+      height: calc( 100% + 6px );
+      width: calc( 100% + 12px );
+      bottom: -4px;
+    }
+  }
+}
 
 .no-gutters {
   margin-right: 0;
   margin-left: 0;
-
   > .col,
   > [class*="col-"] {
     padding-right: 0;
     padding-left: 0;
   }
 }
-
+.flow-column {
+  flex-flow: column;
+}
 .mat-card {
+  z-index: 2;
   position: relative;
   border: 1px solid black;
   border-bottom: 0;
   border-left: 0;
   border-radius: 0 !important;
   box-shadow: none !important;
-  &:after {
+  &:before {
     z-index: -1;
     content: '';
     position: absolute;
@@ -93,6 +127,22 @@ body {
     height: 100%;
     width: 100%;
     background: $gradient-radial;
+  }
+  &:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: white;
+    transition-duration: .3s;
+  }
+  &.dark {
+    &:after {
+      background: $color-dark-1;
+    }
   }
 }
 .mat-card-header {
@@ -111,6 +161,50 @@ body {
   }
 }
 
-.flow-column {
-  flex-flow: column;
+div .code-inline {
+  display: inline-block;
+  padding: 1px 5px;
+  width: fit-content;
+  font-family: "JetBrains Mono", monospace;
+  color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.1);
+}
+div.dark .code-inline {
+  color: $text-dark;
+  background-color: rgba(255,255,255,0.1);
+}
+div .code-block {
+  overflow-x: auto;
+  display: block;
+  position: relative;
+  white-space: pre;
+  padding: 10px 13px;
+  margin: 20px 0;
+  width: 100%;
+  color: rgba(0,0,0,0.7);
+  font-family: "JetBrains Mono", monospace;
+  background-color: rgba(0,0,0,0.05);
+  @media only screen and (min-width: 768px) {
+    padding: 10px 13px 10px 26px;
+    &:after {
+      content: 'CODE';
+      position: absolute;
+      top: 50%;
+      height: fit-content;
+      left: 0;
+      width: fit-content;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      color: black;
+      transform: translateY(-50%) rotate(-90deg);
+    }
+  }
+}
+div.dark .code-block {
+  color: $text-dark;
+  background-color: $color-dark-1;
+  border-left: 3px solid $color-light-3;
+  &:after {
+    color: $text-dark;
+  }
 }
