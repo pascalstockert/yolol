@@ -82,11 +82,12 @@ export class EditorComponent implements OnInit, AfterViewInit {
     globals.forEach( globalObject => {
       const globalFields = globalObject.text.split( ',' );
       globalFields.forEach( stringTuple => {
-        const splitTuple = stringTuple.split( ':' );
+        const splitTuple = stringTuple.split( '=' );
         // TODO fix hard-coded type/subtype of globals
         this.chip.localEnv.global[ ':' + splitTuple[0] ] = { type: 3, subtype: 1, value: splitTuple[1] };
       } );
     } );
+    console.log(this.chip);
   }
 
   // TODO optimize visual input lag as chars are only rendered at keyUp
