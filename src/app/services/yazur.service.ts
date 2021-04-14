@@ -38,7 +38,6 @@ export class Chip {
       } );
     }
     this.setParsed( parsed );
-    this.lineChange.subscribe(console.log);
   }
 
   setCurrentLine( nextLine: number ): any {
@@ -60,7 +59,7 @@ export class Chip {
 
   interpret(): any {
 
-    var chipwait=this.localEnv.global[this.localEnv.chipwaitField].value;
+    const chipwait=this.localEnv.global[this.localEnv.chipwaitField].value;
     if(chipwait>=0 && chipwait<1){
       yazurInterpret( this );
     } else {
