@@ -38,6 +38,7 @@ export class Chip {
       } );
     }
     this.setParsed( parsed );
+    this.lineChange.subscribe(console.log);
   }
 
   setCurrentLine( nextLine: number ): any {
@@ -58,7 +59,15 @@ export class Chip {
   }
 
   interpret(): any {
-    yazurInterpret( this );
+    console.log(this.localEnv.nextLine,this,yazurInterpret);
+
+    var chipwait=this.localEnv.global[this.localEnv.chipwaitField].value;
+    if(chipwait>=0 && chipwait<1){
+      yazurInterpret( this );
+    } else {
+      this.localEnv.global[this.localEnv.chipwaitField].value-=1;
+    }
+
     this.lineChange.next( { nextLine: this.localEnv.nextLine } );
   }
 
