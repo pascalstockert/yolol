@@ -59,7 +59,6 @@ export class Chip {
   }
 
   interpret(): any {
-    console.log(this.localEnv.nextLine,this,yazurInterpret);
 
     var chipwait=this.localEnv.global[this.localEnv.chipwaitField].value;
     if(chipwait>=0 && chipwait<1){
