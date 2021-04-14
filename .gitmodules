@@ -1,0 +1,3 @@
+[submodule "yazur"]
+	path = yazur
+	url = https://github.com/Azurethi/yazur
