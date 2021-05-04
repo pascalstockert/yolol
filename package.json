@@ -2,6 +2,7 @@
   "name": "yolol",
   "version": "2.0.0",
   "scripts": {
+    "init": "npm i && git submodule update --init",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
