@@ -91,6 +91,15 @@ A huge shout-out deserves [Azurethi(#0789)](https://github.com/azurethi) for pro
 </details>
 
 <details>
+  <summary> Operator precedence </summary>
+  
+  > The classic brackets before multiplication/division before addition/subtraction.<br><br>
+  >**Learnings in this chapter:**
+  >+ Different operators and their precedence
+  >+ Leveraging operator precedence
+</details>
+
+<details>
   <summary> Abusing errors </summary>
   
   > Causing errors in the execution of YOLOL and making use of them.<br><br>
