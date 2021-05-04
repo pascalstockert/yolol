@@ -51,7 +51,7 @@
         </div>
         <div class="values">
           <div class="code" *ngFor="let global of getChipGlobals()">
-            {{ chip.localEnv.global[ global ].value }}
+            {{ chip.localEnv.global[ global ].value || '&nbsp;' }}
           </div>
         </div>
       </div>
@@ -64,7 +64,7 @@
         </div>
         <div class="values">
           <div class="code" *ngFor="let field of getChipVars()">
-            {{ chip.localEnv.vars[ field ].value }}
+            {{ chip.localEnv.vars[ field ].value || '&nbsp;' }}
           </div>
         </div>
       </div>
