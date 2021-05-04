@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { faPlay, faPause, faStepForward } from '@fortawesome/free-solid-svg-icons';
 import { Chip, YazurService } from '../../services/yazur.service';
 import { DarkmodeService } from '../../services/darkmode.service';

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ScrollTopButtonComponent } from './scroll-top-button.component';
 
@@ -6,7 +6,7 @@ describe('ScrollTopButtonComponent', () => {
   let component: ScrollTopButtonComponent;
   let fixture: ComponentFixture<ScrollTopButtonComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ScrollTopButtonComponent ]
     })
