@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import yazurLex from '../../../yazur/es-modules/yolol/lex';
-import yazurClaim  from '../../../yazur/es-modules/yolol/parse';
+import yazurClaim from '../../../yazur/es-modules/yolol/parse';
 import yazurInterpret from '../../../yazur/es-modules/yolol/interpret';
 import { BehaviorSubject, interval } from 'rxjs';
 
@@ -8,7 +8,6 @@ import { BehaviorSubject, interval } from 'rxjs';
   providedIn: 'root'
 })
 export class YazurService {
-
   chipTimer = interval( 200 );
 
   constructor() { }
@@ -58,12 +57,11 @@ export class Chip {
   }
 
   interpret(): any {
-
-    const chipwait=this.localEnv.global[this.localEnv.chipwaitField].value;
-    if(chipwait>=0 && chipwait<1){
+    const chipwait = this.localEnv.global[this.localEnv.chipwaitField].value;
+    if (chipwait >= 0 && chipwait < 1){
       yazurInterpret( this );
     } else {
-      this.localEnv.global[this.localEnv.chipwaitField].value-=1;
+      this.localEnv.global[this.localEnv.chipwaitField].value -= 1;
     }
 
     this.lineChange.next( { nextLine: this.localEnv.nextLine } );
