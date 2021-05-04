@@ -99,6 +99,9 @@
     .current-line {
       background-color: rgba( 0, 0, 0, 0.5 );
     }
+    .line-wrapper .editor-wrapper .editor {
+      caret-color: $text-dark;
+    }
   }
 }
 
@@ -138,6 +141,7 @@
     }
   }
   &.dark {
+    background-color: $color-dark-1;
     border-left: 1px solid $color-dark-3;
     .subtitle {
       background: $color-dark-2;
