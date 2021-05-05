@@ -60,7 +60,7 @@ export class Chip {
     const chipwait = this.localEnv.global[this.localEnv.chipwaitField].value;
     if (chipwait >= 0 && chipwait < 1){
       yazurInterpret( this );
-    } else {
+    } else if (chipwait >= 1){
       this.localEnv.global[this.localEnv.chipwaitField].value -= 1;
     }
 
