@@ -1,0 +1,27 @@
+<div class="slice" id="header-slice">
+  <div class="background-img" [style.backgroundImage]="'url(' + backgroundImg + ')'">
+    <div class="shader"></div>
+  </div>
+  <div class="abs-center d-flex flow-column justify-content-center">
+    <h1 [innerHTML]="sectionData.primary.header[0].text.toUpperCase()" class="white-text shadow-text text-center"></h1>
+    <p *ngIf="sectionData.primary.description != undefined"
+       [innerHTML]="sectionData.primary.description | prismicDOM"
+       class="white-text shadow-text text-center"></p>
+    <button routerLink="/chapter1"
+            class="outline">START LEARNING NOW</button>
+  </div>
+  <div class="voice-grid container">
+    <div class="row">
+      <div *ngFor="let voice of voiceTriplet; index as i" class="col entry d-none" [ngClass]="{ 'd-sm-flex': i === 0, 'd-md-flex': [0, 1].includes(i), 'd-lg-flex': [0, 1, 2].includes(i) }">
+        <img [src]="voice.image.url" alt="author image">
+        <div>
+          <div class="d-flex align-items-baseline">
+            <p class="author dn">{{ voice.author[0].text }}&nbsp;&nbsp;</p>
+            <p class="date" [innerHTML]="voice.date | prismicDOMtext"></p>
+          </div>
+          <p class="comment" [innerHTML]="voice.comment | prismicDOM"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
