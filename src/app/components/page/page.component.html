@@ -8,6 +8,7 @@
 
       <div *ngFor="let section of page?.data?.body">
         <div [ngSwitch]="section.slice_type">
+          <app-landing-hero *ngSwitchCase="'landing-hero'" [sectionData]="section"></app-landing-hero>
           <app-header-slice *ngSwitchCase="'header-slice'" [sectionData]="section"></app-header-slice>
         </div>
       </div>
