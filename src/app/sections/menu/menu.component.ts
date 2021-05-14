@@ -1,11 +1,21 @@
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { WindowScrollService } from '../../services/window-scroll.service';
 import { DOCUMENT } from '@angular/common';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faCog } from '@fortawesome/free-solid-svg-icons';
 
 import { CmsService } from '../../services/cms.service';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DarkmodeService } from '../../services/darkmode.service';
+
+interface Setting {
+  label: string;
+  value: boolean;
+}
+
+interface MenuSettings {
+  darkMode: Setting;
+  ligatures: Setting;
+}
 
 @Component({
   selector: 'app-menu',
@@ -17,11 +27,19 @@ import { DarkmodeService } from '../../services/darkmode.service';
 export class MenuComponent implements OnInit {
 
   faHome = faHome;
+  faCog = faCog;
 
   pages: any;
   windowPos = 0;
-  darkMode = false;
   pageCount: number;
+
+  darkMode = false;
+  ligatures = false;
+  settings: MenuSettings = {
+    darkMode: { label: 'Darkmode', value: this.darkMode },
+    ligatures: { label: 'Ligatures', value: this.ligatures }
+  };
+  settingsLength = Object.keys(this.settings);
 
   constructor( @Inject( DOCUMENT ) private document: any,
                private cmsService: CmsService,
