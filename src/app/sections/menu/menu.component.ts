@@ -56,15 +56,9 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     this.settingsService.settings.subscribe( (settings) => {
       this.settings = settings;
-      console.warn(settings)
+      this.darkMode = settings.darkMode;
+      this.ligatures = settings.ligatures;
     } );
-    this.settingsService.darkMode.subscribe( ( darkMode ) => {
-      this.darkMode = darkMode;
-    } );
-  }
-
-  switchMode(): void {
-    this.settingsService.toggleDarkmode();
   }
 
 }

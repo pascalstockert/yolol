@@ -15,6 +15,7 @@ import { SettingsService } from '../../services/settings.service';
 export class PageComponent implements OnInit {
 
   darkMode: boolean;
+  ligatures: boolean;
   page: any;
   public test: string;
   docHeight: number;
@@ -62,13 +63,14 @@ export class PageComponent implements OnInit {
         }
       });
     });
-    // @ts-ignore
-    this.darkMode = route.queryParams.value.mode === 'dark';
   }
 
   ngOnInit(): void {
     this.settingsService.darkMode.subscribe( mode => {
       this.darkMode = mode;
+    } );
+    this.settingsService.ligatures.subscribe( ligatures => {
+      this.ligatures = ligatures;
     } );
   }
 }
