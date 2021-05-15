@@ -3,7 +3,8 @@ import { CmsService } from '../../services/cms.service';
 import { ActivatedRoute, NavigationEnd, ParamMap, Router } from '@angular/router';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { of, combineLatest } from 'rxjs';
-import { DarkmodeService } from '../../services/darkmode.service';
+import { SettingsService } from '../../services/settings.service';
+
 
 @Component({
   selector: 'app-page',
@@ -21,7 +22,7 @@ export class PageComponent implements OnInit {
   constructor( private cmsService: CmsService,
                private route: ActivatedRoute,
                private router: Router,
-               private darkModeService: DarkmodeService ) {
+               private settingsService: SettingsService ) {
     const pages = this.route.paramMap.pipe(
       map((params: ParamMap) => params.get('slug')),
       switchMap(slug => this.cmsService.getPage(slug)),
@@ -66,7 +67,7 @@ export class PageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.darkModeService.darkMode.subscribe( mode => {
+    this.settingsService.darkMode.subscribe( mode => {
       this.darkMode = mode;
     } );
   }

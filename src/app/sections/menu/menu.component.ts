@@ -1,20 +1,14 @@
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
-import { WindowScrollService } from '../../services/window-scroll.service';
 import { DOCUMENT } from '@angular/common';
 import { faHome, faCog } from '@fortawesome/free-solid-svg-icons';
 
 import { CmsService } from '../../services/cms.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { DarkmodeService } from '../../services/darkmode.service';
-
-interface Setting {
-  label: string;
-  value: boolean;
-}
+import { Router } from '@angular/router';
+import { SettingsService } from '../../services/settings.service';
 
 interface MenuSettings {
-  darkMode: Setting;
-  ligatures: Setting;
+  darkMode: boolean;
+  ligatures: boolean;
 }
 
 @Component({
@@ -36,17 +30,15 @@ export class MenuComponent implements OnInit {
   darkMode = false;
   ligatures = false;
   settings: MenuSettings = {
-    darkMode: { label: 'Darkmode', value: this.darkMode },
-    ligatures: { label: 'Ligatures', value: this.ligatures }
+    darkMode: this.darkMode,
+    ligatures: this.ligatures
   };
   settingsLength = Object.keys(this.settings);
 
   constructor( @Inject( DOCUMENT ) private document: any,
                private cmsService: CmsService,
-               private scrollService: WindowScrollService,
                public router: Router,
-               private route: ActivatedRoute,
-               private darkModeService: DarkmodeService) {
+               public settingsService: SettingsService) {
 
     const sortByProperty = (property) => {
       return (x, y) => {
@@ -62,13 +54,17 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.darkModeService.darkMode.subscribe( ( darkMode ) => {
+    this.settingsService.settings.subscribe( (settings) => {
+      this.settings = settings;
+      console.warn(settings)
+    } );
+    this.settingsService.darkMode.subscribe( ( darkMode ) => {
       this.darkMode = darkMode;
     } );
   }
 
   switchMode(): void {
-    this.darkModeService.switchMode();
+    this.settingsService.toggleDarkmode();
   }
 
 }
