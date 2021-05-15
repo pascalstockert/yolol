@@ -26,8 +26,12 @@ button:not( .mat-button ) {
   &.icon-text-button {
     border: none;
     background-color: transparent;
+    padding: 8px 12px;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: lowercase;
     &.dark {
-      color: $text-dark;
+      color: white;
     }
     > fa-icon {
       margin-left: 8px;
