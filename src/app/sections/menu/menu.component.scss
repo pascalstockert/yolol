@@ -6,6 +6,13 @@
   background: white;
   border-bottom: 1px solid black;
   transition-duration: .3s;
+  &.dark {
+    background-color: $color-dark-1;
+    color: $text-dark;
+    .menu-button-wrapper .menu-button {
+      color: white;
+    }
+  }
 }
 .mat-menu-item {
   font-family: 'Open Sans', sans-serif;
@@ -35,12 +42,5 @@
     color: $color-accent;
     cursor: pointer;
     transition-duration: .3s;
-  }
-}
-
-.menu.dark {
-  background-color: $color-dark-1;
-  .menu-button-wrapper .menu-button {
-    color: white;
   }
 }
