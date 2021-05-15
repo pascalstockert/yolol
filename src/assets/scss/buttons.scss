@@ -1,13 +1,12 @@
 @import "colors";
 
 button:not( .mat-button ) {
-  margin-top: 24px;
-  padding: 8px 12px;
-  border: 1px solid black;
   text-transform: uppercase;
   cursor: pointer;
   &.outline {
     transition-duration: .3s;
+    margin-top: 24px;
+    padding: 8px 12px;
     border: 2px solid white;
     color: white;
     background: transparent;
@@ -17,13 +16,31 @@ button:not( .mat-button ) {
     }
   }
   &.icon-button {
-    margin: 0;
-    padding: 12px;
-    border: 0;
-    border-radius: 50%;
-    overflow: hidden;
+    background-color: transparent;
+    box-shadow: none;
+    color: $color-dark;
+    &.light {
+      color: $text-dark;
+    }
+  }
+  &.icon-text-button {
+    border: none;
+    background-color: transparent;
+    padding: 8px 12px;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: lowercase;
+    &.dark {
+      color: white;
+    }
+    > fa-icon {
+      margin-left: 8px;
+    }
   }
   &.incentivize {
+    margin-top: 24px;
+    padding: 8px 12px;
+    border: 1px solid black;
     color: white;
     border-bottom: 0;
     border-left: 0;
@@ -35,11 +52,16 @@ button:not( .mat-button ) {
   &.transparent-bg {
     background-color: transparent;
   }
-  &:not(.incentivize, .outline, .scroll-top) {
+  &:not(.incentivize, .outline, .scroll-top, .icon-button, .icon-text-button) {
+    margin-top: 24px;
+    padding: 8px 12px;
+    border: 1px solid black;
     border-top: 0;
     border-right: 0;
   }
   &:disabled {
+    margin-top: 24px;
+    padding: 8px 12px;
     border: none;
   }
 }

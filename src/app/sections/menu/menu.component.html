@@ -31,12 +31,13 @@
         </div>
 
         <div class="d-flex align-items-center">
-          <button mat-ripple
-                  class="icon-button transparent-bg"
-                  [class.light]="darkMode"
-                  [matMenuTriggerFor]="settingsMenu">
+          <button [matMenuTriggerFor]="settingsMenu"
+                  class="icon-text-button"
+                  [class.dark]="darkMode">
+            settings
             <fa-icon [icon]="faCog"></fa-icon>
           </button>
+
 
           <mat-menu #settingsMenu='matMenu'
                     [class]="darkMode ? 'dark' : ''">
