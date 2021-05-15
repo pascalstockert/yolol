@@ -2,34 +2,59 @@
      [class.dark]="darkMode">
   <div class="container">
     <div class="row">
-      <div class="col-12 d-flex align-items-center menu-button-wrapper">
-        <div class="menu-button"
-             [routerLink]="'/landing'"
-             [class.active]="router.url.includes( 'landing' )">
-          home
-        </div>
-
-        <div class="menu-button"
-             [matMenuTriggerFor]="chapters">
-          chapters
-        </div>
-        <ng-container *ngIf="router.url.includes('chapter')">
-          <span class="chapter-count">{{ router.url.split('chapter')[1] }}</span>
-        </ng-container>
-
-        <mat-menu #chapters='matMenu' [class]="darkMode ? 'dark' : ''">
-          <div *ngFor="let page of pages; index as i">
-            <div *ngIf="page?.uid?.includes('chapter')"
-                 mat-menu-item
-                 routerLink="/{{page?.uid}}">
-              chapter {{i+1}}
-            </div>
+      <div class="col-12 d-flex justify-content-between menu-button-wrapper">
+        <div class="d-flex align-items-center">
+          <div class="menu-button"
+               [routerLink]="'/landing'"
+               [class.active]="router.url.includes( 'landing' )">
+            home
           </div>
-        </mat-menu>
 
-        <div class="menu-button"
-             [innerHTML]="!darkMode ? 'darkmode' : 'lightmode'"
-             (click)="switchMode()">
+          <div class="menu-button"
+               [matMenuTriggerFor]="chapters">
+            chapters
+          </div>
+          <ng-container *ngIf="router.url.includes('chapter')">
+            <span class="chapter-count">{{ router.url.split('chapter')[1] }}</span>
+          </ng-container>
+
+          <mat-menu #chapters='matMenu'
+                    [class]="darkMode ? 'dark' : ''">
+            <div *ngFor="let page of pages; index as i">
+              <div *ngIf="page?.uid?.includes('chapter')"
+                   mat-menu-item
+                   routerLink="/{{page?.uid}}">
+                chapter {{i+1}}
+              </div>
+            </div>
+          </mat-menu>
+        </div>
+
+        <div class="d-flex align-items-center">
+          <button mat-ripple
+                  class="icon-button transparent-bg"
+                  [class.light]="darkMode"
+                  [matMenuTriggerFor]="settingsMenu">
+            <fa-icon [icon]="faCog"></fa-icon>
+          </button>
+
+          <mat-menu #settingsMenu='matMenu'
+                    [class]="darkMode ? 'dark' : ''">
+            <ng-container *ngFor="let setting of settingsLength; index as i">
+              <ng-container [ngSwitch]="setting">
+                <div *ngSwitchCase="'darkMode'"
+                     mat-menu-item
+                     (click)="$event.stopPropagation(); settingsService.toggleDarkmode()">
+                  <mat-slide-toggle [checked]="settings.darkMode" class="pointer-events-none">Darkmode</mat-slide-toggle>
+                </div>
+                <div *ngSwitchCase="'ligatures'"
+                     mat-menu-item
+                     (click)="$event.stopPropagation(); settingsService.toggleLigatures()">
+                  <mat-slide-toggle [checked]="settings.ligatures" class="pointer-events-none">Ligatures</mat-slide-toggle>
+                </div>
+              </ng-container>
+            </ng-container>
+          </mat-menu>
         </div>
       </div>
     </div>

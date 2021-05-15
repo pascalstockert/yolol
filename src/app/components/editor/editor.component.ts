@@ -1,8 +1,8 @@
 import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { faPlay, faPause, faStepForward } from '@fortawesome/free-solid-svg-icons';
 import { Chip, YazurService } from '../../services/yazur.service';
-import { DarkmodeService } from '../../services/darkmode.service';
 import { split } from 'ts-node';
+import { SettingsService } from '../../services/settings.service';
 
 @Component({
   selector: 'app-editor',
@@ -34,14 +34,14 @@ export class EditorComponent implements OnInit, AfterViewInit {
   darkMode = false;
 
   constructor( private yazurService: YazurService,
-               private darkmodeService: DarkmodeService ) {
+               private settingsService: SettingsService ) {
     this.chip.lineChange.subscribe( lineChange => {
       this.currentLine = lineChange.nextLine;
     } );
   }
 
   ngOnInit(): void {
-    this.darkmodeService.darkMode.subscribe( darkMode => {
+    this.settingsService.darkMode.subscribe( darkMode => {
       this.darkMode = darkMode;
     } );
   }
