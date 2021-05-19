@@ -124,9 +124,10 @@ export class EditorComponent implements OnInit, AfterViewInit {
   setContent(): void {
     const lines = [];
     this.getWrittenCode().forEach(  ( line, i ) => {
-      lines.push( this.chip.parse( this.chip.lex( line, i ) ) );
+      lines.push( '<div>' + this.chip.generateSpans( line, this.chip.lex( line, i ) ) + '</div>' );
     } );
-    this.editorOverlayRef.nativeElement.innerHTML = this.editorContent;
+    console.log(lines.join(''));
+    this.editorOverlayRef.nativeElement.innerHTML = lines.join('');
   }
 
   setFocus( value: boolean ): void {
@@ -148,12 +149,6 @@ export class EditorComponent implements OnInit, AfterViewInit {
       this.getWrittenCode().forEach(  ( line, i ) => {
 
         const lexed = this.chip.lex( line );
-        const htmlified = this.chip.generateSpans( line, lexed );
-
-        //Dear Pasu,
-        //  Htmlified stuff is generated here,
-        //  Please put to good use with super sexy syntax highlighting <3
-        //Love Azur.
 
         lines.push( this.chip.parse( lexed ) );
       } );
