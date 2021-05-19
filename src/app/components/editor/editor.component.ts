@@ -87,10 +87,8 @@ export class EditorComponent implements OnInit, AfterViewInit {
         this.chip.localEnv.global[ ':' + splitTuple[0] ] = { type: 3, subtype: 1, value: splitTuple[1] };
       } );
     } );
-    console.log(this.chip);
   }
 
-  // TODO optimize visual input lag as chars are only rendered at keyUp
   @HostListener('document:keydown', ['$event'])
   handleKeyboardDown( keyEvent: KeyboardEvent ): void {
     if ( this.hasFocus ) {
@@ -124,6 +122,10 @@ export class EditorComponent implements OnInit, AfterViewInit {
   }
 
   setContent(): void {
+    const lines = [];
+    this.getWrittenCode().forEach(  ( line, i ) => {
+      lines.push( this.chip.parse( this.chip.lex( line, i ) ) );
+    } );
     this.editorOverlayRef.nativeElement.innerHTML = this.editorContent;
   }
 

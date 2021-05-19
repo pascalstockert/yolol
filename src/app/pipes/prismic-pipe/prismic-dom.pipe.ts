@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {PrismicService} from '../../../services/prismic.service';
+import {PrismicService} from '../../services/prismic.service';
 import PrismicDOM from 'prismic-dom';
 
 @Pipe({
