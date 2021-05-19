@@ -107,6 +107,9 @@ p a, span a, div a:not(.logo-bg), section a {
     padding-left: 0;
   }
 }
+.pointer-events-none {
+  pointer-events: none;
+}
 .flow-column {
   flex-flow: column;
 }

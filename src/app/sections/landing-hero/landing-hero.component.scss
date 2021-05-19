@@ -1,0 +1,68 @@
+@import "../imports";
+
+#header-slice {
+  position: relative;
+  height: calc( 100vh - 70px );
+}
+.background-img {
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-size: cover;
+}
+.shader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  height: calc( 100vh - 70px );
+  width: 100vw;
+  background-color: rgba(0,0,0,0.5 );
+}
+
+.voice-grid {
+  width: 90vw;
+  margin-top: 64px;
+  .entry {
+    z-index: 0;
+    display: flex;
+    height: fit-content;
+    padding: 24px;
+    border-radius: 8px;
+    background-color: #23272A;
+    color: $text-dark;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+    &:not(:last-child) {
+      margin-right: 16px;
+    }
+    img {
+      height: 40px;
+      width: 40px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-right: 16px;
+    }
+    .author {
+      font-size: 18px;
+      font-weight: normal;
+    }
+    .date {
+      opacity: .5;
+    }
+  }
+}
+
+.center {
+  width: 100%
+}
+.width-content {
+  width: fit-content;
+}
+img {
+  z-index: -1;
+}
+h1 {
+  z-index: 1;
+}

@@ -3,7 +3,8 @@ import { CmsService } from '../../services/cms.service';
 import { ActivatedRoute, NavigationEnd, ParamMap, Router } from '@angular/router';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { of, combineLatest } from 'rxjs';
-import { DarkmodeService } from '../../services/darkmode.service';
+import { SettingsService } from '../../services/settings.service';
+
 
 @Component({
   selector: 'app-page',
@@ -14,6 +15,7 @@ import { DarkmodeService } from '../../services/darkmode.service';
 export class PageComponent implements OnInit {
 
   darkMode: boolean;
+  ligatures: boolean;
   page: any;
   public test: string;
   docHeight: number;
@@ -21,7 +23,7 @@ export class PageComponent implements OnInit {
   constructor( private cmsService: CmsService,
                private route: ActivatedRoute,
                private router: Router,
-               private darkModeService: DarkmodeService ) {
+               private settingsService: SettingsService ) {
     const pages = this.route.paramMap.pipe(
       map((params: ParamMap) => params.get('slug')),
       switchMap(slug => this.cmsService.getPage(slug)),
@@ -61,13 +63,14 @@ export class PageComponent implements OnInit {
         }
       });
     });
-    // @ts-ignore
-    this.darkMode = route.queryParams.value.mode === 'dark';
   }
 
   ngOnInit(): void {
-    this.darkModeService.darkMode.subscribe( mode => {
+    this.settingsService.darkMode.subscribe( mode => {
       this.darkMode = mode;
+    } );
+    this.settingsService.ligatures.subscribe( ligatures => {
+      this.ligatures = ligatures;
     } );
   }
 }
