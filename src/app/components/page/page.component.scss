@@ -6,4 +6,9 @@
   &.dark {
     background: $color-dark;
   }
+  &.no-ligatures {
+    > * {
+      font-variant-ligatures: none !important;
+    }
+  }
 }

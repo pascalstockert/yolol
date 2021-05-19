@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DarkmodeService } from '../../services/darkmode.service';
 import { ActivatedRoute } from '@angular/router';
+import { SettingsService } from '../../services/settings.service';
 
 @Component({
   selector: 'app-collapsibles',
@@ -12,14 +12,14 @@ export class CollapsiblesComponent implements OnInit {
   darkmode: boolean;
   @Input() sectionData;
 
-  constructor( private darkModeService: DarkmodeService,
+  constructor( private settingsService: SettingsService,
                private route: ActivatedRoute ) {
     // @ts-ignore
     this.darkmode = route.queryParams.value.mode === 'dark';
   }
 
   ngOnInit(): void {
-    this.darkModeService.darkMode.subscribe( val => {
+    this.settingsService.darkMode.subscribe( val => {
       this.darkmode = val;
     });
   }

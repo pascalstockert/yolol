@@ -57,7 +57,7 @@ import { CodePipe } from './components/pipes/code-pipe/code.pipe';
 import { CookieNoticeComponent } from './components/cookie-notice/cookie-notice.component';
 import { PrismicDOMtextPipe } from './components/pipes/prismic-pipe/prismic-domtext.pipe';
 import { EditorComponent } from './components/editor/editor.component';
-import { DarkmodeService } from './services/darkmode.service';
+import { LandingHeroComponent } from './sections/landing-hero/landing-hero.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +77,8 @@ import { DarkmodeService } from './services/darkmode.service';
     CodePipe,
     CookieNoticeComponent,
     PrismicDOMtextPipe,
-    EditorComponent
+    EditorComponent,
+    LandingHeroComponent
   ],
   imports: [
     BrowserModule,

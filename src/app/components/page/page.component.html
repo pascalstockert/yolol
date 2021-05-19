@@ -1,4 +1,4 @@
-<div id="page" [class.dark]="darkMode">
+<div id="page" [class.dark]="darkMode" [ngClass]="{ 'dark': darkMode, 'no-ligatures': !ligatures }">
     <div *ngIf="page">
 
       <!-- Handling routes that have no specified endpoint -->
@@ -8,6 +8,7 @@
 
       <div *ngFor="let section of page?.data?.body">
         <div [ngSwitch]="section.slice_type">
+          <app-landing-hero *ngSwitchCase="'landing-hero'" [sectionData]="section"></app-landing-hero>
           <app-header-slice *ngSwitchCase="'header-slice'" [sectionData]="section"></app-header-slice>
         </div>
       </div>
