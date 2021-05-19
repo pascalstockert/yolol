@@ -144,7 +144,16 @@ export class EditorComponent implements OnInit, AfterViewInit {
     try {
       const lines = [];
       this.getWrittenCode().forEach(  ( line, i ) => {
-        lines.push( this.chip.parse( this.chip.lex( line, i ) ) );
+
+        let lexed = this.chip.lex( line );
+        let htmlified = this.chip.generateSpans(line, lexed);
+        
+        //Dear Pasu,
+        //  Htmlified stuff is generated here,
+        //  Please put to good use with super sexy syntax highlighting <3
+        //Love Azur.
+
+        lines.push( this.chip.parse( lexed ) );
       } );
       this.chip.setParsed( lines );
       this.chip.interpret();
