@@ -1,5 +1,7 @@
 @import "../../../assets/scss/shared.scss";
 @import "../../../assets/scss/mixins.scss";
+@import "default-colors";
+
 .snippet-wrapper {
   position: relative;
   display: flex;
@@ -53,6 +55,7 @@
       position: relative;
       width: 100%;
       .editor-overlay {
+        @include default-syntax;
         width: calc( 100% - 48px );
         background-color: transparent;
         color: black;
@@ -94,7 +97,9 @@
       color: $color-dark-3 !important;
     }
     .editor-overlay {
-      color: $text-dark !important;
+      .variable {
+        color: white !important;
+      }
     }
     .current-line {
       background-color: rgba( 0, 0, 0, 0.5 );

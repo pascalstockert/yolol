@@ -1,7 +1,6 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { faPlay, faPause, faStepForward } from '@fortawesome/free-solid-svg-icons';
 import { Chip, YazurService } from '../../services/yazur.service';
-import { split } from 'ts-node';
 import { SettingsService } from '../../services/settings.service';
 
 @Component({
@@ -124,10 +123,10 @@ export class EditorComponent implements OnInit, AfterViewInit {
   setContent(): void {
     const lines = [];
     this.getWrittenCode().forEach(  ( line, i ) => {
-      lines.push( '<div>' + this.chip.generateSpans( line, this.chip.lex( line, i ) ) + '</div>' );
+      lines.push( this.chip.generateSpans( line, this.chip.lex( line, i ) ) );
     } );
     console.log(lines.join(''));
-    this.editorOverlayRef.nativeElement.innerHTML = lines.join('');
+    this.editorOverlayRef.nativeElement.innerHTML = lines.join('<br>');
   }
 
   setFocus( value: boolean ): void {
