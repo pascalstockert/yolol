@@ -1,0 +1,176 @@
+//Easy modify
+
+$light_operators:       #000;
+$light_brackets:        #000;
+$light_variable_local:  #5210A1;
+$light_variable_field:  #8400FF;
+$light_constant_number: #58867D;
+$light_constant_string: #B81515;
+$light_keyword:         #AF00DB;
+$light_comment:         #008000;
+$light_error:           #B81515;
+
+$dark_operators:       #D4D4D4;
+$dark_brackets:        #D4D4D4;
+$dark_variable_local:  #9CDCFE;
+$dark_variable_field:  #2C7AD6;
+$dark_constant_number: #B5CEA8;
+$dark_constant_string: #CE9178;
+$dark_keyword:         #C586B6;
+$dark_comment:         #6A9955;
+$dark_error:           #CE9178;
+
+@mixin syntax-vscode {
+  .yazur{
+    
+    text-decoration: none !important;
+
+    &.operator {
+      color: $light_operators !important;
+    }
+
+    &.bracket_open, &.bracket_close {
+      color: $light_brackets !important;
+    }
+  
+    &.variable {
+      &.local{
+        color: $light_variable_local !important;
+      }
+      &.field{
+        color: $light_variable_field !important;
+      }
+    }
+  
+    &.constant {
+      &.number {
+        color: $light_constant_number !important;
+      }
+      &.string {
+        color: $light_constant_string !important;
+      }
+    }
+  
+    &.keyword {
+      color: $light_keyword !important;
+    }
+  
+    &.comment {
+      color: $light_comment !important;
+    }
+  
+    &.nonAscii, &.unexpectedChar {
+      text-decoration: underline !important;
+      text-decoration-color: $light_error !important;
+      text-decoration-style: wavy !important;
+    }
+  }
+}
+
+@mixin syntax-dark-vscode {
+  .yazur{
+    
+    text-decoration: none !important;
+
+    &.operator {
+      color: $dark_operators !important;
+    }
+
+    &.bracket_open, &.bracket_close {
+      color: $dark_brackets !important;
+    }
+  
+    &.variable {
+      &.local{
+        color: $dark_variable_local !important;
+      }
+      &.field{
+        color: $dark_variable_field !important;
+      }
+    }
+  
+    &.constant {
+      &.number {
+        color: $dark_constant_number !important;
+      }
+      &.string {
+        color: $dark_constant_string !important;
+      }
+    }
+  
+    &.keyword {
+      color: $dark_keyword !important;
+    }
+  
+    &.comment {
+      color: $dark_comment !important;
+    }
+  
+    &.nonAscii, &.unexpectedChar {
+      text-decoration: underline !important;
+      text-decoration-color: $dark_error !important;
+      text-decoration-style: wavy !important;
+    }
+  }
+}
+
+
+
+/* all available thingies
+  .whitespace {}
+  .operator.assignment.error.unexpected {}
+  .operator.arithmetic {}
+  .operator.assignment {}
+  .operator.comparison {}
+  .operator.factorial {}
+  .operator.decrement {}
+  .operator.increment {}
+  .operator.negate {}
+  .bracket.open {}
+  .bracket.close {}
+  .constant.string.error.missingend {}
+  .constant.string {}
+  .constant.number {}
+  .variable {}
+  .keyword.goto._parsed {}
+  .keyword.conditional._parsed {}
+  .keyword.debugger {} 
+
+  .keyword.abs {} 
+  .keyword.sqrt {} 
+
+  .keyword.sin {} 
+  .keyword.cos {}
+  .keyword.tan {}
+  .keyword.asin {} 
+  .keyword.acos {} 
+  .keyword.atan {} 
+
+  .keyword.goto {}
+
+  .keyword.and {}
+  .keyword.or {}  
+
+  .keyword.if {} 
+  .keyword.then {}
+  .keyword.else {} 
+  .keyword.end {}
+  .comment {}
+  .nonAscii {}
+  .unexpectedChar {}
+*/
+
+.snippet-wrapper {
+  .line-wrapper {
+    .editor-wrapper{
+      @include syntax-vscode;
+    }
+  }
+  &.dark{
+    .line-wrapper {
+      .editor-wrapper {
+        @include syntax-dark-vscode;
+      }
+    }
+  }
+}
