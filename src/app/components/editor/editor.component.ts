@@ -125,7 +125,6 @@ export class EditorComponent implements OnInit, AfterViewInit {
     this.getWrittenCode().forEach(  ( line, i ) => {
       lines.push( this.chip.generateSpans( line, this.chip.lex( line, i ) ) );
     } );
-    console.log(lines.join(''));
     this.editorOverlayRef.nativeElement.innerHTML = lines.join('<br>');
   }
 
