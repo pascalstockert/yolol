@@ -191,4 +191,9 @@ export class EditorComponent implements OnInit, AfterViewInit {
     this.chipIntervalSubscription.unsubscribe();
   }
 
+  getCaretPosition(): void {
+    const { top , left } = window.getSelection().getRangeAt(0).getClientRects()[0];
+    console.log( { top, left } );
+  }
+
 }
