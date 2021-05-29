@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {PrismicDOMPipe} from './components/pipes/prismic-pipe/prismic-dom.pipe';
+import {PrismicDOMPipe} from './pipes/prismic-pipe/prismic-dom.pipe';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -53,9 +53,9 @@ import { PageButtonsComponent } from './sections/page-buttons/page-buttons.compo
 import { PictureComponent } from './sections/picture/picture.component';
 import { ScrollTopButtonComponent } from './components/scroll-top-button/scroll-top-button.component';
 import { MenuComponent } from './sections/menu/menu.component';
-import { CodePipe } from './components/pipes/code-pipe/code.pipe';
+import { CodePipe } from './pipes/code-pipe/code.pipe';
 import { CookieNoticeComponent } from './components/cookie-notice/cookie-notice.component';
-import { PrismicDOMtextPipe } from './components/pipes/prismic-pipe/prismic-domtext.pipe';
+import { PrismicDOMtextPipe } from './pipes/prismic-pipe/prismic-domtext.pipe';
 import { EditorComponent } from './components/editor/editor.component';
 import { LandingHeroComponent } from './sections/landing-hero/landing-hero.component';
 

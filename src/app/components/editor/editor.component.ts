@@ -1,7 +1,6 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { faPlay, faPause, faStepForward } from '@fortawesome/free-solid-svg-icons';
 import { Chip, YazurService } from '../../services/yazur.service';
-import { split } from 'ts-node';
 import { SettingsService } from '../../services/settings.service';
 
 @Component({
@@ -87,10 +86,8 @@ export class EditorComponent implements OnInit, AfterViewInit {
         this.chip.localEnv.global[ ':' + splitTuple[0] ] = { type: 3, subtype: 1, value: splitTuple[1] };
       } );
     } );
-    console.log(this.chip);
   }
 
-  // TODO optimize visual input lag as chars are only rendered at keyUp
   @HostListener('document:keydown', ['$event'])
   handleKeyboardDown( keyEvent: KeyboardEvent ): void {
     if ( this.hasFocus ) {
@@ -124,7 +121,12 @@ export class EditorComponent implements OnInit, AfterViewInit {
   }
 
   setContent(): void {
-    this.editorOverlayRef.nativeElement.innerHTML = this.editorContent;
+    const lines = [];
+    this.getWrittenCode().forEach(  ( line, i ) => {
+      lines.push( this.chip.generateSpans( line, this.chip.lex( line, i ) ) );
+    } );
+    console.log(lines.join(''));
+    this.editorOverlayRef.nativeElement.innerHTML = lines.join('<br>');
   }
 
   setFocus( value: boolean ): void {
@@ -145,13 +147,7 @@ export class EditorComponent implements OnInit, AfterViewInit {
       const lines = [];
       this.getWrittenCode().forEach(  ( line, i ) => {
 
-        let lexed = this.chip.lex( line );
-        let htmlified = this.chip.generateSpans(line, lexed);
-        
-        //Dear Pasu,
-        //  Htmlified stuff is generated here,
-        //  Please put to good use with super sexy syntax highlighting <3
-        //Love Azur.
+        const lexed = this.chip.lex( line );
 
         lines.push( this.chip.parse( lexed ) );
       } );
