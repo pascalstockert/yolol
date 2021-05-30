@@ -125,7 +125,6 @@ export class EditorComponent implements OnInit, AfterViewInit {
     this.getWrittenCode().forEach(  ( line, i ) => {
       lines.push( this.chip.generateSpans( line, this.chip.lex( line, i ) ) );
     } );
-    console.log(lines.join(''));
     this.editorOverlayRef.nativeElement.innerHTML = lines.join('<br>');
   }
 
@@ -192,4 +191,13 @@ export class EditorComponent implements OnInit, AfterViewInit {
     this.chipIntervalSubscription.unsubscribe();
   }
 
+  handlePaste( e ): void {
+    e.stopPropagation();
+    e.preventDefault();
+    console.log( e.clipboardData.getData('Text') )
+    document.execCommand( 'insertHTML', false, e.clipboardData.getData('Text') );
+  }
+
 }
+
+
