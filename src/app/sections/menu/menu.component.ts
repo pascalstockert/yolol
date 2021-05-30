@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { faHome, faCog } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faCog, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 import { CmsService } from '../../services/cms.service';
 import { Router } from '@angular/router';
@@ -22,6 +22,7 @@ export class MenuComponent implements OnInit {
 
   faHome = faHome;
   faCog = faCog;
+  faLink = faExternalLinkAlt;
 
   pages: any;
   windowPos = 0;
@@ -59,6 +60,12 @@ export class MenuComponent implements OnInit {
       this.darkMode = settings.darkMode;
       this.ligatures = settings.ligatures;
     } );
+  }
+
+  openTab( event, pageId: string | number ): void {
+    event.stopPropagation();
+    event.preventDefault();
+    window.open(`${window.location.origin}/${pageId}`);
   }
 
 }
