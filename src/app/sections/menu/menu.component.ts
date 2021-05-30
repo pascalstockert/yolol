@@ -1,11 +1,15 @@
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
-import { WindowScrollService } from '../../services/window-scroll.service';
 import { DOCUMENT } from '@angular/common';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faCog, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 import { CmsService } from '../../services/cms.service';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { DarkmodeService } from '../../services/darkmode.service';
+import { Router } from '@angular/router';
+import { SettingsService } from '../../services/settings.service';
+
+interface MenuSettings {
+  darkMode: boolean;
+  ligatures: boolean;
+}
 
 @Component({
   selector: 'app-menu',
@@ -17,18 +21,25 @@ import { DarkmodeService } from '../../services/darkmode.service';
 export class MenuComponent implements OnInit {
 
   faHome = faHome;
+  faCog = faCog;
+  faLink = faExternalLinkAlt;
 
   pages: any;
   windowPos = 0;
-  darkMode = false;
   pageCount: number;
+
+  darkMode = false;
+  ligatures = false;
+  settings: MenuSettings = {
+    darkMode: this.darkMode,
+    ligatures: this.ligatures
+  };
+  settingsLength = Object.keys(this.settings);
 
   constructor( @Inject( DOCUMENT ) private document: any,
                private cmsService: CmsService,
-               private scrollService: WindowScrollService,
                public router: Router,
-               private route: ActivatedRoute,
-               private darkModeService: DarkmodeService) {
+               public settingsService: SettingsService) {
 
     const sortByProperty = (property) => {
       return (x, y) => {
@@ -44,13 +55,17 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.darkModeService.darkMode.subscribe( ( darkMode ) => {
-      this.darkMode = darkMode;
+    this.settingsService.settings.subscribe( (settings) => {
+      this.settings = settings;
+      this.darkMode = settings.darkMode;
+      this.ligatures = settings.ligatures;
     } );
   }
 
-  switchMode(): void {
-    this.darkModeService.switchMode();
+  openTab( event, pageId: string | number ): void {
+    event.stopPropagation();
+    event.preventDefault();
+    window.open(`${window.location.origin}/${pageId}`);
   }
 
 }

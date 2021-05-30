@@ -1,4 +1,4 @@
-<div id="page" [class.dark]="darkMode">
+<div id="page" [class.dark]="darkMode" [ngClass]="{ 'dark': darkMode, 'no-ligatures': !ligatures }">
     <div *ngIf="page">
 
       <!-- Handling routes that have no specified endpoint -->

@@ -53,6 +53,12 @@ $yolol-theme: mat-light-theme($yolol-primary, $yolol-accent, $yolol-warn);
 // that you are using.
 @include angular-material-theme($yolol-theme);
 
+
+//custom addin for syntax hightlighting (to avoid angular weirdness)
+@import "app/components/editor/syntax-highlighting.scss";
+
+
+
 /* You can add global styles to this file, and also import other style files */
 
 @import "~bootstrap/dist/css/bootstrap.css";
@@ -106,6 +112,9 @@ p a, span a, div a:not(.logo-bg), section a {
     padding-right: 0;
     padding-left: 0;
   }
+}
+.pointer-events-none {
+  pointer-events: none;
 }
 .flow-column {
   flex-flow: column;

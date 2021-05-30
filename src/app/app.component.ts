@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import { IndexedDbService } from './services/indexed-db.service';
-import { DarkmodeService } from './services/darkmode.service';
+import { SettingsService } from './services/settings.service';
 
 
 @Component({
@@ -9,8 +9,9 @@ import { DarkmodeService } from './services/darkmode.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor( private indexedDbService: IndexedDbService, private darkModeService: DarkmodeService ) {
+  constructor( private indexedDbService: IndexedDbService,
+               private settingsService: SettingsService) {
     this.indexedDbService.init();
-    this.darkModeService.init();
+    this.settingsService.init();
   }
 }

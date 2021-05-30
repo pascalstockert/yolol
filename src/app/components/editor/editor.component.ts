@@ -1,8 +1,7 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { faPlay, faPause, faStepForward } from '@fortawesome/free-solid-svg-icons';
 import { Chip, YazurService } from '../../services/yazur.service';
-import { DarkmodeService } from '../../services/darkmode.service';
-import { split } from 'ts-node';
+import { SettingsService } from '../../services/settings.service';
 
 @Component({
   selector: 'app-editor',
@@ -34,14 +33,14 @@ export class EditorComponent implements OnInit, AfterViewInit {
   darkMode = false;
 
   constructor( private yazurService: YazurService,
-               private darkmodeService: DarkmodeService ) {
+               private settingsService: SettingsService ) {
     this.chip.lineChange.subscribe( lineChange => {
       this.currentLine = lineChange.nextLine;
     } );
   }
 
   ngOnInit(): void {
-    this.darkmodeService.darkMode.subscribe( darkMode => {
+    this.settingsService.darkMode.subscribe( darkMode => {
       this.darkMode = darkMode;
     } );
   }
@@ -87,10 +86,8 @@ export class EditorComponent implements OnInit, AfterViewInit {
         this.chip.localEnv.global[ ':' + splitTuple[0] ] = { type: 3, subtype: 1, value: splitTuple[1] };
       } );
     } );
-    console.log(this.chip);
   }
 
-  // TODO optimize visual input lag as chars are only rendered at keyUp
   @HostListener('document:keydown', ['$event'])
   handleKeyboardDown( keyEvent: KeyboardEvent ): void {
     if ( this.hasFocus ) {
@@ -124,7 +121,11 @@ export class EditorComponent implements OnInit, AfterViewInit {
   }
 
   setContent(): void {
-    this.editorOverlayRef.nativeElement.innerHTML = this.editorContent;
+    const lines = [];
+    this.getWrittenCode().forEach(  ( line, i ) => {
+      lines.push( this.chip.generateSpans( line, this.chip.lex( line, i ) ) );
+    } );
+    this.editorOverlayRef.nativeElement.innerHTML = lines.join('<br>');
   }
 
   setFocus( value: boolean ): void {
@@ -144,7 +145,10 @@ export class EditorComponent implements OnInit, AfterViewInit {
     try {
       const lines = [];
       this.getWrittenCode().forEach(  ( line, i ) => {
-        lines.push( this.chip.parse( this.chip.lex( line, i ) ) );
+
+        const lexed = this.chip.lex( line );
+
+        lines.push( this.chip.parse( lexed ) );
       } );
       this.chip.setParsed( lines );
       this.chip.interpret();
@@ -187,4 +191,13 @@ export class EditorComponent implements OnInit, AfterViewInit {
     this.chipIntervalSubscription.unsubscribe();
   }
 
+  handlePaste( e ): void {
+    e.stopPropagation();
+    e.preventDefault();
+    console.log( e.clipboardData.getData('Text') )
+    document.execCommand( 'insertHTML', false, e.clipboardData.getData('Text') );
+  }
+
 }
+
+

@@ -3,7 +3,7 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons/faArrowUp';
 import { WindowScrollService } from '../../services/window-scroll.service';
 import { filter } from 'rxjs/operators';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { DarkmodeService } from '../../services/darkmode.service';
+import { SettingsService } from '../../services/settings.service';
 
 @Component({
   selector: 'app-scroll-top-button',
@@ -21,7 +21,7 @@ export class ScrollTopButtonComponent implements OnInit {
   constructor( private scrollService: WindowScrollService,
                private router: Router,
                private route: ActivatedRoute,
-               private darkmodeService: DarkmodeService ) {
+               private settingsService: SettingsService ) {
     router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe((e) => {
       if (e instanceof NavigationEnd) {
         this.resolution();
@@ -43,7 +43,7 @@ export class ScrollTopButtonComponent implements OnInit {
         temp = pos;
       }
     });
-    this.darkmodeService.darkMode.subscribe( val => {
+    this.settingsService.darkMode.subscribe( val => {
       this.darkmode = val;
     });
   }
@@ -54,8 +54,7 @@ export class ScrollTopButtonComponent implements OnInit {
 
   resolution(): void {
     setTimeout( f => {
-      const docHeight = document.body.scrollHeight;
-      this.docHeight = docHeight;
+      this.docHeight = document.body.scrollHeight;
     }, 1000);
     this.clientHeight = window.outerHeight;
   }

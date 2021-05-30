@@ -1,5 +1,8 @@
 @import "../../../assets/scss/shared.scss";
 @import "../../../assets/scss/mixins.scss";
+
+$fontsize: 0.9rem;
+
 .snippet-wrapper {
   position: relative;
   display: flex;
@@ -28,7 +31,7 @@
       color: #c4c4c4;
 
       font-family: 'JetBrains Mono', sans-serif;
-      font-size: 1rem;
+      font-size: $fontsize;
       line-height: 1.5rem;
       white-space: pre;
       text-align: right;
@@ -53,13 +56,14 @@
       position: relative;
       width: 100%;
       .editor-overlay {
+
         width: calc( 100% - 48px );
         background-color: transparent;
         color: black;
         overflow: hidden;
 
         font-family: 'JetBrains Mono', sans-serif;
-        font-size: 1rem;
+        font-size: $fontsize;
         line-height: 1.5rem;
         white-space: pre;
       }
@@ -74,7 +78,7 @@
         @include scrollbar();
 
         font-family: 'JetBrains Mono', sans-serif;
-        font-size: 1rem;
+        font-size: $fontsize;
         line-height: 1.5rem;
         white-space: pre;
 
@@ -92,9 +96,6 @@
     }
     .lines {
       color: $color-dark-3 !important;
-    }
-    .editor-overlay {
-      color: $text-dark !important;
     }
     .current-line {
       background-color: rgba( 0, 0, 0, 0.5 );

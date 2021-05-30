@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import yazurLex from '../../../yazur/es-modules/yolol/lex';
+import {lex as yazurLex, generateSpans as yazurGenerateSpans} from '../../../yazur/es-modules/yolol/lex';
 import yazurClaim from '../../../yazur/es-modules/yolol/parse';
 import yazurInterpret from '../../../yazur/es-modules/yolol/interpret';
 import { BehaviorSubject, interval } from 'rxjs';
@@ -50,6 +50,10 @@ export class Chip {
 
   parse( lexed: any ): any {
     return yazurClaim( lexed );
+  }
+
+  generateSpans(line: string, lexed: any[]){
+    return yazurGenerateSpans(line, lexed);
   }
 
   setParsed( parsed: any[][] ): any {
