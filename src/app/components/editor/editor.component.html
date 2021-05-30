@@ -33,8 +33,9 @@
                  spellcheck="false"
                  contenteditable="true"
                  (scroll)="scrolled($event)"
-                 (focus)="setFocus( true )"
-                 (blur)="setFocus( false )"
+                 (focus)="setFocus(true)"
+                 (blur)="setFocus(false)"
+                 (paste)="handlePaste($event)"
                  #editor>
             </div>
           </div>
