@@ -48,6 +48,11 @@ $dark_error:           #CE9178;
       }
       &.string {
         color: $light_constant_string !important;
+        &.missingend{
+          text-decoration: underline !important;
+          text-decoration-color: $light_error !important;
+          text-decoration-style: wavy !important;
+        }
       }
     }
   
@@ -60,6 +65,7 @@ $dark_error:           #CE9178;
     }
   
     &.nonAscii, &.unexpectedChar {
+      color: $light_error;
       text-decoration: underline !important;
       text-decoration-color: $light_error !important;
       text-decoration-style: wavy !important;
@@ -95,6 +101,11 @@ $dark_error:           #CE9178;
       }
       &.string {
         color: $dark_constant_string !important;
+        &.missingend{
+          text-decoration: underline !important;
+          text-decoration-color: $dark_error !important;
+          text-decoration-style: wavy !important;
+        }
       }
     }
   
@@ -113,8 +124,6 @@ $dark_error:           #CE9178;
     }
   }
 }
-
-
 
 /* all available thingies
   .whitespace {}
