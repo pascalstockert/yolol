@@ -82,24 +82,26 @@ p a, span a, div a:not(.logo-bg), section a {
   color: inherit;
   text-decoration: none;
   transition-duration: .3s;
-  &:before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    height: 2px;
-    width: 100%;
-    background: $gradient-radial;
-    transform: translateX(-50%);
-    transition-duration: .1s;
-    z-index: -1;
-  }
-  &:hover {
-    color: white;
+  &:not(.icon-link) {
     &:before {
-      height: calc( 100% + 6px );
-      width: calc( 100% + 12px );
-      bottom: -4px;
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      height: 2px;
+      width: 100%;
+      background: $gradient-radial;
+      transform: translateX(-50%);
+      transition-duration: .1s;
+      z-index: -1;
+    }
+    &:hover {
+      color: white;
+      &:before {
+        height: calc( 100% + 6px );
+        width: calc( 100% + 12px );
+        bottom: -4px;
+      }
     }
   }
 }

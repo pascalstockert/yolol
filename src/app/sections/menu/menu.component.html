@@ -18,6 +18,12 @@
             <span class="chapter-count">{{ router.url.split('chapter')[1] }}</span>
           </ng-container>
 
+          <div class="menu-button"
+               [routerLink]="'/resources'"
+               [class.active]="router.url.includes( 'resources' )">
+            resources
+          </div>
+
           <mat-menu #chapters='matMenu'
                     [class]="darkMode ? 'dark' : ''">
             <div *ngFor="let page of pages; index as i">

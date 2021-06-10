@@ -58,6 +58,7 @@ import { CookieNoticeComponent } from './components/cookie-notice/cookie-notice.
 import { PrismicDOMtextPipe } from './pipes/prismic-pipe/prismic-domtext.pipe';
 import { EditorComponent } from './components/editor/editor.component';
 import { LandingHeroComponent } from './sections/landing-hero/landing-hero.component';
+import { ResourcesComponent } from './pages/resources/resources.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { LandingHeroComponent } from './sections/landing-hero/landing-hero.compo
     CookieNoticeComponent,
     PrismicDOMtextPipe,
     EditorComponent,
-    LandingHeroComponent
+    LandingHeroComponent,
+    ResourcesComponent
   ],
   imports: [
     BrowserModule,
