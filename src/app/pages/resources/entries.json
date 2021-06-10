@@ -1,0 +1,94 @@
+{
+  "communities": [
+    {
+      "title": "Official Starbase Resources",
+      "description": "The official Starbase wiki and Discord",
+      "link": "https://wiki.starbasegame.com/index.php/Main_Page",
+      "discord": "https://discord.gg/starbase"
+    },
+    {
+      "title": "CYLON",
+      "description": "Cylon is an open non-faction community dedicated to forming a repository of knowledge for yolol, teaching said knowledge to others, and fostering research towards new knowledge. Anyone and everyone is free to join our pursuit of yolol!",
+      "link": "https://discord.gg/rmu6aCr",
+      "discord": "https://discord.gg/rmu6aCr"
+    }
+  ],
+  "docs": [
+    {
+      "title": "YOLOL Documenation",
+      "description": "The official YOLOL documentation",
+      "link": "https://wiki.starbasegame.com/index.php/YOLOL",
+      "discord": "https://discord.gg/starbase"
+    },
+    {
+      "title": "yolol-is-cylons",
+      "description": "A collection of resources related to yolol, its community standards, and what we hope it can become.",
+      "link": "https://github.com/Jerald/yolol-is-cylons",
+      "github": "https://github.com/Jerald/yolol-is-cylons"
+    }
+  ],
+  "tools": [
+    {
+      "title": "vscode-yolol",
+      "description": "A vscode-extension that adds support for yolol and has bonus-features like auto-typing code into the game.",
+      "link": "https://marketplace.visualstudio.com/items?itemName=dbaumgarten.vscode-yolol",
+      "github": "https://github.com/dbaumgarten/yodk"
+    },
+    {
+      "title": "yodk",
+      "description": "A Development-Toolkit for yolol, containing things like a code-checker, debugger, formatter, optimizer and a new high-level programming language that compiles to yolol.",
+      "link": "https://dbaumgarten.github.io/yodk/",
+      "github": "https://dbaumgarten.github.io/yodk/"
+    },
+    {
+      "title": "YololEmulator",
+      "description": "This is an emulator for Yolol. It allows you to input a file of Yolol code and execute it line by line.",
+      "link": "https://github.com/martindevans/Yolol/tree/master/YololEmulator",
+      "github": "https://github.com/martindevans/Yolol/tree/master/YololEmulator"
+    },
+    {
+      "title": "YAZUR",
+      "description": "An interpreter written in JavaScript, suitable for client- and serversided applications",
+      "link": "https://github.com/Azurethi/Yazur",
+      "github": "https://github.com/Azurethi/Yazur"
+    },
+    {
+      "title": "YASM (YololAssembler)",
+      "description": "YololAssembler is an assembler for a language called yasm which compiles into Yolol. Yasm is designed to produce code that is as compact as the best hand-written Yolol and is always compatible with in-game Yolol.",
+      "link": "https://github.com/martindevans/Yolol/tree/master/YololAssembler",
+      "github": "https://github.com/martindevans/Yolol/tree/master/YololAssembler"
+    },
+    {
+      "title": "Referee",
+      "description": "A Discord bot providing helpful utilities and a code-golf competition for the Yolol language. Join the CYLON Discord to participate!",
+      "link": "https://github.com/martindevans/Yolol-Ladder",
+      "github": "https://github.com/martindevans/Yolol-Ladder",
+      "discord": "https://discord.gg/rmu6aCr"
+    },
+    {
+      "title": "Yodine",
+      "description": "Yodine is a 2D editor and emulates StarBases data network system and yolol programming language.",
+      "link": "https://github.com/Dude112113/Yodine",
+      "github": "https://github.com/Dude112113/Yodine"
+    },
+    {
+      "title": "Yoloxide",
+      "description": "Yoloxide is a rust-based Yolol interpreter engine for the game Starbase.",
+      "link": "https://github.com/Jerald/yoloxide",
+      "github": "https://github.com/Jerald/yoloxide"
+    },
+    {
+      "title": "Yoloxide-Website",
+      "description": "A website that uses Yoloxide to let you write and run yolol in your browser.",
+      "link": "https://yoloxide.cylon.xyz/"
+    }
+  ],
+  "libraries": [
+    {
+      "title": "martindevans/Yolol",
+      "description": "A library for interacting with Yolol code from C#. It allows you to parse a string into an AST and execute the AST.",
+      "link": "https://github.com/martindevans/Yolol",
+      "github": "https://github.com/martindevans/Yolol"
+    }
+  ]
+}

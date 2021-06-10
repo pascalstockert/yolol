@@ -22,7 +22,7 @@ export class PageComponent implements OnInit {
 
   constructor( private cmsService: CmsService,
                private route: ActivatedRoute,
-               private router: Router,
+               public router: Router,
                private settingsService: SettingsService ) {
     const pages = this.route.paramMap.pipe(
       map((params: ParamMap) => params.get('slug')),

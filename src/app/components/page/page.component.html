@@ -29,6 +29,11 @@
             <app-page-buttons *ngSwitchCase="'page-buttons'" [sectionData]="section"></app-page-buttons>
           </div>
         </div>
+
+        <div *ngIf="router.url.includes( 'resources' )">
+          <app-resources></app-resources>
+        </div>
+
         <app-footer></app-footer>
         <app-scroll-top-button></app-scroll-top-button>
       </div>

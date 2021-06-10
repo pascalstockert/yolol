@@ -1,0 +1,30 @@
+<div class="container" [class.dark]="darkMode">
+
+  <div class="row">
+
+    <div class="col-12 col-md-8 order-1 order-md-0">
+      <div [id]="subtitle" class="subtitle" *ngFor="let subtitle of subtitles">
+        <h3>{{ subtitle | titlecase }}</h3>
+        <div class="entry" *ngFor="let entry of entries[subtitle]">
+          <h4><a [href]="entry.link ? entry.link : ''"  target="_blank">{{ entry.title }}</a></h4>
+          <p>{{ entry.description }}</p>
+          <div class="d-flex">
+            <a *ngIf="entry.link" class="icon-link" [href]="entry.link" target="_blank"><fa-icon [icon]="linkIcon"></fa-icon></a>
+            <a *ngIf="entry.github" class="icon-link" [href]="entry.github" target="_blank"><fa-icon [icon]="githubIcon"></fa-icon></a>
+            <a *ngIf="entry.discord" class="icon-link" [href]="entry.discord" target="_blank"><fa-icon [icon]="discordIcon"></fa-icon></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4 order-0 order-md-1">
+      <div class="link-list">
+        <ng-container *ngFor="let subtitle of subtitles">
+          <p (click)="handleScroll( subtitle )"><a>{{ subtitle }}</a></p>
+        </ng-container>
+      </div>
+    </div>
+
+  </div>
+
+</div>
