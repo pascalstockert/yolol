@@ -1,0 +1,41 @@
+@import "../../sections/imports";
+
+.container {
+  padding-top: 20px;
+  .subtitle {
+    margin-bottom: 32px;
+  }
+  .entry {
+    margin-left: 6px;
+    padding: 16px 0 16px 24px;
+    border-left: 2px solid $color-dark;
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(0, 0, 0, .1);
+    }
+    h4 {
+      margin-bottom: 8px;
+    }
+    .icon-link:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+
+  .link-list {
+    position: sticky;
+    top: 90px;
+    a {
+      cursor: pointer;
+    }
+  }
+
+  &.dark {
+    color: $text-dark !important;
+    .entry {
+      border-left: 2px solid $text-dark;
+      &:not(:last-child) {
+        border-bottom: 1px solid rgba(255, 255, 255, .1);
+      }
+    }
+  }
+
+}

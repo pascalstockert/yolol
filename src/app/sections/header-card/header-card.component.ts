@@ -12,12 +12,7 @@ export class HeaderCardComponent implements OnInit {
   darkMode: boolean;
   @Input() sectionData;
 
-  constructor(private settingsService: SettingsService,
-              private router: Router,
-              private route: ActivatedRoute) {
-    // @ts-ignore
-    this.darkMode = this.route.queryParams.value.mode === 'dark';
-  }
+  constructor( private settingsService: SettingsService ) {}
 
   ngOnInit(): void {
     this.settingsService.darkMode.subscribe( darkMode => {
