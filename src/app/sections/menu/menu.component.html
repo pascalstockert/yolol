@@ -24,6 +24,12 @@
             resources
           </div>
 
+          <div class="menu-button"
+               [routerLink]="'/editor'"
+               [class.active]="router.url.includes( 'editor' )">
+            editor
+          </div>
+
           <mat-menu #chapters='matMenu'
                     [class]="darkMode ? 'dark' : ''">
             <div *ngFor="let page of pages; index as i">

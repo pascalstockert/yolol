@@ -14,13 +14,14 @@
       </div>
 
       <!-- Responsible for displaying sections other than header -->
-      <div *ngIf="page?.type != 404">
+      <div *ngIf="page?.type != 404" class="content-wrapper">
 
         <app-menu></app-menu>
 
         <div *ngFor="let section of page?.data?.body">
           <div [ngSwitch]="section.slice_type">
             <app-editor *ngSwitchCase="'editor'" [sectionData]="section"></app-editor>
+            <app-standalone-editor *ngSwitchCase="'standalone-editor'"></app-standalone-editor>
             <app-header-card *ngSwitchCase="'header-card'" [sectionData]="section"></app-header-card>
             <app-collapsibles *ngSwitchCase="'collapsibles'" [sectionData]="section"></app-collapsibles>
             <typo-quote *ngSwitchCase="'quote'" [sectionData]="section"></typo-quote>
@@ -34,7 +35,7 @@
           <app-resources></app-resources>
         </div>
 
-        <app-footer></app-footer>
+        <app-footer *ngIf="!router.url.includes( 'editor' )"></app-footer>
         <app-scroll-top-button></app-scroll-top-button>
       </div>
 

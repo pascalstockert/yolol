@@ -11,4 +11,7 @@
       font-variant-ligatures: none !important;
     }
   }
+  .content-wrapper {
+    min-height: calc(100vh - 300px);
+  }
 }

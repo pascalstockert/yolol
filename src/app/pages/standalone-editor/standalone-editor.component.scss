@@ -1,0 +1,20 @@
+@import "../../../assets/scss/shared";
+
+.standalone-editor {
+  padding-bottom: 100px;
+  &.dark {
+    color: $text-dark;
+  }
+  h3 {
+    margin-bottom: 18px;
+  }
+  h4 {
+    margin-bottom: 12px;
+  }
+  .mt-50 {
+    margin-top: 50px;
+  }
+  .pt-50 {
+    padding-top: 50px;
+  }
+}
