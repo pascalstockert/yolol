@@ -1,0 +1,61 @@
+<div class="standalone-editor container" [class.dark]="darkMode">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="mt-50">Editor</h2>
+      <p>
+        This is a stand-alone editor for all of your testing needs!<br>
+        So far, only a single chip is supported in a "network" as multi-chip interaction has not been implemented (on the frontend, shame on me).<br>
+        Do look forward to playing around with multiple chips in the future though!
+      </p>
+      <div class="my-5">
+        <app-editor></app-editor>
+      </div>
+      <h3 class="pt-50">Keywords and operators</h3>
+      <div class="row">
+        <div class="col-3">
+          <h4>Common</h4>
+          <span class="code-inline">--</span> decrease<br>
+          <span class="code-inline">++</span> increase<br>
+          <span class="code-inline">!</span> negation<br><br>
+          <span class="code-inline">^</span> exponent<br>
+          <span class="code-inline">*</span> multiplication<br>
+          <span class="code-inline">/</span> division<br>
+          <span class="code-inline">%</span> modulus<br>
+          <span class="code-inline">-</span> subtraction<br>
+          <span class="code-inline">+</span> addition<br>
+        </div>
+        <div class="col-3">
+          <h4>Variable interaction</h4>
+          <span class="code-inline">=</span> assignment<br>
+          <span class="code-inline">*=</span> multiplication shorthand<br>
+          <span class="code-inline">/=</span> division shorthand<br>
+          <span class="code-inline">%=</span> modulus shorthand<br>
+          <span class="code-inline">+=</span> addition shorthand<br>
+          <span class="code-inline">-=</span> subtraction shorthand<br>
+        </div>
+        <div class="col-3">
+          <h4>Trigonometry & Co.</h4>
+          <span class="code-inline">sin</span> sinus<br>
+          <span class="code-inline">cos</span> cosinus<br>
+          <span class="code-inline">tan</span> tangens<br>
+          <span class="code-inline">asin</span> asinus<br>
+          <span class="code-inline">acos</span> acosinus<br>
+          <span class="code-inline">atan</span> atangens<br><br>
+          <span class="code-inline">sqrt</span> square root<br>
+          <span class="code-inline">abs</span> absolute<br>
+        </div>
+        <div class="col-3">
+          <h4>Comparison</h4>
+          <span class="code-inline">></span> greater<br>
+          <span class="code-inline"><</span> smaller<br>
+          <span class="code-inline">>=</span> greater or equal<br>
+          <span class="code-inline"><=</span> smaller or equal<br>
+          <span class="code-inline">==</span> equal<br>
+          <span class="code-inline">!=</span> not equal<br><br>
+          <span class="code-inline">AND</span> logical AND<br>
+          <span class="code-inline">OR</span> logical OR<br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
