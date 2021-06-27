@@ -59,6 +59,7 @@ import { PrismicDOMtextPipe } from './pipes/prismic-pipe/prismic-domtext.pipe';
 import { EditorComponent } from './components/editor/editor.component';
 import { LandingHeroComponent } from './sections/landing-hero/landing-hero.component';
 import { ResourcesComponent } from './pages/resources/resources.component';
+import { StandaloneEditorComponent } from './pages/standalone-editor/standalone-editor.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { ResourcesComponent } from './pages/resources/resources.component';
     PrismicDOMtextPipe,
     EditorComponent,
     LandingHeroComponent,
-    ResourcesComponent
+    ResourcesComponent,
+    StandaloneEditorComponent
   ],
   imports: [
     BrowserModule,
