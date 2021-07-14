@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, View
 import { faPlay, faPause, faStepForward } from '@fortawesome/free-solid-svg-icons';
 import { Chip, YazurService } from '../../services/yazur.service';
 import { SettingsService } from '../../services/settings.service';
+import { NetworkManagerService } from '../../services/network-manager.service';
 
 @Component({
   selector: 'app-editor',
@@ -11,6 +12,7 @@ import { SettingsService } from '../../services/settings.service';
 export class EditorComponent implements OnInit, AfterViewInit {
 
   @Input() sectionData;
+  @Input() network: string;
 
   @ViewChild( 'editor' ) editorRef: ElementRef<HTMLDivElement>;
   @ViewChild( 'editorOverlay' ) editorOverlayRef: ElementRef<HTMLDivElement>;
@@ -24,7 +26,7 @@ export class EditorComponent implements OnInit, AfterViewInit {
 
   stepIcon = faStepForward;
 
-  chip: Chip = new Chip();
+  chip: Chip;
 
   chipIntervalAction: () => void = this.startInterval;
   chipIntervalActionIcon = faPlay;
@@ -33,13 +35,18 @@ export class EditorComponent implements OnInit, AfterViewInit {
   darkMode = false;
 
   constructor( private yazurService: YazurService,
-               private settingsService: SettingsService ) {
-    this.chip.lineChange.subscribe( lineChange => {
-      this.currentLine = lineChange.nextLine;
-    } );
+               private settingsService: SettingsService, private networkManagerService: NetworkManagerService ) {
   }
 
   ngOnInit(): void {
+    if ( this.network ) {
+      this.chip = new Chip( [], { networkManagerService: this.networkManagerService, networkName: this.network } );
+    } else {
+      this.chip = new Chip();
+    }
+    this.chip.lineChange.subscribe( lineChange => {
+      this.currentLine = lineChange.nextLine;
+    } );
     this.settingsService.darkMode.subscribe( darkMode => {
       this.darkMode = darkMode;
     } );
@@ -194,7 +201,6 @@ export class EditorComponent implements OnInit, AfterViewInit {
   handlePaste( e ): void {
     e.stopPropagation();
     e.preventDefault();
-    console.log( e.clipboardData.getData('Text') )
     document.execCommand( 'insertHTML', false, e.clipboardData.getData('Text') );
   }
 

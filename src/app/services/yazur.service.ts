@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import {lex as yazurLex, generateSpans as yazurGenerateSpans} from '../../../yazur/es-modules/yolol/lex';
+import { lex as yazurLex, generateSpans as yazurGenerateSpans } from '../../../yazur/es-modules/yolol/lex';
 import yazurClaim from '../../../yazur/es-modules/yolol/parse';
 import yazurInterpret from '../../../yazur/es-modules/yolol/interpret';
 import { BehaviorSubject, interval } from 'rxjs';
+import { NetworkManagerService, Network } from './network-manager.service';
 
 @Injectable({
   providedIn: 'root'
@@ -26,12 +27,18 @@ export class Chip {
     nextLine: 1,
     vars: {}
   };
+  network: Network;
 
   lineChange: BehaviorSubject<{ nextLine: number }> = new BehaviorSubject( { nextLine: this.localEnv.nextLine } );
 
-  constructor( prefill?: string[] )  {
+  constructor( prefill?: string[], network?: { networkManagerService: NetworkManagerService, networkName: string } )  {
+    if ( network ) {
+      this.network = network.networkManagerService.openNetwork( network.networkName );
+      console.log( this.network )
+    }
+
     const parsed = [];
-    if ( !!prefill ) {
+    if ( prefill ) {
       prefill.forEach( line => {
         parsed.push( this.parse( this.lex( line ) ) );
       } );
@@ -68,6 +75,7 @@ export class Chip {
       this.localEnv.global[this.localEnv.chipwaitField].value -= 1;
     }
 
+    this.network.pushValue( { ...this.localEnv.global } );
     this.lineChange.next( { nextLine: this.localEnv.nextLine } );
   }
 
