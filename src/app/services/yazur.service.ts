@@ -52,8 +52,8 @@ export class Chip {
     return yazurClaim( lexed );
   }
 
-  generateSpans(line: string, lexed: any[]){
-    return yazurGenerateSpans(line, lexed);
+  generateSpans( line: string, lexed: any[] ): any {
+    return yazurGenerateSpans( line, lexed );
   }
 
   setParsed( parsed: any[][] ): any {
