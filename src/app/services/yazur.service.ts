@@ -34,7 +34,10 @@ export class Chip {
   constructor( prefill?: string[], network?: { networkManagerService: NetworkManagerService, networkName: string } )  {
     if ( network ) {
       this.network = network.networkManagerService.openNetwork( network.networkName );
-      console.log( this.network )
+      this.network.values.subscribe( val => {
+        delete val[':chipwait'];
+        this.localEnv.global = { ...this.localEnv.global, ...val };
+      } );
     }
 
     const parsed = [];

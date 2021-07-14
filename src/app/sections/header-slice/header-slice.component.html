@@ -1,5 +1,5 @@
 <div class="slice" [class.img-large]="sectionData.primary.is_large == 'true'" id="header-slice">
-  <div class="background-img" [style.backgroundImage]="'url(' + backgroundImg + ')'">
+  <div class="background-img" [style.backgroundImage]="backgroundImg ? 'url(' + backgroundImg + ')' : ''">
     <div class="shader" [class.img-large]="sectionData.primary.is_large == 'true'"></div>
   </div>
   <div class="abs-center d-flex flow-column justify-content-center">

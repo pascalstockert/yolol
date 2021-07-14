@@ -17,9 +17,6 @@ export class HeaderSliceComponent implements OnInit {
 
   ngOnInit(): void {
     this.backgroundImg = this.sectionData.primary.background_image.url;
-    if (this.backgroundImg === undefined) {
-      this.backgroundImg = 'https://cobaltcrowproductions.xyz/image/53289-full_backgrounds-1920x1080-wallpaper-cave.jpg';
-    }
   }
 
 }

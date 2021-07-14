@@ -24,13 +24,13 @@ export class NetworkManagerService {
 
 export class Network {
 
-  values: BehaviorSubject<{ [key: string]: string | number }>;
+  values: BehaviorSubject<{ [key: string]: { type: number, subtype: number, value: number | string } }>;
 
   constructor() {
     this.values = new BehaviorSubject( {} );
   }
 
-  pushValue( value: { [key: string]: any } ): void {
+  pushValue( value: { [key: string]: { type: number, subtype: number, value: number | string } } ): void {
     this.values.next( { ...this.values.value, ...value } );
   }
 

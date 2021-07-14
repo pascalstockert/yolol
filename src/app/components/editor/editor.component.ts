@@ -53,12 +53,14 @@ export class EditorComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if ( 'initial_content' in this.sectionData.primary ) {
-      this.initialContent = this.sectionData.primary.initial_content;
-      this.setInitialContent();
-    }
-    if ( 'globals' in this.sectionData.primary ) {
-      this.setGlobals( this.sectionData.primary.globals );
+    if ( this.sectionData ) {
+      if ( 'initial_content' in this.sectionData.primary ) {
+        this.initialContent = this.sectionData.primary.initial_content;
+        this.setInitialContent();
+      }
+      if ( 'globals' in this.sectionData.primary ) {
+        this.setGlobals( this.sectionData.primary.globals );
+      }
     }
     this.editorContent = this.editorRef.nativeElement.innerHTML;
     this.editorRef.nativeElement.innerHTML = this.editorContent;
