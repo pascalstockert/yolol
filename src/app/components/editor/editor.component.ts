@@ -1,8 +1,9 @@
 import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { faPlay, faPause, faStepForward } from '@fortawesome/free-solid-svg-icons';
-import { Chip, YazurService } from '../../services/yazur.service';
+import { YazurService } from '../../services/yazur.service';
 import { SettingsService } from '../../services/settings.service';
 import { NetworkManagerService } from '../../services/network-manager.service';
+import { Chip } from '../../devices/chip';
 
 @Component({
   selector: 'app-editor',

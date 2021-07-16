@@ -10,6 +10,13 @@
       <div class="my-5">
         <app-editor [network]="'net01'"></app-editor>
       </div>
+
+      <h3 class="pt-50">Device Fields</h3>
+      <button class="outline" (click)="addDevice()">Add Device</button><br><br><br>
+      <ng-container *ngFor="let val of networkValues | keyvalue">
+        <span class="code-inline">{{ val.key }} => {{ val.value.value }}</span><br>
+      </ng-container>
+
       <h3 class="pt-50">Keywords and operators</h3>
       <div class="row">
         <div class="col-3">
