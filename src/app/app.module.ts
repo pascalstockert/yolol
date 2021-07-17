@@ -60,6 +60,8 @@ import { EditorComponent } from './components/editor/editor.component';
 import { LandingHeroComponent } from './sections/landing-hero/landing-hero.component';
 import { ResourcesComponent } from './pages/resources/resources.component';
 import { StandaloneEditorComponent } from './pages/standalone-editor/standalone-editor.component';
+import { YolideComponent } from './components/yolide/yolide.component';
+import { DeviceExplorerComponent } from './components/yolide/device-explorer/device-explorer.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +84,9 @@ import { StandaloneEditorComponent } from './pages/standalone-editor/standalone-
     EditorComponent,
     LandingHeroComponent,
     ResourcesComponent,
-    StandaloneEditorComponent
+    StandaloneEditorComponent,
+    YolideComponent,
+    DeviceExplorerComponent
   ],
   imports: [
     BrowserModule,

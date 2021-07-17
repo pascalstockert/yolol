@@ -1,0 +1,17 @@
+<div class="device-explorer"
+     [class.dark]="darkMode">
+  <h1 class="project-name">YOLIDE</h1>
+
+  <div class="wrapper">
+    <h2 class="subheader">NETWORKS</h2>
+
+    <div class="network"
+         *ngFor="let networkName of networkNames">
+      <p class="name">{{ networkName }}</p>
+      <p class="device" *ngFor="let device of networkDevices[ networkName ] | keyvalue">
+        {{ device.key }}
+      </p>
+    </div>
+  </div>
+
+</div>

@@ -3,7 +3,7 @@ import { faPlay, faPause, faStepForward } from '@fortawesome/free-solid-svg-icon
 import { YazurService } from '../../services/yazur.service';
 import { SettingsService } from '../../services/settings.service';
 import { NetworkManagerService } from '../../services/network-manager.service';
-import { Chip } from '../../devices/chip';
+import { Chip } from '../yolide/devices/chip';
 
 @Component({
   selector: 'app-editor',

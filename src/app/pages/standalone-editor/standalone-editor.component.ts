@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SettingsService } from '../../services/settings.service';
 import { Network, NetworkManagerService } from '../../services/network-manager.service';
-import { TextPanel } from '../../devices/text-panel';
+import { TextPanel } from '../../components/yolide/devices/text-panel';
 
 @Component({
   selector: 'app-standalone-editor',
@@ -28,7 +28,7 @@ export class StandaloneEditorComponent implements OnInit {
   }
 
   addDevice(): any {
-    this.network.addDevice( new TextPanel( this.network ) );
+    this.network.addDevice( new TextPanel( this.network, 'chip' ) );
   }
 
 }

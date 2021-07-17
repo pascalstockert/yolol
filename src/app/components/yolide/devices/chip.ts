@@ -1,8 +1,8 @@
-import { lex as yazurLex, generateSpans as yazurGenerateSpans } from '../../../yazur/es-modules/yolol/lex';
-import yazurClaim from '../../../yazur/es-modules/yolol/parse';
-import yazurInterpret from '../../../yazur/es-modules/yolol/interpret';
+import { lex as yazurLex, generateSpans as yazurGenerateSpans } from '../../../../../yazur/es-modules/yolol/lex';
+import yazurClaim from '../../../../../yazur/es-modules/yolol/parse';
+import yazurInterpret from '../../../../../yazur/es-modules/yolol/interpret';
 import { BehaviorSubject } from 'rxjs';
-import { NetworkManagerService, Network } from '../services/network-manager.service';
+import { NetworkManagerService, Network } from '../../../services/network-manager.service';
 
 export class Chip {
 

@@ -1,0 +1,41 @@
+@import "src/assets/scss/colors";
+
+.device-explorer {
+  display: flex;
+  flex-flow: column;
+  max-width: 25vw;
+  width: 400px;
+  height: 100%;
+  background-color: $color-light-3;
+  .project-name {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba( 255, 255, 255, .3 );
+    font-size: 24px;
+    text-align: center;
+  }
+  .wrapper {
+    flex-grow: 1;
+    width: 100%;
+    padding: 24px;
+    overflow: auto;
+    .subheader {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    .network {
+      .name {
+        margin-left: 16px;
+      }
+      .device {
+        margin-left: 32px;
+      }
+    }
+  }
+  &.dark {
+    background-color: $color-dark-1;
+    color: $text-dark;
+    .project-name {
+      border-bottom: 1px solid rgba( 0, 0, 0, .3 );
+    }
+  }
+}

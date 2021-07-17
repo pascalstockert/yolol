@@ -1,11 +1,13 @@
-import { Network } from '../services/network-manager.service';
+import { Network } from '../../../services/network-manager.service';
 import { map } from 'rxjs/operators';
 
 export abstract class Device {
 
+  name: string;
   globals: string[];
 
-  protected constructor( network: Network, globals: string[] ) {
+  protected constructor( network: Network, name: string, globals: string[] ) {
+    this.name = name;
     this.globals = globals;
     network.addDevice( this )
       .pipe(

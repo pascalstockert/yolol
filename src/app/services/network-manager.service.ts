@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Device } from '../devices/device';
-import { TextPanel } from '../devices/text-panel';
+import { Device } from '../components/yolide/devices/device';
+import { TextPanel } from '../components/yolide/devices/text-panel';
 
 export interface NetworkCollection {
   [network: string]: Network;
@@ -19,14 +19,18 @@ export interface YazurType {
 
 export class NetworkManagerService {
 
-  networks: NetworkCollection = {};
+  networks: BehaviorSubject<NetworkCollection> = new BehaviorSubject( {} );
 
   constructor() { }
 
   // Returns existing network or creates one
   openNetwork( name: string ): Network {
-    if ( !(name in this.networks) ) { this.networks[ name ] = new Network( name ); }
-    return this.networks[ name ];
+    if ( !(name in this.networks.value) ) { this.networks.next({ ...this.networks.value, [name]: new Network( name )}); }
+    return this.networks.value[ name ];
+  }
+
+  getNetworks(): BehaviorSubject<NetworkCollection> {
+    return this.networks;
   }
 
 }
@@ -35,14 +39,10 @@ export class Network {
 
   name: string;
   values: BehaviorSubject<{ [key: string]: YazurType }> = new BehaviorSubject( {} );
+  devices: BehaviorSubject<any[]> = new BehaviorSubject( [] );
 
-  constructor( name: string, logging = false ) {
+  constructor( name: string ) {
     this.name = name;
-    if ( logging ) {
-      this.values.subscribe( ( valueChange ) => {
-        console.log( `NETWORK CHANGE ${ this.name }\n`, valueChange );
-      } );
-    }
   }
 
   pushValue( value: { [key: string]: YazurType } ): void {
@@ -50,6 +50,7 @@ export class Network {
   }
 
   addDevice( device: any ): BehaviorSubject<{ [key: string]: YazurType }> {
+    this.devices.next( [ ...this.devices.value, device ] );
     device.globals.map( globalKey => {
       return { [globalKey]: { type: 3, subtype: 1, value: 0 } };
     } ).forEach( globalObject => {

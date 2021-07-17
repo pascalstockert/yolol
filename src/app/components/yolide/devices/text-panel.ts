@@ -1,4 +1,4 @@
-import { Network } from '../services/network-manager.service';
+import { Network } from '../../../services/network-manager.service';
 import { Device } from './device';
 
 export class TextPanel extends Device {
@@ -7,14 +7,14 @@ export class TextPanel extends Device {
 
   constructor(
     network: Network,
+    name: string,
     globals = [ ':panelvalue' ]
   ) {
-    super( network, globals );
+    super( network, name, globals );
   }
 
   updateOnGlobalChange( globals ): void {
     this.panelValue = globals[ ':panelvalue' ];
-    console.log(this.panelValue);
   }
 
 }
