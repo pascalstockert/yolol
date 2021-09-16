@@ -1,0 +1,21 @@
+<div class="container" [class.dark]="darkMode">
+  <div class="row">
+    <ng-container *ngFor="let option of options">
+      <ng-container [ngSwitch]="option.type">
+        <div *ngSwitchCase="'boolean'"
+             class="col-12 col-lg-6 option">
+          <div class="bool" [class.active]="findCurrentValue( option.name )">
+            <div>
+              <h5>{{ option.name }}</h5>
+              <p>{{ option.desc }}</p>
+            </div>
+            <div class="checkbox-container">
+              <mat-checkbox [disableRipple]="true"
+                            (change)="optionChange( { name: option.name, val: $event.checked } )"></mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

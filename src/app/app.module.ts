@@ -60,6 +60,7 @@ import { EditorComponent } from './components/editor/editor.component';
 import { LandingHeroComponent } from './sections/landing-hero/landing-hero.component';
 import { ResourcesComponent } from './pages/resources/resources.component';
 import { StandaloneEditorComponent } from './pages/standalone-editor/standalone-editor.component';
+import { IsanSetupComponent } from './sections/isan-setup/isan-setup.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { StandaloneEditorComponent } from './pages/standalone-editor/standalone-
     EditorComponent,
     LandingHeroComponent,
     ResourcesComponent,
-    StandaloneEditorComponent
+    StandaloneEditorComponent,
+    IsanSetupComponent
   ],
   imports: [
     BrowserModule,

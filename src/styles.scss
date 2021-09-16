@@ -171,6 +171,13 @@ p a, span a, div a:not(.logo-bg), section a {
     }
   }
 }
+.mat-checkbox-layout {
+  margin: 0 !important;
+}
+.mat-checkbox-inner-container {
+  height: 26px !important;
+  width: 26px !important;
+}
 
 div .code-inline {
   display: inline-block;
