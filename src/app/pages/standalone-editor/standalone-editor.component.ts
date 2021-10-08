@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DarkmodeService } from '../../services/darkmode.service';
 import { SettingsService } from '../../services/settings.service';
 
 @Component({
