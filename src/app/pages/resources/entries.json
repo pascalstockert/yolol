@@ -29,6 +29,11 @@
   ],
   "tools": [
     {
+      "title": "YOLOL Editor",
+      "description": "An Online Editor for the YOLOL Programming Language. Features: Codebase, Save, Open, Share, Devices and much more!",
+      "link": "https://yolol.humanengine.net/"
+    },
+    {
       "title": "vscode-yolol",
       "description": "A vscode-extension that adds support for yolol and has bonus-features like auto-typing code into the game.",
       "link": "https://marketplace.visualstudio.com/items?itemName=dbaumgarten.vscode-yolol",
