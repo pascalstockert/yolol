@@ -7,12 +7,12 @@
           <div class="menu-button"
                [routerLink]="'/landing'"
                [class.active]="router.url.includes( 'landing' )">
-            home
+            <span>home</span>
           </div>
 
           <div class="menu-button"
                [matMenuTriggerFor]="chapters">
-            chapters
+            <span>chapters</span>
           </div>
           <ng-container *ngIf="router.url.includes('chapter')">
             <span class="chapter-count">{{ router.url.split('chapter')[1] }}</span>
@@ -21,13 +21,14 @@
           <div class="menu-button"
                [routerLink]="'/resources'"
                [class.active]="router.url.includes( 'resources' )">
-            resources
+            <span>resources</span>
           </div>
 
           <div class="menu-button"
+               id="editor-button"
                [routerLink]="'/editor'"
                [class.active]="router.url.includes( 'editor' )">
-            editor
+            <span>editor</span>
           </div>
 
           <mat-menu #chapters='matMenu'
@@ -36,7 +37,7 @@
               <div *ngIf="page?.uid?.includes('chapter')"
                    mat-menu-item
                    routerLink="/{{page?.uid}}">
-                chapter {{i+1}}
+                <span>chapter {{i+1}}</span>
                 <button (click)="openTab($event, page.uid)"
                         class="icon-text-button"
                         [class.dark]="darkMode">
@@ -51,7 +52,7 @@
           <button [matMenuTriggerFor]="settingsMenu"
                   class="icon-text-button"
                   [class.dark]="darkMode">
-            settings
+            <span id="settings-text">settings</span>
             <fa-icon [icon]="faCog"></fa-icon>
           </button>
 

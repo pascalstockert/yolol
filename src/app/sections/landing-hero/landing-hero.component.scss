@@ -2,7 +2,7 @@
 
 #header-slice {
   position: relative;
-  height: calc( 100vh - 70px );
+  height: calc( 100vh - 270px );
 }
 .background-img {
   position: absolute;
@@ -65,4 +65,9 @@ img {
 }
 h1 {
   z-index: 1;
+}
+
+.light-shadow {
+  background: rgba(0,0,0,0.32);
+  box-shadow: 0 0 64px 64px rgba(0,0,0,0.32);
 }
