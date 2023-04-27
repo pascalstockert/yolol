@@ -29,6 +29,10 @@
   font-weight: 500;
   border-radius: 3px;
   color: white;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }
 
 .menu-button-wrapper {
@@ -43,5 +47,19 @@
     color: $color-accent;
     cursor: pointer;
     transition-duration: .3s;
+
+    @media screen and (max-width: 768px) {
+      margin-right: 8px;
+      padding: 8px;
+    }
+  }
+}
+
+@media screen and (max-width: 574px) {
+  #settings-text {
+    display: none;
+  }
+  #editor-button {
+    display: none;
   }
 }
