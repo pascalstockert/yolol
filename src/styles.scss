@@ -99,8 +99,9 @@ p a, span a, div a:not(.logo-bg), section a {
       color: white;
       &:before {
         height: calc( 100% + 6px );
-        width: calc( 100% + 12px );
+        width: calc( 100% + 10px );
         bottom: -4px;
+        border-radius: 8px;
       }
     }
   }
